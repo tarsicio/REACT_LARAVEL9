@@ -31,8 +31,10 @@ function SideBar02() {
   let href = null; 
   href = window.location.pathname;
 
-  const changeSidebar = () =>{
-    _sidebar(true);    
+  const changeSidebar = (e) =>{
+    _sidebar(true);
+    e.preventDefault();
+    this.props.history.push(href);
   }
 
   return (    
