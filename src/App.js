@@ -1,15 +1,12 @@
 import React from 'react';
-import Layout from './Components/Layout/Layout';
+import Navmenu from './Components/Navmenu/Navmenu'; 
+
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
   return (
-    <Layout>
-      <div className="container">
-        
-      </div>
-    </Layout>
+    <Navmenu />
   ); 
 }
 

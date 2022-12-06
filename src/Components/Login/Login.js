@@ -1,10 +1,11 @@
+import React from 'react';
 import LogoPost from '../../assets/img/logo-post.png';
 
 function Login(){
     return (
       <>
       <form>
-        <h3>Sign In</h3>
+        <h3>Login</h3>
         <div style={{textAlign: "center"}}>
           <img src={LogoPost} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
         </div>

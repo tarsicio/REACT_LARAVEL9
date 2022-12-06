@@ -1,14 +1,9 @@
-import Header from "../Header/Header";
-import Routers from "../Routers/Routers";
-import Footer from "../Footer/Footer";
+import React from 'react';
 
-function Layout(props){
+function Layout(){
     return (
       <>
-        <Header />
-        <Routers />
-        <main>{props.children}</main>
-        <Footer />
+
       </>
     )
 }

@@ -1,5 +1,7 @@
+import React from 'react';
 import Login from '../Login/Login';
-import SignUp from '../SignUp/SignUp';
+import Register from '../Register/Register';
+import Home from '../Home/Home';
 
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
@@ -10,9 +12,9 @@ function Routers(){
 				<div className="auth-wrapper">
 		            <div className="auth-inner">
 		              <Routes>
-		                <Route exact path="/" element={<Login />} />
-		                <Route path="/sign-in" element={<Login />} />
-		                <Route path="/sign-up" element={<SignUp />} />
+		                <Route exact path="/" element={<Home />} />
+		                <Route path="/login" element={<Login />} />
+		                <Route path="/register" element={<Register />} />
 		              </Routes>
 		            </div>
 		        </div>

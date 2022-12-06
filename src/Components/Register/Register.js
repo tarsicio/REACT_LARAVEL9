@@ -1,9 +1,10 @@
+import React from 'react';
 import LogoPost from '../../assets/img/logo-post.png';
 
-function SignUp(){
+function Register(){
     return (
       <form>
-        <h3>Sign Up</h3>
+        <h3>Register</h3>
         <div style={{textAlign: "center"}}>
           <img src={LogoPost} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
         </div>
@@ -45,13 +46,13 @@ function SignUp(){
 
         <div className="d-grid">
           <button type="submit" className="btn btn-primary">
-            Sign Up
+            register
           </button>
         </div>
         <p className="forgot-password text-right">
-          Already registered <a href="/sign-in">sign in?</a>
+          Already registered <a href="/login">login?</a>
         </p>
       </form>
     )
 }
-export default SignUp
+export default Register

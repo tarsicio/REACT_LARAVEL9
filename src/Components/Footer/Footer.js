@@ -1,8 +1,29 @@
+import React from 'react';
 
 function Footer(){
+  let regularDiv = {
+    backgroundColor: "#1c8ef9",
+    borderTop: "2px solid white",
+    textAlign: "center",
+    padding: "40px",
+    position: "fixed",
+    left: "0",
+    bottom: "0",
+    height: "80px",
+    width: "100%",
+}
+let wrapperDiv = {
+  display: 'block',
+  padding: '40px',
+  height: '80px',
+  width: '100%',
+}
     return (
     <div className='container'>
-      <footer className='d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top'>
+      <div style={{height: "200vh"}}>
+        <div style={wrapperDiv} />
+        <div style={regularDiv}>
+      <footer className=''>
         <div className='col-md-4 d-flex align-items-center'>
           <a
             href='/'
@@ -12,7 +33,7 @@ function Footer(){
               <use xlinkHref='#bootstrap' />
             </svg>
           </a>
-          <span className='text-muted'>© 2021 Company, Inc</span>
+          <span className=''>© 2023 HORUS, Tarsicio Carrizales</span>
         </div>
         <ul className='nav col-md-4 justify-content-end list-unstyled d-flex'>
           <li className='ms-3'>
@@ -38,6 +59,8 @@ function Footer(){
           </li>
         </ul>
       </footer>
+      </div>
+      </div>
     </div>
   );
 }
