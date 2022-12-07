@@ -1,12 +1,12 @@
 import React from 'react';
 import LogoHorus from '../../assets/img/horus.png';
 
-function Home(){
+function Dashboard(){
 	return(
 		<>
 			<div>
 				<center>
-					<h1>SISTEMA HORUS</h1>
+					<h1>DASHBOARD</h1>
 					<div style={{textAlign: "center"}}>
           				<img src={LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
         			</div>
@@ -14,16 +14,16 @@ function Home(){
 			</div>
 			<div>
 				<center>
-					<h3>VERSIÓN 3.0</h3>
+					<h3>SISTEMA HORUS</h3>
 				</center>	
 			</div>			
 			<div>
 				<center>
-					<h3>Año 2023</h3>
+					<h3>USER</h3>
 				</center>	
 			</div>			
 		</>
 	)
 }
 
-export default Home;
+export default Dashboard;

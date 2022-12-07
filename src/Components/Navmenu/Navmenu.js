@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import LogoPost from '../../assets/img/logo-post.png';
+import LogoHorus from '../../assets/img/horus.png';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
+import Dashboard from '../../Pages/Dashboard/Dashboard';
 
 function Navmenu(){
   return (   
@@ -12,7 +13,7 @@ function Navmenu(){
           <nav className="navbar navbar-expand-lg navbar-light fixed-top">
             <div className="container">
               <Link className="navbar-brand" to={'/'}>
-              <img src={LogoPost} style={{width: 30, height: 30,}} alt="Logo_Post"  className="img-fluid" />              
+              <img src={LogoHorus} style={{width: 30, height: 30,}} alt="Logo_Post"  className="img-fluid" />              
               </Link>
               <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul className="navbar-nav ml-auto">
@@ -37,6 +38,7 @@ function Navmenu(){
                     <Route exact path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
                   </Routes>
                 </div>
             </div>

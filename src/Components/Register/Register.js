@@ -1,17 +1,18 @@
 import React from 'react';
-import LogoPost from '../../assets/img/logo-post.png';
+import LogoHorus from '../../assets/img/horus.png';
 
 function Register(){
     return (
       <form>
         <h3>Register</h3>
         <div style={{textAlign: "center"}}>
-          <img src={LogoPost} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
+          <img src={LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
         </div>
         <div className="mb-3">
           <label>Full name</label>
           <input
             type="text"
+            name="name"
             className="form-control"
             placeholder="Full name"
           />
@@ -20,7 +21,8 @@ function Register(){
         <div className="mb-3">
           <label>User name</label>
           <input 
-            type="text" 
+            type="text"
+            name="username" 
             className="form-control" 
             placeholder="User name" 
           />
@@ -30,6 +32,7 @@ function Register(){
           <label>Email address</label>
           <input
             type="email"
+            name="email"
             className="form-control"
             placeholder="Enter email"
           />
@@ -39,6 +42,7 @@ function Register(){
           <label>Password</label>
           <input
             type="password"
+            name="password"
             className="form-control"
             placeholder="Enter password"
           />

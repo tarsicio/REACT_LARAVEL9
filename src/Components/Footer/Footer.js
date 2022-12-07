@@ -5,17 +5,17 @@ function Footer(){
     backgroundColor: "#1c8ef9",
     borderTop: "2px solid white",
     textAlign: "center",
-    padding: "40px",
+    padding: "30px",
     position: "fixed",
     left: "0",
     bottom: "0",
-    height: "80px",
+    height: "40px",
     width: "100%",
 }
 let wrapperDiv = {
   display: 'block',
-  padding: '40px',
-  height: '80px',
+  padding: '30px',
+  height: '40px',
   width: '100%',
 }
     return (
