@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom'
 
 import LogoHorus from '../../assets/img/horus.png';
 
-const endpoint = 'http://localhost:8000/api/v1/login'
+const endpoint = 'http://localhost:8000/api/v1/login';
 
 function Login(){
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')    
-    const navigate = useNavigate()
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');    
+    const navigate = useNavigate();
 
     const login = async (e) => {
         e.preventDefault();
@@ -17,11 +17,20 @@ function Login(){
         const code = datos.data.code;
         const status = datos.data.status;        
         const msg = datos.data.message;
+        console.log(code);
+        console.log(status);
+        console.log(msg);
         if(code === 201){
           const token = datos.data.access_token;
           const namecomplete = datos.data.user.name;
           const avatar = datos.data.user.avatar;
           const mail = datos.data.user.email;
+          localStorage.setItem('_token', token);
+          localStorage.setItem('_namecomplete', namecomplete);
+          localStorage.setItem('_avatar', avatar);
+          localStorage.setItem('_mail', mail);
+
+          //localStorage.removeItem('_namecomplete');
           // Aquí guardamos en una Galleta, Storage o en un react redux las credenciales
           // hay que hacer esta parte. esta pendiente.
           // Tambi´n tengo que estudiar cors en Laravel para saber quien entra a la api, ok
