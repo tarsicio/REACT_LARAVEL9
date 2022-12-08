@@ -3,7 +3,7 @@ import LogoHorus from '../../assets/img/horus.png';
 
 function Home(){
 	return(
-		<>
+		<>		
 			<div>
 				<center>
 					<h1>SISTEMA HORUS</h1>

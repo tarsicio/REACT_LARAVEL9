@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -38,63 +40,44 @@ function Login(){
         }else{
           navigate('/login');
         }
-        
-        
-
     }
     return (
       <>
-      <form onSubmit={login}>
-        <h3>Login</h3>
+    <Form onSubmit={login}>
+    <h3>Login</h3>
         <div style={{textAlign: "center"}}>
           <img src={LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
         </div>
-        <div className="mb-3">
-          <label>Email address</label>
-          <input
-            type="email"
-            name="email" 
-            value={email} 
-            onChange={ (e)=> setEmail(e.target.value)}           
-            className="form-control"
-            placeholder="Enter email"
-          />
-        </div>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control 
+          type="email" 
+          name="email"
+          value={email} 
+          onChange={ (e)=> setEmail(e.target.value)} 
+          placeholder="Enter email" />
+        <Form.Text className="text-muted">
+          We'll never share your email and password with anyone else.
+        </Form.Text>
+      </Form.Group>
 
-        <div className="mb-3">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password} 
-            onChange={ (e)=> setPassword(e.target.value)}
-            className="form-control"
-            placeholder="Enter password"
-          />
-        </div>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control 
+          type="password" 
+          name="password" 
+          value={password} 
+          onChange={ (e)=> setPassword(e.target.value)}
+          placeholder="Password" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
 
-        <div className="mb-3">
-          <div className="custom-control custom-checkbox">
-            <input
-              type="checkbox"
-              className="custom-control-input"
-              id="customCheck1"
-            />
-            <label className="custom-control-label" htmlFor="customCheck1">
-              Remember me
-            </label>
-          </div>
-        </div>
-
-        <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </div>
-        <p className="forgot-password text-right">
-          Forgot <a href="">password?</a>
-        </p>
-      </form>
       </>
     )
 }
