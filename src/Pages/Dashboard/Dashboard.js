@@ -1,7 +1,14 @@
 import React from 'react';
+import useUser from '../../hooks/useUser';
 import LogoHorus from '../../assets/img/horus.png';
 
 function Dashboard(){
+	const { 
+		name,
+		token,
+		avatar,
+		mail 
+	} = useUser();
 	return(
 		<>
 			<div>
@@ -19,7 +26,7 @@ function Dashboard(){
 			</div>			
 			<div>
 				<center>
-					<h3>USER</h3>
+					<h3>USER: {name}</h3>
 				</center>	
 			</div>			
 		</>

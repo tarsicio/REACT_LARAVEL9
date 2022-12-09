@@ -10,7 +10,8 @@ const endpoint = 'http://localhost:8000/api/v1/login';
 
 function Login(){
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');    
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
     const navigate = useNavigate();
 
     const login = async (e) => {
@@ -31,7 +32,7 @@ function Login(){
           localStorage.setItem('_namecomplete', namecomplete);
           localStorage.setItem('_avatar', avatar);
           localStorage.setItem('_mail', mail);
-
+          setName(namecomplete);
           //localStorage.removeItem('_namecomplete');
           // Aquí guardamos en una Galleta, Storage o en un react redux las credenciales
           // hay que hacer esta parte. esta pendiente.
@@ -44,7 +45,7 @@ function Login(){
     return (
       <>
     <Form onSubmit={login}>
-    <h3>Login</h3>
+    <h3>Login</h3><div>{name}</div>
         <div style={{textAlign: "center"}}>
           <img src={LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
         </div>

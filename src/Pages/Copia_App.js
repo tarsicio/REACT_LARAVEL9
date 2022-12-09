@@ -14,12 +14,11 @@ function App() {
     avatar: null,
     mail: null,
   };
-//UserContext.provider value={userData}
-//UserContext.provider 
+
   return (
-    <>
+    <UserContext.provider value={userData}>
       <Navigationbar />      
-    </>
+    </UserContext.provider >
   ); 
 }
 
