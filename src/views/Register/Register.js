@@ -1,12 +1,15 @@
 import React from 'react';
-import LogoHorus from '../../assets/img/horus.png';
+import { LOGO_HORUS } from '../../config/routers/imgs/img';
+import { URL_BASE, REGISTER } from '../../config/routers/routes/route';
+
+const endpoint = URL_BASE + REGISTER;
 
 function Register(){
     return (
       <form>
         <h3>Register</h3>
         <div style={{textAlign: "center"}}>
-          <img src={LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
+          <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
         </div>
         <div className="mb-3">
           <label>Full name</label>

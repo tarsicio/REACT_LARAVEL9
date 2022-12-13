@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoHorus from '../../assets/img/horus.png';
+import { LOGO_HORUS } from '../../config/routers/imgs/img';
 
 function Home(){
 	return(
@@ -8,7 +8,7 @@ function Home(){
 				<center>
 					<h1>SISTEMA HORUS</h1>
 					<div style={{textAlign: "center"}}>
-          				<img src={LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
+          				<img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
         			</div>
 				</center>	
 			</div>

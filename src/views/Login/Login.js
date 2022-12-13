@@ -3,16 +3,19 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { URL_BASE, LOGIN, DASHBOARD } from '../../config/routers/routes/route';
 
-import LogoHorus from '../../assets/img/horus.png';
+import { LOGO_HORUS } from '../../config/routers/imgs/img';
 
-const endpoint = 'http://localhost:8000/api/v1/login';
+const endpoint = URL_BASE + LOGIN;
 
 function Login(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+    const [estado, setEstado] = useState(true);
     const navigate = useNavigate();
+    const ERROR = 'Datos errados, por favor verifique';
 
     const login = async (e) => {
         e.preventDefault();
@@ -22,7 +25,7 @@ function Login(){
         const msg = datos.data.message;
         console.log(code);
         console.log(status);
-        console.log(msg);
+        console.log(msg);        
         if(code === 201){
           const token = datos.data.access_token;
           const namecomplete = datos.data.user.name;
@@ -32,22 +35,24 @@ function Login(){
           localStorage.setItem('_namecomplete', namecomplete);
           localStorage.setItem('_avatar', avatar);
           localStorage.setItem('_mail', mail);
-          setName(namecomplete);
+          setName(namecomplete);          
           //localStorage.removeItem('_namecomplete');
           // Aquí guardamos en una Galleta, Storage o en un react redux las credenciales
           // hay que hacer esta parte. esta pendiente.
           // Tambi´n tengo que estudiar cors en Laravel para saber quien entra a la api, ok
-          navigate('/dashboard');
+          navigate(DASHBOARD);
         }else{
-          navigate('/login');
+          setEstado(!estado);
+          navigate(LOGIN);
         }
+        console.log(estado);
     }
     return (
       <>
     <Form onSubmit={login}>
-    <h3>Login</h3><div>{name}</div>
+    <h3>Login</h3><div>{name}</div>    
         <div style={{textAlign: "center"}}>
-          <img src={LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
+          <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
         </div>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>

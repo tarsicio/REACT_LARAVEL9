@@ -1,7 +1,7 @@
 import React from 'react';
 import UserContext from './context/UserContext';
 //cdimport Navmenu from './Components/Navmenu/Navmenu';
-import Navigationbar from './Components/Navigationbar/Navigationbar';
+import Navigationbar from './components/Navigationbar/Navigationbar';
 //import Footer from './Components/Footer/Footer'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';

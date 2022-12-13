@@ -4,12 +4,13 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import LogoHorus from '../../assets/img/horus.png';
+import { LOGO_HORUS } from '../../config/routers/imgs/img';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from '../Home/Home';
-import Login from '../Login/Login';
-import Register from '../Register/Register';
-import Dashboard from '../../Pages/Dashboard/Dashboard';
+import { HOME, LOGIN, REGISTER, DASHBOARD } from '../../config/routers/routes/route';
+import Home from '../../views/Home/Home';
+import Login from '../../views/Login/Login';
+import Register from '../../views/Register/Register';
+import Dashboard from '../../views/Dashboard/Dashboard';
 
 function Navigationbar() {
   return (
@@ -18,8 +19,8 @@ function Navigationbar() {
       {['xxl'].map((expand) => (
         <Navbar key={expand} bg="light" expand={expand} className="mb-3">
           <Container fluid>
-            <Link className="navbar-brand" to={'/'}>
-              <img src={LogoHorus} style={{width: 30, height: 30,}} alt="Logo_Post"  className="img-fluid" />              
+            <Link className="navbar-brand" to={HOME}>
+              <img src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30,}} alt="Logo_Post"  className="img-fluid" />              
               </Link>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
@@ -29,8 +30,8 @@ function Navigationbar() {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  <Link className="navbar-brand" to={'/'}>
-                    <img src={LogoHorus} style={{width: 30, height: 30,}} alt="Logo_Post"  className="img-fluid" />              
+                  <Link className="navbar-brand" to={HOME}>
+                    <img src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30,}} alt="Logo_Post"  className="img-fluid" />              
                 </Link>
                 </Offcanvas.Title>
               </Offcanvas.Header>
@@ -38,12 +39,12 @@ function Navigationbar() {
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <Link className="nav-link" to={'/login'}>
+                    <Link className="nav-link" to={LOGIN}>
                       Login
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to={'/register'}>
+                    <Link className="nav-link" to={REGISTER}>
                       Register
                     </Link>
                   </li>
@@ -57,10 +58,10 @@ function Navigationbar() {
         <div className="auth-wrapper">
           <div className="auth-inner">
             <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route exact path={HOME} element={<Home />} />
+              <Route path={LOGIN} element={<Login />} />
+              <Route path={REGISTER} element={<Register />} />
+              <Route path={DASHBOARD} element={<Dashboard />} />
             </Routes>
           </div>
         </div>
