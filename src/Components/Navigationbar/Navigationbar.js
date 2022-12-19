@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import '../Footer/style.css';
 import { LOGO_HORUS } from '../../config/routers/imgs/img';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { HOME, LOGIN, REGISTER, DASHBOARD } from '../../config/routers/routes/route';
@@ -16,11 +17,14 @@ function Navigationbar() {
   return (
     <>
     <Router> 
-      {['xxl'].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="mb-0" style={{padding:0}}>
+      {['xl'].map((expand) => (
+        <Navbar key={expand} bg="light" expand={expand} className="mb-0 color_navbar" style={{padding:0}}>
           <Container fluid>
-            <Link className="navbar-brand" to={HOME}>
+            <Link className="navbar-brand" to={HOME} style={{background: "white"}}>
               <img src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30,}} alt="Logo_Post"  className="img-fluid" />              
+              </Link>
+              <Link className="nav-link" to={HOME} style={{color: "white"}}>
+                Home
               </Link>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
@@ -39,12 +43,12 @@ function Navigationbar() {
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <Link className="nav-link" to={LOGIN}>
+                    <Link className="nav-link" to={LOGIN} style={{color: "white"}}>
                       Login
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to={REGISTER}>
+                    <Link className="nav-link" to={REGISTER} style={{color: "white"}}>
                       Register
                     </Link>
                   </li>
@@ -55,8 +59,8 @@ function Navigationbar() {
           </Container>
         </Navbar>
       ))}
-        <div className="auth-wrapper">
-          <div className="auth-inner">
+        <div>
+          <div>
             <Routes>
               <Route exact path={HOME} element={<Home />} />
               <Route path={LOGIN} element={<Login />} />
