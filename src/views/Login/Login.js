@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { URL_BASE, LOGIN, DASHBOARD } from '../../config/routers/routes/route';
 
 import { LOGO_HORUS } from '../../config/routers/imgs/img';
@@ -47,8 +47,7 @@ function Login(){
         }
         console.log(estado);
     }
-    return (
-      <>
+    return (      
     <Form onSubmit={login}>
     <h3>Login</h3><div>{name}</div>    
         <div style={{textAlign: "center"}}>
@@ -82,9 +81,7 @@ function Login(){
       <Button variant="primary" type="submit">
         Submit
       </Button>
-    </Form>
-
-      </>
+    </Form> 
     )
 }
 

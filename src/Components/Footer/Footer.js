@@ -2,10 +2,9 @@ import React from 'react';
 
 function Footer(){
   let regularDiv = {
-    backgroundColor: "#1c8ef9",
-    borderTop: "2px solid white",
+    backgroundColor: "#ffffff",
     textAlign: "center",
-    padding: "30px",
+    padding: "10px",
     position: "fixed",
     left: "0",
     bottom: "0",
@@ -14,7 +13,7 @@ function Footer(){
 }
 let wrapperDiv = {
   display: 'block',
-  padding: '30px',
+  padding: '10px',
   height: '40px',
   width: '100%',
 }

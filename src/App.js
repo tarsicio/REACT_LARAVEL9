@@ -1,8 +1,7 @@
 import React from 'react';
 import UserContext from './context/UserContext';
-//cdimport Navmenu from './Components/Navmenu/Navmenu';
 import Navigationbar from './components/Navigationbar/Navigationbar';
-//import Footer from './Components/Footer/Footer'
+import Footer from './components/Footer/Footer'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -18,7 +17,8 @@ function App() {
 //UserContext.provider 
   return (
     <>
-      <Navigationbar />      
+      <Navigationbar />
+      <Footer />      
     </>
   ); 
 }

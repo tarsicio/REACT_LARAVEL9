@@ -17,7 +17,7 @@ function Navigationbar() {
     <>
     <Router> 
       {['xxl'].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="mb-3">
+        <Navbar key={expand} bg="light" expand={expand} className="mb-0" style={{padding:0}}>
           <Container fluid>
             <Link className="navbar-brand" to={HOME}>
               <img src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30,}} alt="Logo_Post"  className="img-fluid" />              

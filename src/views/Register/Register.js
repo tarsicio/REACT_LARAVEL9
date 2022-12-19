@@ -1,12 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
+import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 import { LOGO_HORUS } from '../../config/routers/imgs/img';
-import { URL_BASE, REGISTER } from '../../config/routers/routes/route';
+import { URL_BASE, REGISTER, DASHBOARD } from '../../config/routers/routes/route';
 
 const endpoint = URL_BASE + REGISTER;
 
 function Register(){
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');  
+  const navigate = useNavigate();
+
+  const register = async (e) => {
+    e.preventDefault();
+    const datos = await axios.post(endpoint, {name: name, username: username, email: email, password: password});
+    const code = datos.data.code;
+      if(code === 201){
+        navigate(DASHBOARD);          
+      }else{          
+      }
+  }    
     return (
-      <form>
+      <form onSubmit={register} style={{padding:0}}>
         <h3>Register</h3>
         <div style={{textAlign: "center"}}>
           <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
@@ -62,4 +80,4 @@ function Register(){
       </form>
     )
 }
-export default Register
+export default Register;
