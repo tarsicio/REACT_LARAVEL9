@@ -21,7 +21,7 @@ function Navigationbar() {
         <Navbar key={expand} bg="light" expand={expand} className="mb-0 color_navbar" style={{padding:0}}>
           <Container fluid>
             <Link className="navbar-brand" to={HOME} style={{background: "white"}}>
-              <img src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30,}} alt="Logo_Post"  className="img-fluid" />              
+              <img src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30, borderRadius: "100%"}} alt="Logo_Post"  className="img-fluid" />              
               </Link>
               <Link className="nav-link" to={HOME} style={{color: "white"}}>
                 Home
