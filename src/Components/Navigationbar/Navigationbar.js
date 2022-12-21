@@ -3,6 +3,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Image from "react-bootstrap/Image";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import '../Footer/style.css';
 import { LOGO_HORUS } from '../../config/routers/imgs/img';
@@ -18,12 +19,12 @@ function Navigationbar() {
     <>
     <Router> 
       {['xl'].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="mb-0 color_navbar" style={{padding:0}}>
+        <Navbar key={expand} bg="light" expand={expand} className="mb-0" style={{padding:0}}>
           <Container fluid>
             <Link className="navbar-brand" to={HOME} style={{background: "white"}}>
-              <img src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30, borderRadius: "100%"}} alt="Logo_Post"  className="img-fluid" />              
-              </Link>
-              <Link className="nav-link" to={HOME} style={{color: "white"}}>
+              <Image src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30}} alt="Logo_Horus" roundedCircle />              
+            </Link>
+              <Link className="nav-link" to={HOME} style={{color: "black"}}>
                 Home
               </Link>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -34,21 +35,21 @@ function Navigationbar() {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  <Link className="navbar-brand" to={HOME}>
-                    <img src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30,}} alt="Logo_Post"  className="img-fluid" />              
-                </Link>
+                  <Link className="navbar-brand" to={HOME} style={{background: "white"}}>
+                    <Image src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30,}} alt="Logo_Post"  className="img-fluid" />              
+                  </Link>
                 </Offcanvas.Title>
               </Offcanvas.Header>
-              <Offcanvas.Body>
+              <Offcanvas.Body style={{background: "white"}}>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <Link className="nav-link" to={LOGIN} style={{color: "white"}}>
+                    <Link className="nav-link" to={LOGIN} style={{color: "black"}}>
                       Login
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to={REGISTER} style={{color: "white"}}>
+                    <Link className="nav-link" to={REGISTER} style={{color: "black"}}>
                       Register
                     </Link>
                   </li>

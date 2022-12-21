@@ -1,10 +1,11 @@
-import {createContext} from 'react';
+import { createContext } from 'react';
 
-const UserContext = createContext({
-	name: null,
-	token: null,
-	avatar: null,
-	mail: null,
-});
+const user = {
+	_token:     null,
+    _name:      null,
+    _mail:      null,
+    _avatarUrl: null,
+}
+const UserContext = createContext(user);
 
 export default UserContext;

@@ -1,5 +1,6 @@
 import React from 'react';
 //import { CiBatteryFull } from "react-icons/ci";
+import { GoMarkGithub as CopyRight, GoMail as Gmail } from "react-icons/go";
 import './style.css';
 
 
@@ -11,11 +12,16 @@ function Footer(){
             <div className="item__contact">                
             </div>
             <div className="item__contact">
-                <i className='bx bx-copyright contact__icon'></i>                
-                <h3 className="contact__title">Tarsicio Carrizales, React Design, Horus | 2023 Versión III</h3>
+                <i className='bx bx-copyright contact__icon'></i>
+                <CopyRight />
+                <h3 className="contact__title">
+                    <a href="https://github.com/tarsicio" target="_blank" style={{textDecoration: "none", color: "white"}}>
+                        github.com/tarsicio
+                    </a>
+                </h3>
             </div>
             <div className="item__contact" id="contacto">
-                <i className='bx bx-mail-send contact__icon' > Contacto</i>
+                <Gmail />                
                 <h3 className="contact__title">telecom.com.ve@gmail.com</h3>
             </div>
             <div className="item__contact">                
