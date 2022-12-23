@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import UserContext from "../../context/UserContext";
+import { useUserContext, useUserToggleContext } from "../../context/UserProvider";
+
 import axios from 'axios';
 
 import { URL_BASE, LOGIN, DASHBOARD } from '../../config/routers/routes/route';
@@ -11,35 +12,31 @@ import { LOGO_HORUS } from '../../config/routers/imgs/img';
 
 const endpoint = URL_BASE + LOGIN;
 function Login(){
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
-    const [estado, setEstado] = useState(true);
-    const navigate = useNavigate();
-    const ERROR = 'Datos errados, por favor verifique';
-    //console.log(UserContext._currentValue);
-    const login = async (e) => {
-        e.preventDefault();
-        const datos = await axios.post(endpoint, {email: email, password: password});        
-        const code = datos.data.code;
-        const status = datos.data.status;        
-        const msg = datos.data.message;
-        console.log(code);
-        console.log(status);
-        console.log(msg);              
-        if(code === 201){
-/*          const [user] = useState({
-            _token: datos.data.access_token,
-            _name: datos.data.user.name,
-            _mail: datos.data.user.email,            
-            _avatarUrl: datos.data.user.avatar
-          });         */
-          navigate(DASHBOARD);
-        }else{
-          //setEstado(!estado);
-          navigate(LOGIN);
-        }
-    }
+  const user = useUserContext();
+  const cambiaLogin = useUserToggleContext();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [estado, setEstado] = useState(true);
+  const navigate = useNavigate();
+  const ERROR = 'Datos errados, por favor verifique';
+  
+  const login = async (e) => {
+    e.preventDefault();
+    const datos = await axios.post(endpoint, {email: email, password: password});        
+    const code = datos.data.code;
+    const status = datos.data.status;        
+    const msg = datos.data.message;
+    console.log(code);
+    console.log(status);
+    console.log(msg);              
+      if(code === 201){
+        navigate(DASHBOARD);
+      }else{
+        navigate(LOGIN);
+      }
+  }
     return (
     <div className="auth-wrapper" style={{padding:12}}>
       <div className="auth-inner">      

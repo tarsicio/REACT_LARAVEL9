@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import UserContext from './context/UserContext';
+import { UserProvider } from './context/UserProvider';
 import Navigationbar from './components/Navigationbar/Navigationbar';
 import Footer from './components/Footer/Footer'
 
@@ -9,14 +9,12 @@ import './App.css';
 import './components/Footer/style.css';
 
 function App() {  
-  const [user, setUser] = useState(UserContext._currentValue);
-  console.log(user);
   return (
     <>
-      <UserContext.Provider value={user}>
+      <UserProvider>
         <Navigationbar />
         <Footer /> 
-      </UserContext.Provider>     
+      </UserProvider>     
     </>
   ); 
 }
