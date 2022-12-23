@@ -14,18 +14,13 @@ export function useUserToggleContext() {
 export function UserProvider(props) {
     const [user, setUser] = useState(null);
 
-    const cambiaLogin = () => {
+    const Login_Logout = () => {
         if (user) {
-            setUser({
-                _token:     null,
-                _name:      null,
-                _mail:      null,
-                _avatarUrl: null,
-            });
+            setUser(null);
         } else {
             setUser({
                 _token:     null,
-                _name:      null,
+                _name:      "Tarsicio Alberto T. Carrizales Salazar",
                 _mail:      null,
                 _avatarUrl: null,
             });
@@ -34,7 +29,7 @@ export function UserProvider(props) {
 
     return (
         <userContext.Provider value={user}>
-            <userToggleContext.Provider value={cambiaLogin}>
+            <userToggleContext.Provider value={Login_Logout}>
                 {props.children}
             </userToggleContext.Provider>
         </userContext.Provider>
