@@ -20,7 +20,7 @@ export function UserProvider(props) {
         } else {
             setUser({
                 _token:     null,
-                _name:      "Tarsicio Alberto T. Carrizales Salazar",
+                _name:      "Tarsicio Carrizales",
                 _mail:      null,
                 _avatarUrl: null,
             });

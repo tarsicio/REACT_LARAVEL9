@@ -20,7 +20,7 @@ function Dashboard(){
 							<h3>SISTEMA HORUS</h3>
 						</div>
 						<div>
-							<h3>USER:  {user && <p>Hola {user._name}</p>}</h3>
+							<h3>USER:{user && <p>{user._name}</p>}</h3>
 						</div>
 						<button onClick={Login_Logout}>Login | Logout</button>
 					</center>	
