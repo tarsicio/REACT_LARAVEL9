@@ -22,7 +22,7 @@ Thanks for your support.
 
 Att,
 
-Tarsicio Carrizales
+Tarsicio Carrizales (telecom.com.ve@gmail.com)
 
 Cabudare - Venezuela
 
@@ -52,7 +52,7 @@ Gracias por su Apoyo.
 
 Att,
 
-Tarsicio Carrizales
+Tarsicio Carrizales (telecom.com.ve@gmail.com)
 
 Cabudare -  Venezuela
 
