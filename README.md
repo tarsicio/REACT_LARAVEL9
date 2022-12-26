@@ -22,14 +22,16 @@ Thanks for your support.
 
 Att,
 
-Tarcisio Carrizales
+Tarsicio Carrizales
+
 Cabudare - Venezuela
+
 December 26, 2022
 
 | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | -| - | - | - | - | - | - | - |
 
 									PROYECTO EN DESARROLLO HORUS | 2023
-									
+
 Saludos a todos,
 
 Proyecto HORUS | 2023 Versión 3 (PHP | LARAVEL | REACT-UI | SWAGGER | API-REST)
@@ -51,5 +53,7 @@ Gracias por su Apoyo.
 Att,
 
 Tarsicio Carrizales
+
 Cabudare -  Venezuela
+
 26 de Diciembre del año 2022
