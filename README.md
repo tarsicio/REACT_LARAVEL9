@@ -1,4 +1,4 @@
-# Proyecto HORUS | 2023, en su Versión 3
+# Project HORUS | 2023, Version 3
 
 									PROJECT IN DEVELOPMENT HORUS | 2023 
 
