@@ -6,7 +6,7 @@ import '../../components/Footer/style.css';
 function Dashboard(){
 	const user = useUserContext();
   	const Login_Logout = useUserToggleContext();
-  	console.log(user);
+  	//console.log(user);
 	return(
 		<>		
 			<div className="auth-wrapper container hero__main">
