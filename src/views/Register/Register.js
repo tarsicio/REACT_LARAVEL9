@@ -23,6 +23,7 @@ function Register(){
       }else{          
       }
   }    
+
     return (
       <div className="auth-wrapper" style={{padding:12}}>
         <div className="auth-inner">      

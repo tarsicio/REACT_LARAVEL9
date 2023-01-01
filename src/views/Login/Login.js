@@ -12,20 +12,43 @@ import { LOGO_HORUS } from '../../config/routers/imgs/img';
 
 function Login(){
   //const Login_Logout = useUserToggleContext();
+  let valido = true;
   const endpoint = URL_BASE + LOGIN;
-
-  const [email, setEmail] = useState('');
-  const [estado, setEstado] = useState(false);
-  const [isLoading, setIsLoading] = useState (false);  
+  // Validaciones form
+  const [msgMail, setMsgMail] = useState('');
+  const [invalidMailInput,setInvalidMailInput] = useState(false);
+  const [msgPassword,setMsgPassword] = useState('');
+  const [invalidPasswordInput,setInvalidPasswordInput] = useState(false);
+  //Campos del form
+  const [email, setEmail] = useState('');  
   const [password, setPassword] = useState('');
+  const [estado, setEstado] = useState(false);
+  //Cargando Loading
+  const [isLoading, setIsLoading] = useState (false);
+  //redireccionar la página
   const navigate = useNavigate();
-  
+
   const login = async (e) => {
     e.preventDefault(); 
     setEstado(false);    
     setIsLoading(true);
+    valido = true;
+    if(email === ''){      
+      setMsgMail('El campo mail es obligatorio');
+      setInvalidMailInput(true);
+      valido = false;
+    }    
+    if(password === ''){
+      setMsgPassword('El campo password es obligatorio');
+      setInvalidPasswordInput(true);
+      valido = false;
+    }
+    if(valido){
       try{
-        const datos = await axios.post(endpoint, {email: email, password: password});        
+        const datos = await axios.post(endpoint, {
+          email: email, 
+          password: password
+        });        
         const status = datos.data.status;
         console.log(status);  
         if(status === 201){
@@ -46,6 +69,9 @@ function Login(){
       }finally{
         setIsLoading(false);
       }
+    }else{
+      setIsLoading(false);
+    }
   }
     return (
     <div className="auth-wrapper" style={{padding:12}}>
@@ -67,8 +93,10 @@ function Login(){
               type="email" 
               name="email"
               value={email} 
-              onChange={ (e)=> setEmail(e.target.value)} 
+              onChange={ (e)=> (setEmail(e.target.value),
+                                setInvalidMailInput(false))} 
               placeholder="Enter email" />
+              {invalidMailInput ? <Form.Label style={{color:"red"}}>{msgMail}</Form.Label> : ''}
             <Form.Text className="text-muted">
               We'll never share your email and password with anyone else.
             </Form.Text>
@@ -80,9 +108,11 @@ function Login(){
               type="password" 
               name="password" 
               value={password} 
-              onChange={ (e)=> setPassword(e.target.value)}
+              onChange={ (e)=> (setPassword(e.target.value),
+                                setInvalidPasswordInput(false))}
               placeholder="Password" />
           </Form.Group>
+          {invalidPasswordInput ? <Form.Label style={{color:"red"}}>{msgPassword}</Form.Label> : ''}
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Check me out" />
           </Form.Group>
