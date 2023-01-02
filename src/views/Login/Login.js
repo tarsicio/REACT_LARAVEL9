@@ -28,6 +28,16 @@ function Login(){
   //redireccionar la página
   const navigate = useNavigate();
 
+  const handleMailChange = (e) => {
+    setEmail(e.target.value);
+    setInvalidMailInput(false);
+  }
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    setInvalidPasswordInput(false);
+  }
+
   const login = async (e) => {
     e.preventDefault(); 
     setEstado(false);    
@@ -93,8 +103,7 @@ function Login(){
               type="email" 
               name="email"
               value={email} 
-              onChange={ (e)=> (setEmail(e.target.value),
-                                setInvalidMailInput(false))} 
+              onChange={ handleMailChange } 
               placeholder="Enter email" />
               {invalidMailInput ? <Form.Label style={{color:"red"}}>{msgMail}</Form.Label> : ''}
             <Form.Text className="text-muted">
@@ -108,8 +117,7 @@ function Login(){
               type="password" 
               name="password" 
               value={password} 
-              onChange={ (e)=> (setPassword(e.target.value),
-                                setInvalidPasswordInput(false))}
+              onChange={ handlePasswordChange }                
               placeholder="Password" />
           </Form.Group>
           {invalidPasswordInput ? <Form.Label style={{color:"red"}}>{msgPassword}</Form.Label> : ''}
