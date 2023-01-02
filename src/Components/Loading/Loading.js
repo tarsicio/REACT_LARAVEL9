@@ -8,7 +8,7 @@ function Loading(){
 		<div className="divPadre">
 			<div className="divHijo">
 				<Spinner color="primary" />
-					<div>
+					<div style={{color:"red"}}>
 						Validate .... Please wait
 					</div>
 			</div>	
