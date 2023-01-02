@@ -31,11 +31,13 @@ function Login(){
   const handleMailChange = (e) => {
     setEmail(e.target.value);
     setInvalidMailInput(false);
+    setEstado(false);
   }
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
     setInvalidPasswordInput(false);
+    setEstado(false);
   }
 
   const login = async (e) => {
