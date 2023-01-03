@@ -106,7 +106,8 @@ function Login(){
               name="email"
               value={email} 
               onChange={ handleMailChange } 
-              placeholder="Enter email" />
+              placeholder="Enter email" 
+              disabled={isLoading} />
               {invalidMailInput ? <Form.Label style={{color:"red"}}>{msgMail}</Form.Label> : ''}
             <Form.Text className="text-muted">
               We'll never share your email and password with anyone else.
@@ -120,13 +121,14 @@ function Login(){
               name="password" 
               value={password} 
               onChange={ handlePasswordChange }                
-              placeholder="Password" />
+              placeholder="Password"
+              disabled={isLoading} />
           </Form.Group>
           {invalidPasswordInput ? <Form.Label style={{color:"red"}}>{msgPassword}</Form.Label> : ''}
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Check me out" />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" disabled={isLoading}>
             Login | Entrar
           </Button>
         </Form>
