@@ -7,17 +7,27 @@ import Loading from '../../components/Loading/Loading';
 
 import axios from 'axios';
 
-import { URL_BASE, LOGIN, DASHBOARD } from '../../config/routers/routes/route';
+import { 
+  URL_BASE, 
+  LOGIN, 
+  DASHBOARD } from '../../config/routers/routes/route';
 import { LOGO_HORUS } from '../../config/routers/imgs/img';
+import {
+  ERROR_EMAIL,
+  ERROR_PASSWORD,
+  ERROR_DATOS,
+  LABEL_EMAIL,
+  LABEL_PASSWORD,
+  BNT_LOGIN,
+  MSG_PASSWORD
+} from '../../consts/msgLogin/MsgLogin';
 
 function Login(){
   //const Login_Logout = useUserToggleContext();
   let valido = true;
   const endpoint = URL_BASE + LOGIN;
-  // Validaciones form
-  const [msgMail, setMsgMail] = useState('');
-  const [invalidMailInput,setInvalidMailInput] = useState(false);
-  const [msgPassword,setMsgPassword] = useState('');
+  // Validaciones form  
+  const [invalidMailInput,setInvalidMailInput] = useState(false);  
   const [invalidPasswordInput,setInvalidPasswordInput] = useState(false);
   //Campos del form
   const [email, setEmail] = useState('');  
@@ -45,13 +55,11 @@ function Login(){
     setEstado(false);    
     setIsLoading(true);
     valido = true;
-    if(email === ''){      
-      setMsgMail('El campo mail es obligatorio');
+    if(email === ''){            
       setInvalidMailInput(true);
       valido = false;
     }    
-    if(password === ''){
-      setMsgPassword('El campo password es obligatorio');
+    if(password === ''){      
       setInvalidPasswordInput(true);
       valido = false;
     }
@@ -97,10 +105,10 @@ function Login(){
               {isLoading ? <Loading /> : <div></div>}
             </div>            
             <div>
-              {estado ? <div style={{color:"red", textAlign:"center"}}>ERROR EN LOS DATOS VERIFIQUE</div> : <div></div>}
+              {estado ? <div style={{color:"red", textAlign:"center"}}>{ERROR_DATOS}</div> : <div></div>}
             </div>            
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>{LABEL_EMAIL}</Form.Label>
             <Form.Control 
               type="email" 
               name="email"
@@ -108,14 +116,14 @@ function Login(){
               onChange={ handleMailChange } 
               placeholder="Enter email" 
               disabled={isLoading} />
-              {invalidMailInput ? <Form.Label style={{color:"red"}}>{msgMail}</Form.Label> : ''}
+              {invalidMailInput ? <Form.Label style={{color:"red"}}>{ERROR_EMAIL}</Form.Label> : ''}
             <Form.Text className="text-muted">
-              We'll never share your email and password with anyone else.
+              {MSG_PASSWORD}
             </Form.Text>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>{LABEL_PASSWORD}</Form.Label>
             <Form.Control 
               type="password" 
               name="password" 
@@ -124,12 +132,12 @@ function Login(){
               placeholder="Password"
               disabled={isLoading} />
           </Form.Group>
-          {invalidPasswordInput ? <Form.Label style={{color:"red"}}>{msgPassword}</Form.Label> : ''}
+          {invalidPasswordInput ? <Form.Label style={{color:"red"}}>{ERROR_PASSWORD}</Form.Label> : ''}
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Check me out" />
           </Form.Group>
           <Button variant="primary" type="submit" disabled={isLoading}>
-            Login | Entrar
+            {BNT_LOGIN}
           </Button>
         </Form>
       </div>
