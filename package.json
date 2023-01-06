@@ -18,7 +18,8 @@
     "reactstrap": "^9.1.5",
     "redux": "^4.2.0",
     "semantic-ui-react": "^2.1.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -13,8 +13,10 @@ import Home from '../../views/Home/Home';
 import Login from '../../views/Login/Login';
 import Register from '../../views/Register/Register';
 import Dashboard from '../../views/Dashboard/Dashboard';
+import { userToken } from '../../store/loginLogoutTokenStore';
 
 function Navigationbar() {
+  const userData = userToken();
   return (
     <>
     <Router> 
@@ -27,6 +29,11 @@ function Navigationbar() {
               <Link className="nav-link" to={HOME} style={{color: "black"}}>
                 Home
               </Link>
+              { userData._user &&
+              <Link className="nav-link" to={DASHBOARD} style={{color: "black"}}>
+                Dashboard
+              </Link>
+            }
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { UserProvider } from './context/UserProvider';
 import Navigationbar from './components/Navigationbar/Navigationbar';
 import Footer from './components/Footer/Footer'
 
@@ -11,10 +10,8 @@ import './components/Footer/style.css';
 function App() {  
   return (
     <>
-      <UserProvider>
-        <Navigationbar />
-        <Footer /> 
-      </UserProvider>     
+      <Navigationbar />
+      <Footer /> 
     </>
   ); 
 }

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { userToken } from '../../store/loginLogoutTokenStore';
+import shallow from 'zustand/shallow';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Loading from '../../components/Loading/Loading';
-//import { useUserToggleContext } from "../../context/UserProvider";
-
 import axios from 'axios';
 
 import { 
@@ -23,7 +23,7 @@ import {
 } from '../../consts/msgLogin/MsgLogin';
 
 function Login(){
-  //const Login_Logout = useUserToggleContext();
+  const userData = userToken();
   let valido = true;
   const endpoint = URL_BASE + LOGIN;
   // Validaciones form  
@@ -37,6 +37,7 @@ function Login(){
   const [isLoading, setIsLoading] = useState (false);
   //redireccionar la página
   const navigate = useNavigate();
+  //Acceso al Context Global, para gusradar Los datos del Usuario y Token.
 
   const handleMailChange = (e) => {
     setEmail(e.target.value);
@@ -62,16 +63,21 @@ function Login(){
     if(password === ''){      
       setInvalidPasswordInput(true);
       valido = false;
-    }
+    }    
     if(valido){
-      try{
+      try{        
         const datos = await axios.post(endpoint, {
           email: email, 
           password: password
         });        
-        const status = datos.data.status;
-        console.log(status);  
+        const status = datos.status;
+        console.log(datos);  
         if(status === 201){
+          
+          userData.setToken(datos.data.access_token);
+          userData.setUser(datos.data.user);
+          console.log(userData);
+
           navigate(DASHBOARD);
           setEstado(false);
           setIsLoading(false);
@@ -81,7 +87,7 @@ function Login(){
           navigate(LOGIN);
         }
       }catch(datos){        
-        if(datos.response.data.status === 401){
+        if(datos.status === 401){
           setEstado(true);          
         }else{
           setEstado(true);
