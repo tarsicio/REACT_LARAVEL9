@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useData } from '../../store/userLogin';
-//import shallow from 'zustand/shallow';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -23,7 +22,10 @@ import {
 } from '../../consts/msgLogin/MsgLogin';
 
 function Login(){  
-  const userData = useData();  
+  const userData = useData();
+  //const _token = useData(state => state.setToken);
+  //const _user = useData(state => state._setUser);
+
   let valido = true;
   const endpoint = URL_BASE + LOGIN;
   // Validaciones form  
@@ -70,13 +72,15 @@ function Login(){
           email: email, 
           password: password
         });        
-        const status = datos.status;
-        if(status === 201){          
-          userData.setToken(datos.data.access_token);
-          userData.setUser(datos.data.user);
-          navigate(DASHBOARD);
+        const status = datos.status;        
+        if(status === 201){ 
+          console.log(datos.data.access_token);
+          console.log(datos.data.user);
+          userData.setToken(datos.data.access_token);          
+          userData.setUser(datos.data.user);          
           setEstado(false);
           setIsLoading(false);
+          navigate(DASHBOARD);          
         }else{          
           setEstado(true);
           setIsLoading(false);
