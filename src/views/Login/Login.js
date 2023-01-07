@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { userToken } from '../../store/loginLogoutTokenStore';
-import shallow from 'zustand/shallow';
+import { useData } from '../../store/userLogin';
+//import shallow from 'zustand/shallow';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -22,8 +22,8 @@ import {
   MSG_PASSWORD
 } from '../../consts/msgLogin/MsgLogin';
 
-function Login(){
-  const userData = userToken();
+function Login(){  
+  const userData = useData();  
   let valido = true;
   const endpoint = URL_BASE + LOGIN;
   // Validaciones form  
@@ -71,13 +71,9 @@ function Login(){
           password: password
         });        
         const status = datos.status;
-        console.log(datos);  
-        if(status === 201){
-          
+        if(status === 201){          
           userData.setToken(datos.data.access_token);
           userData.setUser(datos.data.user);
-          console.log(userData);
-
           navigate(DASHBOARD);
           setEstado(false);
           setIsLoading(false);

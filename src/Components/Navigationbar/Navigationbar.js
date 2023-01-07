@@ -13,10 +13,10 @@ import Home from '../../views/Home/Home';
 import Login from '../../views/Login/Login';
 import Register from '../../views/Register/Register';
 import Dashboard from '../../views/Dashboard/Dashboard';
-import { userToken } from '../../store/loginLogoutTokenStore';
+import { useData } from '../../store/userLogin';
 
 function Navigationbar() {
-  const userData = userToken();
+  const _token = useData(state => state._token);
   return (
     <>
     <Router> 
@@ -29,7 +29,7 @@ function Navigationbar() {
               <Link className="nav-link" to={HOME} style={{color: "black"}}>
                 Home
               </Link>
-              { userData._user &&
+              { _token &&
               <Link className="nav-link" to={DASHBOARD} style={{color: "black"}}>
                 Dashboard
               </Link>
@@ -48,6 +48,7 @@ function Navigationbar() {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body style={{background: "white"}}>
+                { !_token &&
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
@@ -61,7 +62,8 @@ function Navigationbar() {
                     </Link>
                   </li>
                 </ul>
-                </Nav>                
+                </Nav>
+                }           
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
