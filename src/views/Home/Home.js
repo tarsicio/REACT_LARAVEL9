@@ -2,16 +2,11 @@ import React from 'react';
 import Reloj from '../../components/utils/reloj/Reloj';
 import { LOGO_WORKER } from '../../config/routers/imgs/img';
 import '../../components/Footer/style.css';
-import { UseData } from '../../store/UserLogin';
 
-function Home(){
-	const _token = UseData(state => state._token);
-	const userData = UseData(state => state._user);
+function Home(){	
 	return(
 		<>			
 			<Reloj />			
-			<div>{_token && _token}</div>
-			<div>{userData && userData.name}</div>
 			<div className="container hero__main"> 				
 	            <div className="hero__textos">
 	                <h1 className="title">Prueba nuestro <span className="title--active">FrontEnd React HORUS 3</span></h1> 
