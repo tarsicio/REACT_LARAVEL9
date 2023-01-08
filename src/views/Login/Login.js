@@ -70,11 +70,9 @@ function Login(){
         const datos = await axios.post(endpoint, {
           email: email, 
           password: password
-        });        
+        });
         const status = datos.status;        
-        if(status === 201){ 
-          console.log(datos.data.access_token);
-          console.log(datos.data.user);
+        if(status === 201){           
           _token(datos.data.access_token);          
           _user(datos.data.user);          
           setEstado(false);
@@ -85,16 +83,14 @@ function Login(){
           setIsLoading(false);
           navigate(LOGIN);
         }
-      }catch(datos){ 
-        console.log('DEBAJO EL ERROR');
-        console.log(datos);
+      }catch(datos){         
         if(datos.status === 401){
           setEstado(true);          
         }else{
           setEstado(true);
         }     
       }finally{
-        setIsLoading(false);
+        setIsLoading(false);        
       }
     }else{
       setIsLoading(false);
@@ -122,7 +118,8 @@ function Login(){
               value={email} 
               onChange={ handleMailChange } 
               placeholder="Enter email" 
-              disabled={isLoading} />
+              disabled={isLoading} 
+              autoComplete="on"/>
               {invalidMailInput ? <Form.Label style={{color:"red"}}>{ERROR_EMAIL}</Form.Label> : ''}
             <Form.Text className="text-muted">
               {MSG_PASSWORD}
@@ -137,7 +134,8 @@ function Login(){
               value={password} 
               onChange={ handlePasswordChange }                
               placeholder="Password"
-              disabled={isLoading} />
+              disabled={isLoading}
+              autoComplete="on" />
           </Form.Group>
           {invalidPasswordInput ? <Form.Label style={{color:"red"}}>{ERROR_PASSWORD}</Form.Label> : ''}
           <Form.Group className="mb-3" controlId="formBasicCheckbox">

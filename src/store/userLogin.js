@@ -1,7 +1,12 @@
+/**
+ * Realizado por Tarsicio Carrizales
+ * mail: telecom.com.ve@gmail.com
+ * Estado global para REACT
+ */ 
 import create from 'zustand';
-import {persist} from "zustand/middleware"
+import { persist } from "zustand/middleware"
 
-// Persistiendo da data en el Local Storage del Navegador
+
 let userData = (set) =>  ({
     _token:     null,       
     _user:      {},    
@@ -16,7 +21,7 @@ let userData = (set) =>  ({
     },
 })
 
-// persist the created state
+// Persistiendo la data en el Local Storage del Navegador
 userData = persist(userData, {name: "DatosHorusUsersToken2023"})
-// create the store
+// create the userData
 export const UseData = create(userData);
