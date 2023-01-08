@@ -3,13 +3,13 @@ import { Spinner } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './loading.css';
 
-function Loading(){
+function Loading(props){
 	return(
 		<div className="divPadre">
 			<div className="divHijo">
 				<Spinner color="primary" />
 					<div style={{color:"red"}}>
-						Validate .... Please wait
+						{props.msg}
 					</div>
 			</div>	
 		</div>

@@ -1,6 +1,6 @@
 /**
  * Realizado por Tarsicio Carrizales
- * mail: telecom.com.ve@gmail.com
+ * Email: telecom.com.ve@gmail.com
  * Estado global para REACT
  */ 
 import create from 'zustand';

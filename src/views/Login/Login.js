@@ -18,7 +18,8 @@ import {
   LABEL_EMAIL,
   LABEL_PASSWORD,
   BNT_LOGIN,
-  MSG_PASSWORD
+  MSG_PASSWORD,
+  VALIDATE_WAIT
 } from '../../consts/msgLogin/MsgLogin';
 
 function Login(){
@@ -104,8 +105,8 @@ function Login(){
             <div style={{textAlign: "center"}}>
               <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
             </div>
-            <div>
-              {isLoading ? <Loading /> : <div></div>}
+            <div> 
+              {isLoading ? <Loading msg={VALIDATE_WAIT} /> : <div></div>}
             </div>            
             <div>
               {estado ? <div style={{color:"red", textAlign:"center"}}>{ERROR_DATOS}</div> : <div></div>}
