@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useData } from '../../store/userLogin';
+import { UseData } from '../../store/UserLogin';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -21,10 +21,9 @@ import {
   MSG_PASSWORD
 } from '../../consts/msgLogin/MsgLogin';
 
-function Login(){  
-  const userData = useData();
-  //const _token = useData(state => state.setToken);
-  //const _user = useData(state => state._setUser);
+function Login(){
+  const _token = UseData(state => state.setToken);
+  const _user = UseData(state => state.setUser);
 
   let valido = true;
   const endpoint = URL_BASE + LOGIN;
@@ -53,7 +52,7 @@ function Login(){
     setEstado(false);
   }
 
-  const login = async (e) => {
+  const login = async (e) => {      
     e.preventDefault(); 
     setEstado(false);    
     setIsLoading(true);
@@ -76,8 +75,8 @@ function Login(){
         if(status === 201){ 
           console.log(datos.data.access_token);
           console.log(datos.data.user);
-          userData.setToken(datos.data.access_token);          
-          userData.setUser(datos.data.user);          
+          _token(datos.data.access_token);          
+          _user(datos.data.user);          
           setEstado(false);
           setIsLoading(false);
           navigate(DASHBOARD);          
@@ -86,7 +85,9 @@ function Login(){
           setIsLoading(false);
           navigate(LOGIN);
         }
-      }catch(datos){        
+      }catch(datos){ 
+        console.log('DEBAJO EL ERROR');
+        console.log(datos);
         if(datos.status === 401){
           setEstado(true);          
         }else{

@@ -2,11 +2,11 @@ import React from 'react';
 import Reloj from '../../components/utils/reloj/Reloj';
 import { LOGO_WORKER } from '../../config/routers/imgs/img';
 import '../../components/Footer/style.css';
-import { useData } from '../../store/userLogin';
+import { UseData } from '../../store/UserLogin';
 
 function Home(){
-	const _token = useData(state => state._token);
-	const userData = useData(state => state._user);
+	const _token = UseData(state => state._token);
+	const userData = UseData(state => state._user);
 	return(
 		<>			
 			<Reloj />			

@@ -13,10 +13,10 @@ import Home from '../../views/Home/Home';
 import Login from '../../views/Login/Login';
 import Register from '../../views/Register/Register';
 import Dashboard from '../../views/Dashboard/Dashboard';
-import { useData } from '../../store/userLogin';
+import { UseData } from '../../store/UserLogin';
 
 function Navigationbar() {
-  const _token = useData(state => state._token);
+  const _token = UseData(state => state._token);
   return (
     <>
     <Router> 

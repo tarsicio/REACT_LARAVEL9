@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button';
 import { LOGO_HORUS, URL_STORAGE } from '../../config/routers/imgs/img';
-import { useData } from '../../store/userLogin';
+import { UseData } from '../../store/UserLogin';
 import '../../components/Footer/style.css';
 import { LOGIN, HOME } from '../../config/routers/routes/route';
 import { useNavigate } from 'react-router-dom';
 
 function Dashboard(){
-	const _token = useData(state => state._token);
-	const userData = useData(state => state._user);
-	const userLogout = useData(state => state.logoutUser);	
+	const _token = UseData(state => state._token);
+	const userData = UseData(state => state._user);
+	const userLogout = UseData(state => state.logoutUser);	
 	const navigate = useNavigate();	
 	useEffect(()=>{
 		// Modificar este useEffect para que no rederice el componente luego cierre de una vez
@@ -20,7 +20,7 @@ function Dashboard(){
 		}
 	});
 	const logoutChange = (e) => {
-		userLogout();
+		userLogout();		
 		localStorage.removeItem('DatosHorusUsersToken2023');		
 		//hacer logout en la API-REST de LARAVEL
 		navigate(HOME);
