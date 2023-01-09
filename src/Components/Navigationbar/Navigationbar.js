@@ -8,12 +8,14 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import '../Footer/style.css';
 import { LOGO_HORUS } from '../../config/routers/imgs/img';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { HOME, LOGIN, REGISTER, DASHBOARD } from '../../config/routers/routes/route';
+import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/routers/routes/route';
 import Home from '../../views/Home/Home';
 import Login from '../../views/Login/Login';
+import Logout from '../../views/Logout/Logout';
 import Register from '../../views/Register/Register';
 import Dashboard from '../../views/Dashboard/Dashboard';
 import { UseData } from '../../store/UserLogin';
+import PrivateRouters from '../Routers/PrivateRouters'
 
 function Navigationbar() {
   const _token = UseData(state => state._token);
@@ -48,9 +50,9 @@ function Navigationbar() {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body style={{background: "white"}}>
-                { !_token &&
+                
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <ul className="navbar-nav ml-auto">
+                  { !_token && <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <Link className="nav-link" to={LOGIN} style={{color: "black"}}>
                       Login
@@ -61,9 +63,15 @@ function Navigationbar() {
                       Register
                     </Link>
                   </li>
-                </ul>
+                </ul> }
+                { _token && <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <Link className="nav-link" to={LOGOUT} style={{color: "black"}}>
+                      Logout
+                    </Link>
+                  </li>
+                </ul> }  
                 </Nav>
-                }           
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
@@ -75,7 +83,16 @@ function Navigationbar() {
               <Route exact path={HOME} element={<Home />} />
               <Route path={LOGIN} element={<Login />} />
               <Route path={REGISTER} element={<Register />} />
-              <Route path={DASHBOARD} element={<Dashboard />} />
+              <Route path={DASHBOARD} element={
+                <PrivateRouters token={_token}>
+                  <Dashboard />
+                </PrivateRouters>  
+              } /> 
+              <Route path={LOGOUT} element={
+                <PrivateRouters token={_token}>
+                  <Logout />
+                </PrivateRouters>  
+              } />
             </Routes>
           </div>
         </div>
