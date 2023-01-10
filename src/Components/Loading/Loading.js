@@ -1,3 +1,12 @@
+/**
+ * @name HORUS | 2023
+ * @version 3.0.0 
+ * @function Loading
+ * @author Tarsicio Carrizales <telecom.com.ve@gmail.com>
+ * @license MIT
+ * @copyright (c) 2023 Tarsicio Carrizales
+ */
+
 import React from 'react';
 import { Spinner } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';

@@ -1,3 +1,12 @@
+/**
+ * @name HORUS | 2023
+ * @version 3.0.0 
+ * @function Footer
+ * @author Tarsicio Carrizales <telecom.com.ve@gmail.com>
+ * @license MIT
+ * @copyright (c) 2023 Tarsicio Carrizales
+ */
+
 import React from 'react';
 import { GoMarkGithub as CopyRight, GoMail as Gmail } from "react-icons/go";
 import './style.css';

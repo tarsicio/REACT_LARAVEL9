@@ -1,5 +1,10 @@
 /**
- * Archivo de Mensajes al componente views/Login/Login.js
+ * @name HORUS | 2023
+ * @version 3.0.0 
+ * @function Mensajes
+ * @author Tarsicio Carrizales <telecom.com.ve@gmail.com>
+ * @license MIT
+ * @copyright (c) 2023 Tarsicio Carrizales
  */
 
 export const ERROR_EMAIL    = 'El campo email es obligatorio '; 

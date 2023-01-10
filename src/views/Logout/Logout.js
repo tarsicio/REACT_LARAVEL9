@@ -1,3 +1,19 @@
+/**
+ * El presente componente permite cerrar el la sección del usuario
+ * forma global con  la libreria Zustand, la cual
+ * puede ser usada desde cualquier parte de la aplicación sin problema
+ * también los datos se guardan en el LocalStorage, una vez haga Logout
+ * se borran todos los datos globales y el LocalStorage, también cierra
+ * el sección en la API de Laravel 9
+ * @name HORUS | 2023
+ * @version 3.0.0 
+ * @function Logout
+ * @author Tarsicio Carrizales <telecom.com.ve@gmail.com>
+ * @license MIT
+ * @copyright (c) 2023 Tarsicio Carrizales
+ * 
+ */
+
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { LOGO_HORUS } from '../../config/routers/imgs/img';
@@ -55,7 +71,7 @@ function Logout(){
 		          			<img src={ LOGO_HORUS.LogoHorus } style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
 		        		</div>		        		
 		        			{errorLogout ? <div style={{color:"red", textAlign:"center"}}>{ ERROR_CONEXION }.</div> : <div></div>}
-		        		<Button onClick={ handleLogout } variant="primary" type="submit">
+		        		<Button onClick={ handleLogout } variant="primary" type="submit" disabled={isLoading}>
 						    Logout
 						</Button>		        			
 		        		<div>

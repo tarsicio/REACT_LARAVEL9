@@ -1,5 +1,10 @@
 /**
- * Archivo de Todas las rutas del sistemas
+ * @name HORUS | 2023
+ * @version 3.0.0 
+ * @function Rutas_Varias
+ * @author Tarsicio Carrizales <telecom.com.ve@gmail.com>
+ * @license MIT
+ * @copyright (c) 2023 Tarsicio Carrizales
  */
 
 export const URL_BASE  = 'http://localhost:8000/api/v1'; 

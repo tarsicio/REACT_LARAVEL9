@@ -1,3 +1,18 @@
+/**
+ * El presente componente permite validar al usuario y guardar el Token y los
+ * datos del usuario de forma global con  la libreria Zustand, la cual
+ * puede ser usada desde cualquier parte de la aplicación sin problema
+ * también los datos se guardan en el LocalStorage, una vez haga Logout
+ * se borran todos los datos globales y el LocalStorage
+ * @name HORUS | 2023
+ * @version 3.0.0 
+ * @function Login
+ * @author Tarsicio Carrizales <telecom.com.ve@gmail.com>
+ * @license MIT
+ * @copyright (c) 2023 Tarsicio Carrizales
+ * 
+ */
+
 import React, { useState } from 'react';
 import { UseData } from '../../store/UserLogin';
 import { useNavigate } from 'react-router-dom';
@@ -5,7 +20,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Loading from '../../components/Loading/Loading';
 import axios from 'axios';
-
 import { 
   URL_BASE, 
   LOGIN, 
