@@ -22,7 +22,7 @@ function Reloj() {
     return () => clearInterval(cl);
   }, []);  
   return (
-    <div className="App" style={{padding:30}}>      
+    <div style={{padding:15, textAlign: "center"}}>      
       <h2 ref={h2Ref}>{fecha()}</h2>     
     </div>
   );

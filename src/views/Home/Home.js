@@ -6,7 +6,7 @@ import '../../components/Footer/style.css';
 function Home(){	
 	return(
 		<>			
-			<Reloj />			
+			<Reloj />						
 			<div className="container hero__main"> 				
 	            <div className="hero__textos">
 	                <h1 className="title">Prueba nuestro <span className="title--active">FrontEnd React HORUS 3</span></h1> 

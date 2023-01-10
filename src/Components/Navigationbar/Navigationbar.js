@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -7,21 +6,14 @@ import Image from "react-bootstrap/Image";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import '../Footer/style.css';
 import { LOGO_HORUS } from '../../config/routers/imgs/img';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/routers/routes/route';
-import Home from '../../views/Home/Home';
-import Login from '../../views/Login/Login';
-import Logout from '../../views/Logout/Logout';
-import Register from '../../views/Register/Register';
-import Dashboard from '../../views/Dashboard/Dashboard';
 import { UseData } from '../../store/UserLogin';
-import PrivateRouters from '../Routers/PrivateRouters'
 
 function Navigationbar() {
   const _token = UseData(state => state._token);
   return (
-    <>
-    <Router> 
+    <>     
       {['xl'].map((expand) => (
         <Navbar key={expand} bg="light" expand={expand} className="mb-0" style={{padding:0}}>
           <Container fluid>
@@ -77,26 +69,6 @@ function Navigationbar() {
           </Container>
         </Navbar>
       ))}
-        <div>
-          <div>
-            <Routes>
-              <Route exact path={HOME} element={<Home />} />
-              <Route path={LOGIN} element={<Login />} />
-              <Route path={REGISTER} element={<Register />} />
-              <Route path={DASHBOARD} element={
-                <PrivateRouters token={_token}>
-                  <Dashboard />
-                </PrivateRouters>  
-              } /> 
-              <Route path={LOGOUT} element={
-                <PrivateRouters token={_token}>
-                  <Logout />
-                </PrivateRouters>  
-              } />
-            </Routes>
-          </div>
-        </div>
-      </Router> 
     </>
   );
 }
