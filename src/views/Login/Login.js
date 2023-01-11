@@ -29,6 +29,7 @@ import {
   ERROR_EMAIL,
   ERROR_PASSWORD,
   ERROR_DATOS,
+  ERROR_SERVER_API,
   LABEL_EMAIL,
   LABEL_PASSWORD,
   BNT_LOGIN,
@@ -49,6 +50,7 @@ function Login(){
   const [email, setEmail] = useState('');  
   const [password, setPassword] = useState('');
   const [estado, setEstado] = useState(false);
+  const [servidorAPI, setServidorAPI] = useState(false);
   //Cargando Loading
   const [isLoading, setIsLoading] = useState (false);
   //redireccionar la página
@@ -59,17 +61,20 @@ function Login(){
     setEmail(e.target.value);
     setInvalidMailInput(false);
     setEstado(false);
+    setServidorAPI(false);
   }
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
     setInvalidPasswordInput(false);
     setEstado(false);
+    setServidorAPI(false);
   }
 
   const login = async (e) => {      
     e.preventDefault(); 
-    setEstado(false);    
+    setEstado(false);
+    setServidorAPI(false);  
     setIsLoading(true);
     valido = true;
     if(email === ''){            
@@ -98,9 +103,9 @@ function Login(){
           setIsLoading(false);
           navigate(LOGIN);
         }
-      }catch(datos){         
-        if(datos.status === 401){
-          setEstado(true);          
+      }catch(error){        
+        if(error.code === "ERR_NETWORK"){
+          setServidorAPI(true);
         }else{
           setEstado(true);
         }     
@@ -124,6 +129,7 @@ function Login(){
             </div>            
             <div>
               {estado ? <div style={{color:"red", textAlign:"center"}}>{ERROR_DATOS}</div> : <div></div>}
+              {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}              
             </div>            
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>{LABEL_EMAIL}</Form.Label>

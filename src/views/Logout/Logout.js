@@ -22,7 +22,7 @@ import '../../components/Footer/style.css';
 import { LOGOUT, HOME, URL_BASE } from '../../config/routers/routes/route';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { ERROR_CONEXION, LOGOUT_WAIT } from '../../consts/msgLogin/MsgLogin';
+import { ERROR_CONEXION, LOGOUT_WAIT, ERROR_SERVER_API } from '../../consts/msgLogin/MsgLogin';
 import Loading from '../../components/Loading/Loading';
 
 function Logout(){
@@ -31,11 +31,13 @@ function Logout(){
 	const navigate = useNavigate();
 	const endpoint = URL_BASE + LOGOUT;
 	const [errorLogout, setErrorLogout] = useState(false);
-	const [isLoading, setIsLoading] = useState (false);		
+	const [isLoading, setIsLoading] = useState (false);
+	const [servidorAPI, setServidorAPI] = useState(false);		
 
 	const handleLogout = async (e) => {
 		e.preventDefault();
 		setErrorLogout(false);
+		setServidorAPI(false);
 		setIsLoading(true);
 		//hacer logout en la API-REST de LARAVEL
 		try{
@@ -54,9 +56,13 @@ function Logout(){
 				setErrorLogout(true);
 			}
 		}catch(error){
-			setIsLoading(false);
-			setErrorLogout(true);
-		}		
+			if(error.code === "ERR_NETWORK"){
+				setServidorAPI(true);          
+			  }     
+			}finally{
+				setIsLoading(false);
+				setErrorLogout(true);
+			}		
   	}
 	return(
 		<>		
@@ -69,8 +75,11 @@ function Logout(){
 						</div>
 						<div style={{textAlign: "center"}}>
 		          			<img src={ LOGO_HORUS.LogoHorus } style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
-		        		</div>		        		
-		        			{errorLogout ? <div style={{color:"red", textAlign:"center"}}>{ ERROR_CONEXION }.</div> : <div></div>}
+		        		</div>
+						<div>
+							{errorLogout ? <div style={{color:"red", textAlign:"center"}}>{ ERROR_CONEXION }.</div> : <div></div>}
+							{servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}
+						</div>		        				        			
 		        		<Button onClick={ handleLogout } variant="primary" type="submit" disabled={isLoading}>
 						    Logout
 						</Button>		        			

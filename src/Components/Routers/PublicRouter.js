@@ -10,9 +10,5 @@
 import { Navigate } from 'react-router-dom';
 import { DASHBOARD } from '../../config/routers/routes/route';
 
-export default function Public({ token,children }){	
-	if(token !== null){
-		return <Navigate to={DASHBOARD} />
-	}
-	return children
-}
+export default function PrivateRouter({ token,children }){
+return token !== null ? <Navigate to={DASHBOARD} /> : children; }

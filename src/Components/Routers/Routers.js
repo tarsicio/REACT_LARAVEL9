@@ -15,8 +15,8 @@ import Home from '../../views/Home/Home';
 import Dashboard from '../../views/Dashboard/Dashboard';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/routers/routes/route';
-import Private from './Private'
-import Public from './Public.js'
+import PrivateRouter from './PrivateRouter'
+import PublicRouter from './PublicRouter'
 import { UseData } from '../../store/UserLogin';
 import Navigationbar from '../Navigationbar/Navigationbar';
 
@@ -28,24 +28,24 @@ function Routers(){
 			<Routes>
 				<Route exact path={HOME} element={<Home />} />				
 				<Route path={LOGIN} element={
-					<Public token={_token}>
+					<PublicRouter token={_token}>
 						<Login />
-					</Public>  
+					</PublicRouter>  
 				} />
 				<Route path={REGISTER} element={
-					<Public token={_token}>
+					<PublicRouter token={_token}>
 						<Register />
-					</Public>  
+					</PublicRouter>  
 				} /> 				
 				<Route path={DASHBOARD} element={
-					<Private token={_token}>
+					<PrivateRouter token={_token}>
 						<Dashboard />
-					</Private>  
+					</PrivateRouter>  
 				} /> 
 				<Route path={LOGOUT} element={
-					<Private token={_token}>
+					<PrivateRouter token={_token}>
 						<Logout />
-					</Private>  
+					</PrivateRouter>  
 				} />
         	</Routes>	        
 	    </BrowserRouter>		

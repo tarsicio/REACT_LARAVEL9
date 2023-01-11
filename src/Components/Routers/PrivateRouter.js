@@ -7,12 +7,9 @@
  * @copyright (c) 2023 Tarsicio Carrizales
  */
 
+
 import { Navigate } from 'react-router-dom';
 import { LOGIN } from '../../config/routers/routes/route';
 
-export default function Private({ token,children }){	
-	if(token === null){
-		return <Navigate to={LOGIN} />
-	}
-	return children
-}
+export default function PrivateRouter({ token,children }){
+return token === null ? <Navigate to={LOGIN} /> : children; }
