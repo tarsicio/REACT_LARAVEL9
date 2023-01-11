@@ -16,7 +16,7 @@ import '../../components/Footer/style.css';
 function Dashboard(){	
 	const userData = UseData(state => state._user);
 		return(
-			<>		
+			<>			
 				<div className="auth-wrapper container hero__main">
 					<div className="auth-inner">
 						<center>
@@ -26,7 +26,7 @@ function Dashboard(){
 		        			</div>		        					        			
 		        			<div>
 								<h3>SISTEMA HORUS</h3>
-							</div>
+							</div>							
 							<div>
 								<h1>USER</h1>
 								<h6>AVATAR:
@@ -38,7 +38,7 @@ function Dashboard(){
 								<h6>NAME:<p>{ userData && userData.name }</p></h6>
 								<h6>ROLS:<p>{ userData && userData.rols_id }</p></h6>
 								<h6>EMAIL:<p>{ userData &&  userData.email }</p></h6>								
-							</div>						
+							</div>													
 						</center>	
 					</div>						
 				</div>			
