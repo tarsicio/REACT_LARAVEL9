@@ -74,8 +74,7 @@ function Login(){
   const login = async (e) => {      
     e.preventDefault(); 
     setEstado(false);
-    setServidorAPI(false);  
-    setIsLoading(true);
+    setServidorAPI(false);      
     valido = true;
     if(email === ''){            
       setInvalidMailInput(true);
@@ -86,6 +85,7 @@ function Login(){
       valido = false;
     }    
     if(valido){
+      setIsLoading(true);
       try{        
         const datos = await axios.post(endpoint, {
           email: email, 
@@ -137,7 +137,7 @@ function Login(){
               type="email" 
               name="email"
               value={email} 
-              onChange={ handleMailChange } 
+              onChange={ handleMailChange }
               placeholder="Enter email" 
               disabled={isLoading} 
               autoComplete="on"/>

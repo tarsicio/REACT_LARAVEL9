@@ -11,7 +11,6 @@ import React from 'react';
 import Image from 'react-bootstrap/Image'
 import { LOGO_HORUS, URL_STORAGE } from '../../config/routers/imgs/img';
 import { UseData } from '../../store/UserLogin';
-import '../../components/Footer/style.css';
 
 function Dashboard(){	
 	const userData = UseData(state => state._user);

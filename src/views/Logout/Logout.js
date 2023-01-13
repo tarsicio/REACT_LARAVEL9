@@ -18,7 +18,6 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { LOGO_HORUS } from '../../config/routers/imgs/img';
 import { UseData } from '../../store/UserLogin';
-import '../../components/Footer/style.css';
 import { LOGOUT, HOME, URL_BASE } from '../../config/routers/routes/route';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';

@@ -9,87 +9,210 @@
 
 import React, {useState} from 'react';
 import axios from 'axios';
-//import Form from 'react-bootstrap/Form';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Loading from '../../components/Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import { LOGO_HORUS } from '../../config/routers/imgs/img';
-import { URL_BASE, REGISTER, DASHBOARD } from '../../config/routers/routes/route';
+import { URL_BASE, REGISTER, HOME } from '../../config/routers/routes/route';
+import {
+  ERROR_NAME,
+  ERROR_USER_NAME,
+  ERROR_EMAIL,
+  ERROR_PASSWORD,
+  ERROR_SERVER_API,
+  LABEL_NAME,
+  LABEL_USER_NAME,
+  LABEL_EMAIL,
+  LABEL_PASSWORD,
+  BNT_REGISTER,
+  MSG_PASSWORD,
+  REGISTER_WAIT
+} from '../../consts/msgLogin/MsgLogin';
 
 const endpoint = URL_BASE + REGISTER;
 
 function Register(){
+  let valido = true;
+  // Validaciones form  
+  const [invalidNameInput,setInvalidNameInput] = useState(false);  
+  const [invalidUserNameInput,setInvalidUserNameInput] = useState(false);
+  const [invalidMailInput,setInvalidMailInput] = useState(false);  
+  const [invalidPasswordInput,setInvalidPasswordInput] = useState(false);
+  //Campos del form
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');  
+  const [password, setPassword] = useState(''); 
+  const [terms, setTerms] = useState(true); 
   const navigate = useNavigate();
+  //Cargando Loading
+  const [isLoading, setIsLoading] = useState (false);
+  const [servidorAPI, setServidorAPI] = useState(false);
+  //redireccionar la página
+
+  const handlNameChange = (e) => {
+    setName(e.target.value);
+    setInvalidNameInput(false);
+    //setEstado(false);
+    setServidorAPI(false);
+  }
+
+  const handlUserNameChange = (e) => {
+    setUsername(e.target.value);
+    setInvalidUserNameInput(false);
+    //setEstado(false);
+    setServidorAPI(false);
+  }
+
+  const handlEmailChange = (e) => {
+    setEmail(e.target.value);
+    setInvalidMailInput(false);
+    //setEstado(false);
+    setServidorAPI(false);
+  }
+
+  const handlPasswordChange = (e) => {
+    setPassword(e.target.value);
+    setInvalidPasswordInput(false);    
+    //setEstado(false);
+    setServidorAPI(false);
+  }
 
   const register = async (e) => {
     e.preventDefault();
-    const datos = await axios.post(endpoint, {name: name, username: username, email: email, password: password});
-    const code = datos.data.code;
-      if(code === 201){
-        navigate(DASHBOARD);          
-      }else{          
-      }
+    setServidorAPI(false);    
+    if(name === ''){            
+      setInvalidNameInput(true);
+      valido = false;
+    }
+    if(username === ''){            
+      setInvalidUserNameInput(true);
+      valido = false;
+    }
+    if(email === ''){            
+      setInvalidMailInput(true);
+      valido = false;
+    }    
+    if(password === ''){      
+      setInvalidPasswordInput(true);
+      valido = false;
+    }
+    if(valido){      
+      setIsLoading(true);
+      try{
+        const datos = await axios.post(endpoint, {
+          name: name, 
+          username: username, 
+          email: email, 
+          password: password,
+          terms: terms
+        });
+        const code = datos.data.code;
+        console.log(datos);
+          if(code === 201){
+            setIsLoading(false);
+            navigate(HOME);          
+          }else{ 
+            console.log(datos)
+          }
+        }catch(error){ 
+          console.log(error);        
+          if(error.code === "ERR_NETWORK"){
+            setServidorAPI(true);
+          }else if(error.code === "ERR_BAD_REQUEST") {
+            setIsLoading(false);
+            setServidorAPI(true);
+            console.log(error);
+          }else if(error.code === "ERR_BAD_RESPONSE") {
+            setServidorAPI(true);
+          }else{
+            setServidorAPI(true);
+          }
+        }finally{
+          setIsLoading(false);        
+        }
+    }else{
+      setIsLoading(false);
+    }  
   }    
 
     return (
       <div className="auth-wrapper" style={{padding:12}}>
         <div className="auth-inner">      
-          <form onSubmit={register} style={{padding:0}}>
+          <Form onSubmit={register} style={{padding:0}}>
             <h3>Register</h3>
             <div style={{textAlign: "center"}}>
               <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
             </div>
-            <div className="mb-3">
-              <label>Full name</label>
-              <input
-                type="text"
+            {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}              
+            {isLoading ? <Loading msg={REGISTER_WAIT} /> : <div></div>}
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>{LABEL_NAME}</Form.Label>
+              <Form.Control 
+                type="text" 
                 name="name"
-                className="form-control"
-                placeholder="Full name"
-              />
-            </div>
+                value={name} 
+                onChange={ handlNameChange }
+                placeholder="Enter Full Name" 
+                disabled={isLoading} 
+                autoComplete="on"/>
+                {invalidNameInput ? <Form.Label style={{color:"red"}}>{ERROR_NAME}</Form.Label> : ''}                
+            </Form.Group>
+            
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>{LABEL_USER_NAME}</Form.Label>
+              <Form.Control 
+                type="text" 
+                name="username"
+                value={username} 
+                onChange={ handlUserNameChange }
+                placeholder="Enter User Name" 
+                disabled={isLoading} 
+                autoComplete="on"/>
+                {invalidUserNameInput ? <Form.Label style={{color:"red"}}>{ERROR_USER_NAME}</Form.Label> : ''}
+            </Form.Group>
 
-            <div className="mb-3">
-              <label>User name</label>
-              <input 
-                type="text"
-                name="username" 
-                className="form-control" 
-                placeholder="User name" 
-              />
-            </div>
-
-            <div className="mb-3">
-              <label>Email address</label>
-              <input
-                type="email"
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>{LABEL_EMAIL}</Form.Label>
+              <Form.Control 
+                type="email" 
                 name="email"
-                className="form-control"
-                placeholder="Enter email"
-              />
-            </div>
+                value={email} 
+                onChange={ handlEmailChange }
+                placeholder="Enter email" 
+                disabled={isLoading} 
+                autoComplete="on"/>
+                {invalidMailInput ? <Form.Label style={{color:"red"}}>{ERROR_EMAIL}</Form.Label> : ''}
+            </Form.Group>
 
-            <div className="mb-3">
-              <label>Password</label>
-              <input
-                type="password"
-                name="password"
-                className="form-control"
-                placeholder="Enter password"
-              />
-            </div>
-
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>{LABEL_PASSWORD}</Form.Label>
+              <Form.Control 
+                type="password" 
+                name="password" 
+                value={password} 
+                onChange={ handlPasswordChange }                
+                placeholder="Password"
+                disabled={isLoading}
+                autoComplete="on" />
+                <Form.Text className="text-muted">
+                  {MSG_PASSWORD}
+                </Form.Text>
+            </Form.Group>
+            {invalidPasswordInput ? <Form.Label style={{color:"red"}}>{ERROR_PASSWORD}</Form.Label> : ''}
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" name="terms"  label="Acept Terms" />
+            </Form.Group>
             <div className="d-grid">
-              <button type="submit" className="btn btn-primary">
-                register
-              </button>
+              <Button type="submit" className="btn btn-primary" disabled={isLoading} >
+                {BNT_REGISTER}
+              </Button>
             </div>
             <p className="forgot-password text-right">
               Already registered <a href="/login">login?</a>
             </p>
-          </form>
+          </Form>
         </div>
       </div>
     )

@@ -10,7 +10,6 @@
 import React from 'react';
 import Reloj from '../../components/utils/reloj/Reloj';
 import { LOGO_WORKER } from '../../config/routers/imgs/img';
-import '../../components/Footer/style.css';
 
 function Home(){	
 	return(

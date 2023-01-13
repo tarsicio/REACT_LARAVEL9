@@ -5,6 +5,8 @@
  * @author Tarsicio Carrizales <telecom.com.ve@gmail.com>
  * @license MIT
  * @copyright (c) 2023 Tarsicio Carrizales
+ * 
+ * Sistemas de rutas de la aplicación HORUS | 2023
  */
 
 import React from 'react';
@@ -13,6 +15,7 @@ import Logout from '../../views/Logout/Logout';
 import Register from '../../views/Register/Register';
 import Home from '../../views/Home/Home';
 import Dashboard from '../../views/Dashboard/Dashboard';
+import NoFound404 from '../../views/Page/NoFound404';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/routers/routes/route';
 import PrivateRouter from './PrivateRouter'
@@ -47,6 +50,7 @@ function Routers(){
 						<Logout />
 					</PrivateRouter>  
 				} />
+				<Route path="*" element={<NoFound404 msg="La URL Solicitada No Existe... "/>} />
         	</Routes>	        
 	    </BrowserRouter>		
 	)
