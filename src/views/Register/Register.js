@@ -27,60 +27,81 @@ import {
   LABEL_PASSWORD,
   BNT_REGISTER,
   MSG_PASSWORD,
-  REGISTER_WAIT
+  REGISTER_WAIT,
+  TERMS_NEED,
+  MSG_ERROR_FORM
 } from '../../consts/msgLogin/MsgLogin';
 
-const endpoint = URL_BASE + REGISTER;
-
 function Register(){
+  const endpoint = URL_BASE + REGISTER;
+  //redireccionar la página
+  const navigate = useNavigate();
   let valido = true;
   // Validaciones form  
   const [invalidNameInput,setInvalidNameInput] = useState(false);  
   const [invalidUserNameInput,setInvalidUserNameInput] = useState(false);
   const [invalidMailInput,setInvalidMailInput] = useState(false);  
   const [invalidPasswordInput,setInvalidPasswordInput] = useState(false);
+  const [invalidCheck,setInvalidCheck] = useState(false);
   //Campos del form
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState(''); 
-  const [terms, setTerms] = useState(true); 
-  const navigate = useNavigate();
-  //Cargando Loading
+  const [terms, setTerms] = useState(false);  
+  //Cargando Loading y Error Server API
   const [isLoading, setIsLoading] = useState (false);
   const [servidorAPI, setServidorAPI] = useState(false);
-  //redireccionar la página
+  const [erroresForm, setErroresForm] = useState(false);
+  //Errores de Validacion
+  let obj = {};
+  const [nameError, setNameError] = useState('');
+  const [userNameError, setUserNameError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  // ******************************************************************
+  const [nameErrorActivo, setNameErrorActivo] = useState(false);
+  const [userNameErrorActivo, setUserNameErrorActivo] = useState(false);
+  const [emailErrorActivo, setEmailErrorActivo] = useState(false);
+  const [passwordErrorActivo, setPasswordErrorActivo] = useState(false);
 
   const handlNameChange = (e) => {
     setName(e.target.value);
+    setNameErrorActivo(false);
     setInvalidNameInput(false);
-    //setEstado(false);
     setServidorAPI(false);
   }
 
   const handlUserNameChange = (e) => {
     setUsername(e.target.value);
+    setUserNameErrorActivo(false);
     setInvalidUserNameInput(false);
-    //setEstado(false);
     setServidorAPI(false);
   }
 
   const handlEmailChange = (e) => {
     setEmail(e.target.value);
-    setInvalidMailInput(false);
-    //setEstado(false);
+    setEmailErrorActivo(false);
+    setInvalidMailInput(false);    
     setServidorAPI(false);
   }
 
   const handlPasswordChange = (e) => {
     setPassword(e.target.value);
-    setInvalidPasswordInput(false);    
-    //setEstado(false);
+    setPasswordErrorActivo(false);
+    setInvalidPasswordInput(false);        
+    setServidorAPI(false);
+  }
+  
+  const handlCheckChange = (e) => {
+    setTerms(e.target.checked);    
+    setInvalidCheck(false);        
     setServidorAPI(false);
   }
 
-  const register = async (e) => {
+  const register = async (e) => {    
     e.preventDefault();
+    setErroresForm(false);
     setServidorAPI(false);    
     if(name === ''){            
       setInvalidNameInput(true);
@@ -98,6 +119,10 @@ function Register(){
       setInvalidPasswordInput(true);
       valido = false;
     }
+    if(terms === false){      
+      setInvalidCheck(true);
+      valido = false;
+    }
     if(valido){      
       setIsLoading(true);
       try{
@@ -108,8 +133,7 @@ function Register(){
           password: password,
           terms: terms
         });
-        const code = datos.data.code;
-        console.log(datos);
+        const code = datos.data.code;        
           if(code === 201){
             setIsLoading(false);
             navigate(HOME);          
@@ -117,13 +141,19 @@ function Register(){
             console.log(datos)
           }
         }catch(error){ 
-          console.log(error);        
           if(error.code === "ERR_NETWORK"){
             setServidorAPI(true);
           }else if(error.code === "ERR_BAD_REQUEST") {
             setIsLoading(false);
-            setServidorAPI(true);
-            console.log(error);
+            setErroresForm(true);
+            obj = error.response.data.dato;
+            let keys = Object.keys(obj);            
+            keys.forEach(function (key) {              
+              if(key === 'name'){setNameError(obj[key][0]);setNameErrorActivo(true);}
+              if(key === 'username'){setUserNameError(obj[key][0]);setUserNameErrorActivo(true);}
+              if(key === 'email'){setEmailError(obj[key][0]);setEmailErrorActivo(true);}
+              if(key === 'password'){setPasswordError(obj[key][0]);setPasswordErrorActivo(true);}              
+            });
           }else if(error.code === "ERR_BAD_RESPONSE") {
             setServidorAPI(true);
           }else{
@@ -145,7 +175,8 @@ function Register(){
             <div style={{textAlign: "center"}}>
               <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
             </div>
-            {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}              
+            {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}
+            {erroresForm ? <div style={{color:"red", textAlign:"center"}}>{MSG_ERROR_FORM}</div> : <div></div>}
             {isLoading ? <Loading msg={REGISTER_WAIT} /> : <div></div>}
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>{LABEL_NAME}</Form.Label>
@@ -157,7 +188,8 @@ function Register(){
                 placeholder="Enter Full Name" 
                 disabled={isLoading} 
                 autoComplete="on"/>
-                {invalidNameInput ? <Form.Label style={{color:"red"}}>{ERROR_NAME}</Form.Label> : ''}                
+                {invalidNameInput ? <Form.Label style={{color:"red"}}>{ERROR_NAME}</Form.Label> : ''}
+                {nameErrorActivo ? <Form.Label style={{color:"red"}}>{nameError}</Form.Label> : ''}
             </Form.Group>
             
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -171,6 +203,7 @@ function Register(){
                 disabled={isLoading} 
                 autoComplete="on"/>
                 {invalidUserNameInput ? <Form.Label style={{color:"red"}}>{ERROR_USER_NAME}</Form.Label> : ''}
+                {userNameErrorActivo ? <Form.Label style={{color:"red"}}>{userNameError}</Form.Label> : ''}
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -184,6 +217,7 @@ function Register(){
                 disabled={isLoading} 
                 autoComplete="on"/>
                 {invalidMailInput ? <Form.Label style={{color:"red"}}>{ERROR_EMAIL}</Form.Label> : ''}
+                {emailErrorActivo ? <Form.Label style={{color:"red"}}>{emailError}</Form.Label> : ''}
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -192,7 +226,7 @@ function Register(){
                 type="password" 
                 name="password" 
                 value={password} 
-                onChange={ handlPasswordChange }                
+                onChange={ handlPasswordChange }
                 placeholder="Password"
                 disabled={isLoading}
                 autoComplete="on" />
@@ -201,9 +235,18 @@ function Register(){
                 </Form.Text>
             </Form.Group>
             {invalidPasswordInput ? <Form.Label style={{color:"red"}}>{ERROR_PASSWORD}</Form.Label> : ''}
+            {passwordErrorActivo ? <Form.Label style={{color:"red"}}>{passwordError}</Form.Label> : ''}
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" name="terms"  label="Acept Terms" />
+              <Form.Check 
+                type="checkbox" 
+                name="terms" 
+                label="Acept Terms" 
+                disabled={isLoading}
+                autoComplete="on"
+                value={terms}
+                onChange={ handlCheckChange } />
             </Form.Group>
+            {invalidCheck ? <Form.Label style={{color:"red"}}>{TERMS_NEED}</Form.Label> : ''}            
             <div className="d-grid">
               <Button type="submit" className="btn btn-primary" disabled={isLoading} >
                 {BNT_REGISTER}
