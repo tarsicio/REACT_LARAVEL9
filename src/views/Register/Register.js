@@ -168,7 +168,7 @@ function Register(){
   }    
 
     return (
-      <div className="auth-wrapper" style={{padding:12}}>
+      <div className="auth-wrapper" style={{padding:20}}>
         <div className="auth-inner">      
           <Form onSubmit={register} style={{padding:0}}>
             <h3>Register</h3>
@@ -188,8 +188,8 @@ function Register(){
                 placeholder="Enter Full Name" 
                 disabled={isLoading} 
                 autoComplete="on"/>
-                {invalidNameInput ? <Form.Label style={{color:"red"}}>{ERROR_NAME}</Form.Label> : ''}
-                {nameErrorActivo ? <Form.Label style={{color:"red"}}>{nameError}</Form.Label> : ''}
+                {invalidNameInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_NAME}</Form.Label> : ''}
+                {nameErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{nameError}</Form.Label> : ''}
             </Form.Group>
             
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -202,8 +202,8 @@ function Register(){
                 placeholder="Enter User Name" 
                 disabled={isLoading} 
                 autoComplete="on"/>
-                {invalidUserNameInput ? <Form.Label style={{color:"red"}}>{ERROR_USER_NAME}</Form.Label> : ''}
-                {userNameErrorActivo ? <Form.Label style={{color:"red"}}>{userNameError}</Form.Label> : ''}
+                {invalidUserNameInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_USER_NAME}</Form.Label> : ''}
+                {userNameErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{userNameError}</Form.Label> : ''}
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -216,8 +216,8 @@ function Register(){
                 placeholder="Enter email" 
                 disabled={isLoading} 
                 autoComplete="on"/>
-                {invalidMailInput ? <Form.Label style={{color:"red"}}>{ERROR_EMAIL}</Form.Label> : ''}
-                {emailErrorActivo ? <Form.Label style={{color:"red"}}>{emailError}</Form.Label> : ''}
+                {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_EMAIL}</Form.Label> : ''}
+                {emailErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{emailError}</Form.Label> : ''}
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -233,9 +233,10 @@ function Register(){
                 <Form.Text className="text-muted">
                   {MSG_PASSWORD}
                 </Form.Text>
+                {invalidPasswordInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_PASSWORD}</Form.Label> : ''}
+                {passwordErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{passwordError}</Form.Label> : ''}
             </Form.Group>
-            {invalidPasswordInput ? <Form.Label style={{color:"red"}}>{ERROR_PASSWORD}</Form.Label> : ''}
-            {passwordErrorActivo ? <Form.Label style={{color:"red"}}>{passwordError}</Form.Label> : ''}
+            
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check 
                 type="checkbox" 
@@ -245,8 +246,8 @@ function Register(){
                 autoComplete="on"
                 value={terms}
                 onChange={ handlCheckChange } />
-            </Form.Group>
-            {invalidCheck ? <Form.Label style={{color:"red"}}>{TERMS_NEED}</Form.Label> : ''}            
+                {invalidCheck ? <Form.Label style={{color:"red", fontSize: "small"}}>{TERMS_NEED}</Form.Label> : ''}            
+            </Form.Group>            
             <div className="d-grid">
               <Button type="submit" className="btn btn-primary" disabled={isLoading} >
                 {BNT_REGISTER}

@@ -141,7 +141,7 @@ function Login(){
               placeholder="Enter email" 
               disabled={isLoading} 
               autoComplete="on"/>
-              {invalidMailInput ? <Form.Label style={{color:"red"}}>{ERROR_EMAIL}</Form.Label> : ''}
+              {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_EMAIL}</Form.Label> : ''}
             <Form.Text className="text-muted">
               {MSG_PASSWORD}
             </Form.Text>
@@ -157,8 +157,8 @@ function Login(){
               placeholder="Password"
               disabled={isLoading}
               autoComplete="on" />
-          </Form.Group>
-          {invalidPasswordInput ? <Form.Label style={{color:"red"}}>{ERROR_PASSWORD}</Form.Label> : ''}
+              {invalidPasswordInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_PASSWORD}</Form.Label> : ''}
+          </Form.Group>          
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Check me out" />
           </Form.Group>
