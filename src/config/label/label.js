@@ -26,4 +26,3 @@ export const LABEL_NAME       = 'Full Name';
 export const LABEL_USER_NAME  = 'User Name';
 export const TERMS_NEED       = 'Debe aceptar los terminos';
 export const MSG_ERROR_FORM   = 'Error en los datos del formulario...';
-

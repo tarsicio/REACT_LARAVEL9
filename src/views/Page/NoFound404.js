@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { LOGO_HORUS } from '../../config/routers/imgs/img';
+import { LOGO_HORUS } from '../../config/imgs/imgs';
 
 function NoFound404(props) {
     return (

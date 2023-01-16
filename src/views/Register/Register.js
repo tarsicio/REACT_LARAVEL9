@@ -14,8 +14,8 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Loading from '../../components/Loading/Loading';
 import { useNavigate } from 'react-router-dom';
-import { LOGO_HORUS } from '../../config/routers/imgs/img';
-import { URL_BASE, REGISTER, HOME } from '../../config/routers/routes/route';
+import { LOGO_HORUS } from '../../config/imgs/imgs';
+import { URL_BASE, REGISTER, HOME } from '../../config/rutas/rutas';
 import {
   ERROR_NAME,
   ERROR_USER_NAME,
@@ -31,7 +31,7 @@ import {
   REGISTER_WAIT,
   TERMS_NEED,
   MSG_ERROR_FORM
-} from '../../consts/msgLogin/MsgLogin';
+} from '../../config/label/label';
 
 function Register(){
   const endpoint = URL_BASE + REGISTER;

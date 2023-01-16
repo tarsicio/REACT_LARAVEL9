@@ -9,7 +9,7 @@
 
 import React from 'react';
 import Image from 'react-bootstrap/Image'
-import { LOGO_HORUS, URL_STORAGE } from '../../config/routers/imgs/img';
+import { LOGO_HORUS, URL_STORAGE } from '../../config/imgs/imgs';
 import { UseData } from '../../store/UserLogin';
 
 function Dashboard(){	

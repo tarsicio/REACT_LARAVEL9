@@ -9,7 +9,7 @@
 
 
 import { Navigate } from 'react-router-dom';
-import { LOGIN } from '../../config/routers/routes/route';
+import { LOGIN } from '../../config/rutas/rutas';
 
 export default function PrivateRouter({ token,children }){
 return token === null ? <Navigate to={LOGIN} /> : children; }

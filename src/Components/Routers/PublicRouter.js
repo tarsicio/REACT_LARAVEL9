@@ -8,7 +8,7 @@
  */
 
 import { Navigate } from 'react-router-dom';
-import { DASHBOARD } from '../../config/routers/routes/route';
+import { DASHBOARD } from '../../config/rutas/rutas';
 
 export default function PrivateRouter({ token,children }){
 return token !== null ? <Navigate to={DASHBOARD} /> : children; }

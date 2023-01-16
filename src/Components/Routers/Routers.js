@@ -17,7 +17,7 @@ import Home from '../../views/Home/Home';
 import Dashboard from '../../views/Dashboard/Dashboard';
 import NoFound404 from '../../views/Page/NoFound404';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/routers/routes/route';
+import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/rutas/rutas';
 import PrivateRouter from './PrivateRouter'
 import PublicRouter from './PublicRouter'
 import { UseData } from '../../store/UserLogin';

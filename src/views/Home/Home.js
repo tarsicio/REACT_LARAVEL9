@@ -9,7 +9,7 @@
 
 import React from 'react';
 import Reloj from '../../components/utils/reloj/Reloj';
-import { LOGO_WORKER } from '../../config/routers/imgs/img';
+import { LOGO_WORKER } from '../../config/imgs/imgs';
 
 function Home(){	
 	return(

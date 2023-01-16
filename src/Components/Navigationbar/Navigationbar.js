@@ -14,10 +14,10 @@ import Nav from 'react-bootstrap/Nav';
 import Image from "react-bootstrap/Image";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import '../Footer/style.css';
-import { LOGO_HORUS } from '../../config/routers/imgs/img';
+import { LOGO_HORUS } from '../../config/imgs/imgs';
 //import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/routers/routes/route';
+import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/rutas/rutas';
 import { UseData } from '../../store/UserLogin';
 
 function Navigationbar() {

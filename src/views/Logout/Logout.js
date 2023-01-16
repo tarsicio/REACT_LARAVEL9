@@ -16,12 +16,12 @@
 
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import { LOGO_HORUS } from '../../config/routers/imgs/img';
+import { LOGO_HORUS } from '../../config/imgs/imgs';
 import { UseData } from '../../store/UserLogin';
-import { LOGOUT, HOME, URL_BASE } from '../../config/routers/routes/route';
+import { LOGOUT, HOME, URL_BASE } from '../../config/rutas/rutas';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { ERROR_CONEXION, LOGOUT_WAIT, ERROR_SERVER_API } from '../../consts/msgLogin/MsgLogin';
+import { ERROR_CONEXION, LOGOUT_WAIT, ERROR_SERVER_API } from '../../config/label/label';
 import Loading from '../../components/Loading/Loading';
 
 function Logout(){

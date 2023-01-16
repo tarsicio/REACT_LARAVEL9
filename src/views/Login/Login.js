@@ -23,8 +23,8 @@ import axios from 'axios';
 import { 
   URL_BASE, 
   LOGIN, 
-  DASHBOARD } from '../../config/routers/routes/route';
-import { LOGO_HORUS } from '../../config/routers/imgs/img';
+  DASHBOARD } from '../../config/rutas/rutas';
+import { LOGO_HORUS } from '../../config/imgs/imgs';
 import {
   ERROR_EMAIL,
   ERROR_PASSWORD,
@@ -35,7 +35,7 @@ import {
   BNT_LOGIN,
   MSG_PASSWORD,
   VALIDATE_WAIT
-} from '../../consts/msgLogin/MsgLogin';
+} from '../../config/label/label';
 
 function Login(){
   const _token = UseData(state => state.setToken);
