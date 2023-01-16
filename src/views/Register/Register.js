@@ -11,6 +11,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Loading from '../../components/Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import { LOGO_HORUS } from '../../config/routers/imgs/img';

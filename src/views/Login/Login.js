@@ -117,7 +117,7 @@ function Login(){
     }
   }
     return (
-    <div className="auth-wrapper" style={{padding:12}}>
+    <div className="auth-wrapper">
       <div className="auth-inner">      
         <Form onSubmit={login}>
         <h3>Login</h3><div></div>    

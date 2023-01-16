@@ -38,10 +38,11 @@ html,
 }
 
 .auth-wrapper {
-  display: flex;
+  display: flex;  
   justify-content: center;
   flex-direction: column;
   text-align: left;
+  margin: 10px;
 }
 
 .auth-inner {
