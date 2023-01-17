@@ -23,7 +23,7 @@ import { UseData } from '../../store/UserLogin';
 function Navigationbar() {
   const _token = UseData(state => state._token);
   return (
-    <div>     
+    <header>     
       {['xl'].map((expand) => (
         <Navbar key={expand} bg="light" expand={expand} className="mb-0" style={{padding:0}}>
           <Container fluid>
@@ -79,7 +79,7 @@ function Navigationbar() {
           </Container>
         </Navbar>
       ))}
-    </div>
+    </header>
   );
 }
 

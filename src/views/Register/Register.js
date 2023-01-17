@@ -170,9 +170,9 @@ function Register(){
 
     return (
       <section>
-        <div className="auth-wrapper" style={{padding:20}}>
+        <div className="auth-wrapper" >
           <div className="auth-inner">      
-            <Form onSubmit={register} style={{padding:0}}>
+            <Form onSubmit={register} >
               <h3>Register</h3>
               <div style={{textAlign: "center"}}>
                 <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
