@@ -117,57 +117,59 @@ function Login(){
     }
   }
     return (
-    <div className="auth-wrapper">
-      <div className="auth-inner">      
-        <Form onSubmit={login}>
-        <h3>Login</h3><div></div>    
-            <div style={{textAlign: "center"}}>
-              <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
-            </div>
-            <div> 
-              {isLoading ? <Loading msg={VALIDATE_WAIT} /> : <div></div>}
-            </div>            
-            <div>
-              {estado ? <div style={{color:"red", textAlign:"center"}}>{ERROR_DATOS}</div> : <div></div>}
-              {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}              
-            </div>            
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>{LABEL_EMAIL}</Form.Label>
-            <Form.Control 
-              type="email" 
-              name="email"
-              value={email} 
-              onChange={ handleMailChange }
-              placeholder="Enter email" 
-              disabled={isLoading} 
-              autoComplete="on"/>
-              {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_EMAIL}</Form.Label> : ''}
-            <Form.Text className="text-muted">
-              {MSG_PASSWORD}
-            </Form.Text>
-          </Form.Group>
+      <section>
+        <div className="auth-wrapper">
+          <div className="auth-inner">      
+            <Form onSubmit={login}>
+            <h3>Login</h3><div></div>    
+                <div style={{textAlign: "center"}}>
+                  <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
+                </div>
+                <div> 
+                  {isLoading ? <Loading msg={VALIDATE_WAIT} /> : <div></div>}
+                </div>            
+                <div>
+                  {estado ? <div style={{color:"red", textAlign:"center"}}>{ERROR_DATOS}</div> : <div></div>}
+                  {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}              
+                </div>            
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>{LABEL_EMAIL}</Form.Label>
+                <Form.Control 
+                  type="email" 
+                  name="email"
+                  value={email} 
+                  onChange={ handleMailChange }
+                  placeholder="Enter email" 
+                  disabled={isLoading} 
+                  autoComplete="on"/>
+                  {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_EMAIL}</Form.Label> : ''}
+                <Form.Text className="text-muted">
+                  {MSG_PASSWORD}
+                </Form.Text>
+              </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>{LABEL_PASSWORD}</Form.Label>
-            <Form.Control 
-              type="password" 
-              name="password" 
-              value={password} 
-              onChange={ handlePasswordChange }                
-              placeholder="Password"
-              disabled={isLoading}
-              autoComplete="on" />
-              {invalidPasswordInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_PASSWORD}</Form.Label> : ''}
-          </Form.Group>          
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
-          <Button variant="primary" type="submit" disabled={isLoading}>
-            {BNT_LOGIN}
-          </Button>
-        </Form>
-      </div>
-    </div> 
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>{LABEL_PASSWORD}</Form.Label>
+                <Form.Control 
+                  type="password" 
+                  name="password" 
+                  value={password} 
+                  onChange={ handlePasswordChange }                
+                  placeholder="Password"
+                  disabled={isLoading}
+                  autoComplete="on" />
+                  {invalidPasswordInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_PASSWORD}</Form.Label> : ''}
+              </Form.Group>          
+              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Check me out" />
+              </Form.Group>
+              <Button variant="primary" type="submit" disabled={isLoading}>
+                {BNT_LOGIN}
+              </Button>
+            </Form>
+          </div>
+        </div>
+      </section> 
     )
 }
 

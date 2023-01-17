@@ -15,7 +15,7 @@ import { UseData } from '../../store/UserLogin';
 function Dashboard(){	
 	const userData = UseData(state => state._user);
 		return(
-			<>			
+			<section>			
 				<div className="auth-wrapper container hero__main">
 					<div className="auth-inner">
 						<center>
@@ -41,7 +41,7 @@ function Dashboard(){
 						</center>	
 					</div>						
 				</div>			
-			</>
+			</section>
 		)
 }
 

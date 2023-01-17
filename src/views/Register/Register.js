@@ -169,97 +169,99 @@ function Register(){
   }    
 
     return (
-      <div className="auth-wrapper" style={{padding:20}}>
-        <div className="auth-inner">      
-          <Form onSubmit={register} style={{padding:0}}>
-            <h3>Register</h3>
-            <div style={{textAlign: "center"}}>
-              <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
-            </div>
-            {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}
-            {erroresForm ? <div style={{color:"red", textAlign:"center"}}>{MSG_ERROR_FORM}</div> : <div></div>}
-            {isLoading ? <Loading msg={REGISTER_WAIT} /> : <div></div>}
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>{LABEL_NAME}</Form.Label>
-              <Form.Control 
-                type="text" 
-                name="name"
-                value={name} 
-                onChange={ handlNameChange }
-                placeholder="Enter Full Name" 
-                disabled={isLoading} 
-                autoComplete="on"/>
-                {invalidNameInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_NAME}</Form.Label> : ''}
-                {nameErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{nameError}</Form.Label> : ''}
-            </Form.Group>
-            
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>{LABEL_USER_NAME}</Form.Label>
-              <Form.Control 
-                type="text" 
-                name="username"
-                value={username} 
-                onChange={ handlUserNameChange }
-                placeholder="Enter User Name" 
-                disabled={isLoading} 
-                autoComplete="on"/>
-                {invalidUserNameInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_USER_NAME}</Form.Label> : ''}
-                {userNameErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{userNameError}</Form.Label> : ''}
-            </Form.Group>
+      <section>
+        <div className="auth-wrapper" style={{padding:20}}>
+          <div className="auth-inner">      
+            <Form onSubmit={register} style={{padding:0}}>
+              <h3>Register</h3>
+              <div style={{textAlign: "center"}}>
+                <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
+              </div>
+              {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}
+              {erroresForm ? <div style={{color:"red", textAlign:"center"}}>{MSG_ERROR_FORM}</div> : <div></div>}
+              {isLoading ? <Loading msg={REGISTER_WAIT} /> : <div></div>}
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>{LABEL_NAME}</Form.Label>
+                <Form.Control 
+                  type="text" 
+                  name="name"
+                  value={name} 
+                  onChange={ handlNameChange }
+                  placeholder="Enter Full Name" 
+                  disabled={isLoading} 
+                  autoComplete="on"/>
+                  {invalidNameInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_NAME}</Form.Label> : ''}
+                  {nameErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{nameError}</Form.Label> : ''}
+              </Form.Group>
+              
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>{LABEL_USER_NAME}</Form.Label>
+                <Form.Control 
+                  type="text" 
+                  name="username"
+                  value={username} 
+                  onChange={ handlUserNameChange }
+                  placeholder="Enter User Name" 
+                  disabled={isLoading} 
+                  autoComplete="on"/>
+                  {invalidUserNameInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_USER_NAME}</Form.Label> : ''}
+                  {userNameErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{userNameError}</Form.Label> : ''}
+              </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>{LABEL_EMAIL}</Form.Label>
-              <Form.Control 
-                type="email" 
-                name="email"
-                value={email} 
-                onChange={ handlEmailChange }
-                placeholder="Enter email" 
-                disabled={isLoading} 
-                autoComplete="on"/>
-                {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_EMAIL}</Form.Label> : ''}
-                {emailErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{emailError}</Form.Label> : ''}
-            </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>{LABEL_EMAIL}</Form.Label>
+                <Form.Control 
+                  type="email" 
+                  name="email"
+                  value={email} 
+                  onChange={ handlEmailChange }
+                  placeholder="Enter email" 
+                  disabled={isLoading} 
+                  autoComplete="on"/>
+                  {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_EMAIL}</Form.Label> : ''}
+                  {emailErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{emailError}</Form.Label> : ''}
+              </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>{LABEL_PASSWORD}</Form.Label>
-              <Form.Control 
-                type="password" 
-                name="password" 
-                value={password} 
-                onChange={ handlPasswordChange }
-                placeholder="Password"
-                disabled={isLoading}
-                autoComplete="on" />
-                <Form.Text className="text-muted">
-                  {MSG_PASSWORD}
-                </Form.Text>
-                {invalidPasswordInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_PASSWORD}</Form.Label> : ''}
-                {passwordErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{passwordError}</Form.Label> : ''}
-            </Form.Group>
-            
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check 
-                type="checkbox" 
-                name="terms" 
-                label="Acept Terms" 
-                disabled={isLoading}
-                autoComplete="on"
-                value={terms}
-                onChange={ handlCheckChange } />
-                {invalidCheck ? <Form.Label style={{color:"red", fontSize: "small"}}>{TERMS_NEED}</Form.Label> : ''}            
-            </Form.Group>            
-            <div className="d-grid">
-              <Button type="submit" className="btn btn-primary" disabled={isLoading} >
-                {BNT_REGISTER}
-              </Button>
-            </div>
-            <p className="forgot-password text-right">
-              Already registered <a href="/login">login?</a>
-            </p>
-          </Form>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>{LABEL_PASSWORD}</Form.Label>
+                <Form.Control 
+                  type="password" 
+                  name="password" 
+                  value={password} 
+                  onChange={ handlPasswordChange }
+                  placeholder="Password"
+                  disabled={isLoading}
+                  autoComplete="on" />
+                  <Form.Text className="text-muted">
+                    {MSG_PASSWORD}
+                  </Form.Text>
+                  {invalidPasswordInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_PASSWORD}</Form.Label> : ''}
+                  {passwordErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{passwordError}</Form.Label> : ''}
+              </Form.Group>
+              
+              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check 
+                  type="checkbox" 
+                  name="terms" 
+                  label="Acept Terms" 
+                  disabled={isLoading}
+                  autoComplete="on"
+                  value={terms}
+                  onChange={ handlCheckChange } />
+                  {invalidCheck ? <Form.Label style={{color:"red", fontSize: "small"}}>{TERMS_NEED}</Form.Label> : ''}            
+              </Form.Group>            
+              <div className="d-grid">
+                <Button type="submit" className="btn btn-primary" disabled={isLoading} >
+                  {BNT_REGISTER}
+                </Button>
+              </div>
+              <p className="forgot-password text-right">
+                Already registered <a href="/login">login?</a>
+              </p>
+            </Form>
+          </div>
         </div>
-      </div>
+      </section>
     )
 }
 export default Register;

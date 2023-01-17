@@ -13,7 +13,7 @@ import { LOGO_WORKER } from '../../config/imgs/imgs';
 
 function Home(){	
 	return(
-		<>			
+		<section>			
 			<Reloj />						
 			<div className="container hero__main"> 				
 	            <div className="hero__textos">
@@ -26,7 +26,7 @@ function Home(){
 	            </div>                            
 	            <img src={LOGO_WORKER.LogoWorker} alt="Logo_Worker" className="mockup" /> 
         	</div>	
-		</>
+		</section>
 	)
 }
 
