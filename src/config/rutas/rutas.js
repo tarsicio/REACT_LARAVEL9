@@ -14,4 +14,5 @@ export const LOGOUT           = '/logout';
 export const REGISTER         = '/register';
 export const CONFIRM          = '/confirm';
 export const DASHBOARD        = '/dashboard';
-export const RECOVER_PASSWORD = '/recover/password'
+export const RECOVER_PASSWORD = '/recovery/password';
+export const RESET_PASSWORD   = '/reset';

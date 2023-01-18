@@ -26,7 +26,7 @@ export const LABEL_PASSWORD   = 'Password';
 export const LABEL_NAME       = 'Full Name';
 export const LABEL_USER_NAME  = 'User Name';
 export const LABEL_REGISTER   = 'Registrate aquí...';
-export const LABEL_YA_LOGIN   = 'Ya estas registrado ? haz login aquí...'
+export const LABEL_YA_LOGIN   = 'Ya estas registrado ? haz login aquí...';
 
 /**
  * Etiquetas de Botones 
@@ -38,11 +38,11 @@ export const BNT_RESET_PASS   = 'Recover Password | Recuperar Clave';
 /**
  * Etiquetas de Mensajes MSG 
  */
-export const MSG_PASSWORD     = 'We \'ll never share your email and password with anyone else.';
-export const MSG_ERROR_FORM   = 'Error en los datos del formulario...';
-export const TERMS_NEED       = 'Debe aceptar los terminos';
-export const SET_PASSWORD     = 'Recuperar password aquí...'
-export const RETURN_PASSWORD  = 'Recuperar Clave';
+export const MSG_PASSWORD       = 'We \'ll never share your email and password with anyone else.';
+export const MSG_ERROR_FORM     = 'Error en los datos del formulario...';
+export const TERMS_NEED         = 'Debe aceptar los terminos';
+export const SET_PASSWORD       = 'Recuperar password aquí...';
+export const SEND_MAIL_RECOVERY = 'Hemos enviado su enlace de restablecimiento de contraseña por correo electrónico!';
 
 /**
  * Etiquetas de Loanding 
@@ -50,5 +50,10 @@ export const RETURN_PASSWORD  = 'Recuperar Clave';
 export const VALIDATE_WAIT    = 'Validate .... Please wait';
 export const REGISTER_WAIT    = 'Register .... Please wait';
 export const LOGOUT_WAIT      = 'Logout .... Please wait';
+
+/**
+ * Etiquetas de Título principal 
+ */
+export const RETURN_PASSWORD  = 'RECUPERAR CLAVE';
 
 
