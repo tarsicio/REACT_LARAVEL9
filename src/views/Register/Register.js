@@ -10,6 +10,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Loading from '../../components/Loading/Loading';
@@ -180,8 +181,12 @@ function Register(){
               {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}
               {erroresForm ? <div style={{color:"red", textAlign:"center"}}>{MSG_ERROR_FORM}</div> : <div></div>}
               {isLoading ? <Loading msg={REGISTER_WAIT} /> : <div></div>}
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>{LABEL_NAME}</Form.Label>
+              <Form.Group className="mb-3" controlId="formBasicEmail">                
+                <FloatingLabel
+                  controlId="floatingName"
+                  label={LABEL_NAME}
+                  className="mb-3"
+                >
                 <Form.Control 
                   type="text" 
                   name="name"
@@ -190,12 +195,17 @@ function Register(){
                   placeholder="Enter Full Name" 
                   disabled={isLoading} 
                   autoComplete="on"/>
+                  </FloatingLabel>
                   {invalidNameInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_NAME}</Form.Label> : ''}
                   {nameErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{nameError}</Form.Label> : ''}
               </Form.Group>
               
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>{LABEL_USER_NAME}</Form.Label>
+              <Form.Group className="mb-3" controlId="formBasicEmail">                
+                <FloatingLabel
+                  controlId="floatingUserName"
+                  label={LABEL_USER_NAME}
+                  className="mb-3"
+                >
                 <Form.Control 
                   type="text" 
                   name="username"
@@ -204,12 +214,17 @@ function Register(){
                   placeholder="Enter User Name" 
                   disabled={isLoading} 
                   autoComplete="on"/>
+                  </FloatingLabel>
                   {invalidUserNameInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_USER_NAME}</Form.Label> : ''}
                   {userNameErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{userNameError}</Form.Label> : ''}
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>{LABEL_EMAIL}</Form.Label>
+              <Form.Group className="mb-3" controlId="formBasicEmail">                
+                <FloatingLabel
+                  controlId="floatingMail"
+                  label={LABEL_EMAIL}
+                  className="mb-3"
+                >
                 <Form.Control 
                   type="email" 
                   name="email"
@@ -218,12 +233,17 @@ function Register(){
                   placeholder="Enter email" 
                   disabled={isLoading} 
                   autoComplete="on"/>
+                  </FloatingLabel>
                   {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_EMAIL}</Form.Label> : ''}
                   {emailErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{emailError}</Form.Label> : ''}
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>{LABEL_PASSWORD}</Form.Label>
+              <Form.Group className="mb-3" controlId="formBasicPassword">                
+                <FloatingLabel
+                  controlId="floatingPassword"
+                  label={LABEL_PASSWORD}
+                  className="mb-3"
+                >
                 <Form.Control 
                   type="password" 
                   name="password" 
@@ -232,6 +252,7 @@ function Register(){
                   placeholder="Password"
                   disabled={isLoading}
                   autoComplete="on" />
+                  </FloatingLabel>
                   <Form.Text className="text-muted">
                     {MSG_PASSWORD}
                   </Form.Text>

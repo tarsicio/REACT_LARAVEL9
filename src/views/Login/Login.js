@@ -18,6 +18,7 @@ import { UseData } from '../../store/UserLogin';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Loading from '../../components/Loading/Loading';
 import axios from 'axios';
 import { 
@@ -132,8 +133,12 @@ function Login(){
                   {estado ? <div style={{color:"red", textAlign:"center"}}>{ERROR_DATOS}</div> : <div></div>}
                   {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}              
                 </div>            
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>{LABEL_EMAIL}</Form.Label>
+              <Form.Group className="mb-3" controlId="formBasicEmail">                
+                <FloatingLabel
+                  controlId="floatingMail"
+                  label={LABEL_EMAIL}
+                  className="mb-3"
+                >
                 <Form.Control 
                   type="email" 
                   name="email"
@@ -142,14 +147,19 @@ function Login(){
                   placeholder="Enter email" 
                   disabled={isLoading} 
                   autoComplete="on"/>
+                  </FloatingLabel>
                   {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_EMAIL}</Form.Label> : ''}
                 <Form.Text className="text-muted">
                   {MSG_PASSWORD}
                 </Form.Text>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>{LABEL_PASSWORD}</Form.Label>
+              <Form.Group className="mb-3" controlId="formBasicPassword">                
+                <FloatingLabel
+                  controlId="floatingPassword"
+                  label={LABEL_PASSWORD}
+                  className="mb-3"
+                >
                 <Form.Control 
                   type="password" 
                   name="password" 
@@ -158,6 +168,7 @@ function Login(){
                   placeholder="Password"
                   disabled={isLoading}
                   autoComplete="on" />
+                  </FloatingLabel>
                   {invalidPasswordInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_PASSWORD}</Form.Label> : ''}
               </Form.Group>          
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
