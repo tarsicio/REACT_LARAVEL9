@@ -16,7 +16,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Loading from '../../components/Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
-import { URL_BASE, REGISTER, HOME } from '../../config/rutas/rutas';
+import { URL_BASE, REGISTER, HOME, LOGIN } from '../../config/rutas/rutas';
+import { Link } from 'react-router-dom';
 import {
   ERROR_NAME,
   ERROR_USER_NAME,
@@ -31,7 +32,8 @@ import {
   MSG_PASSWORD,
   REGISTER_WAIT,
   TERMS_NEED,
-  MSG_ERROR_FORM
+  MSG_ERROR_FORM,
+  LABEL_YA_LOGIN
 } from '../../config/label/label';
 
 function Register(){
@@ -175,12 +177,14 @@ function Register(){
           <div className="auth-inner">      
             <Form onSubmit={register} >
               <h3>Register</h3>
+              <div style={{padding:"20px"}}>
+                {isLoading ? <Loading msg={REGISTER_WAIT} /> : <div></div>}
+              </div>  
               <div style={{textAlign: "center"}}>
                 <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
               </div>
               {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}
-              {erroresForm ? <div style={{color:"red", textAlign:"center"}}>{MSG_ERROR_FORM}</div> : <div></div>}
-              {isLoading ? <Loading msg={REGISTER_WAIT} /> : <div></div>}
+              {erroresForm ? <div style={{color:"red", textAlign:"center"}}>{MSG_ERROR_FORM}</div> : <div></div>}              
               <Form.Group className="mb-3" controlId="formBasicEmail">                
                 <FloatingLabel
                   controlId="floatingName"
@@ -277,7 +281,9 @@ function Register(){
                 </Button>
               </div>
               <p className="forgot-password text-right">
-                Already registered <a href="/login">login?</a>
+                <Link className="nav-link" to={LOGIN} style={{color: "blue"}}>
+                  {LABEL_YA_LOGIN}
+                </Link>                 
               </p>
             </Form>
           </div>

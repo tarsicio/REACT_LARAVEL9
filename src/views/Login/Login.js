@@ -21,10 +21,13 @@ import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Loading from '../../components/Loading/Loading';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { 
   URL_BASE, 
-  LOGIN, 
-  DASHBOARD } from '../../config/rutas/rutas';
+  LOGIN,
+  REGISTER, 
+  DASHBOARD,
+  RECOVER_PASSWORD } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import {
   ERROR_EMAIL,
@@ -35,7 +38,9 @@ import {
   LABEL_PASSWORD,
   BNT_LOGIN,
   MSG_PASSWORD,
-  VALIDATE_WAIT
+  VALIDATE_WAIT,
+  LABEL_REGISTER,
+  SET_PASSWORD
 } from '../../config/label/label';
 
 function Login(){
@@ -55,8 +60,7 @@ function Login(){
   //Cargando Loading
   const [isLoading, setIsLoading] = useState (false);
   //redireccionar la página
-  const navigate = useNavigate();
-  //Acceso al Context Global, para gusradar Los datos del Usuario y Token.
+  const navigate = useNavigate();  
 
   const handleMailChange = (e) => {
     setEmail(e.target.value);
@@ -122,13 +126,13 @@ function Login(){
         <div className="auth-wrapper">
           <div className="auth-inner">      
             <Form onSubmit={login}>
-            <h3>Login</h3><div></div>    
+            <h3>Login</h3>
+              <div style={{padding:"20px"}}> 
+                  {isLoading ? <Loading msg={VALIDATE_WAIT} /> : <div></div>}
+              </div>
                 <div style={{textAlign: "center"}}>
                   <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
-                </div>
-                <div> 
-                  {isLoading ? <Loading msg={VALIDATE_WAIT} /> : <div></div>}
-                </div>            
+                </div>                
                 <div>
                   {estado ? <div style={{color:"red", textAlign:"center"}}>{ERROR_DATOS}</div> : <div></div>}
                   {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}              
@@ -177,6 +181,16 @@ function Login(){
               <Button variant="primary" type="submit" disabled={isLoading}>
                 {BNT_LOGIN}
               </Button>
+              <p className="forgot-password text-right">
+                <Link className="nav-link" to={RECOVER_PASSWORD} style={{color: "blue"}}>
+                  {SET_PASSWORD}
+                </Link>                 
+              </p>
+              <p className="forgot-password text-right">
+                <Link className="nav-link" to={REGISTER} style={{color: "blue"}}>
+                  {LABEL_REGISTER}
+                </Link>                 
+              </p>
             </Form>
           </div>
         </div>

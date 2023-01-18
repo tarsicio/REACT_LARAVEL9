@@ -7,10 +7,11 @@
  * @copyright (c) 2023 Tarsicio Carrizales
  */
 
-export const URL_BASE  = 'http://localhost:8000/api/v1'; 
-export const HOME      = '/';
-export const LOGIN     = '/login';
-export const LOGOUT    = '/logout';
-export const REGISTER  = '/register';
-export const CONFIRM   = '/confirm';
-export const DASHBOARD = '/dashboard';
+export const URL_BASE         = 'http://localhost:8000/api/v1'; 
+export const HOME             = '/';
+export const LOGIN            = '/login';
+export const LOGOUT           = '/logout';
+export const REGISTER         = '/register';
+export const CONFIRM          = '/confirm';
+export const DASHBOARD        = '/dashboard';
+export const RECOVER_PASSWORD = '/recover/password'

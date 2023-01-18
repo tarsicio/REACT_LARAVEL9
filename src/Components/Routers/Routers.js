@@ -11,13 +11,20 @@
 
 import React from 'react';
 import Login from '../../views/Login/Login';
+import SendMailPasswordRecover from '../../views/PasswordReset/SendMailPasswordRecover';
 import Logout from '../../views/Logout/Logout';
 import Register from '../../views/Register/Register';
 import Home from '../../views/Home/Home';
 import Dashboard from '../../views/Dashboard/Dashboard';
 import NoFound404 from '../../views/Page/NoFound404';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/rutas/rutas';
+import { 
+	HOME, 
+	LOGIN, 
+	LOGOUT, 
+	REGISTER, 
+	DASHBOARD,
+	RECOVER_PASSWORD } from '../../config/rutas/rutas';
 import PrivateRouter from './PrivateRouter'
 import PublicRouter from './PublicRouter'
 import { UseData } from '../../store/UserLogin';
@@ -38,6 +45,11 @@ function Routers(){
 				<Route path={REGISTER} element={
 					<PublicRouter token={_token}>
 						<Register />
+					</PublicRouter>  
+				} />
+				<Route path={RECOVER_PASSWORD} element={
+					<PublicRouter token={_token}>
+						<SendMailPasswordRecover />
 					</PublicRouter>  
 				} /> 				
 				<Route path={DASHBOARD} element={
