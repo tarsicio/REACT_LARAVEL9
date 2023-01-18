@@ -21,13 +21,13 @@ import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/rutas/rut
 import PrivateRouter from './PrivateRouter'
 import PublicRouter from './PublicRouter'
 import { UseData } from '../../store/UserLogin';
-import Navigationbar from '../Navigationbar/Navigationbar';
+import Header from '../Header/Header';
 
 function Routers(){
 	const _token = UseData(state => state._token);
 	return(		
 		<BrowserRouter>
-			<Navigationbar />
+			<Header />
 			<Routes>
 				<Route exact path={HOME} element={<Home />} />				
 				<Route path={LOGIN} element={

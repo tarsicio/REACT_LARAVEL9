@@ -14,21 +14,22 @@ import Nav from 'react-bootstrap/Nav';
 import Image from "react-bootstrap/Image";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import '../Footer/style.css';
-import { LOGO_HORUS } from '../../config/imgs/imgs';
+import { LOGO_HORUS, LOGO_REACT, LOGO_LARAVEL } from '../../config/imgs/imgs';
 //import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/rutas/rutas';
 import { UseData } from '../../store/UserLogin';
+import Carousel from 'react-bootstrap/Carousel';
 
-function Navigationbar() {
+function Header() {
   const _token = UseData(state => state._token);
   return (
-    <header>     
+    <header>         
       {['xl'].map((expand) => (
         <Navbar key={expand} bg="light" expand={expand} className="mb-0" style={{padding:0}}>
           <Container fluid>
             <NavLink className="navbar-brand" to={HOME} style={{background: "white"}}>
-              <Image src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30}} alt="Logo_Horus" roundedCircle />              
+              <Image src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30}} alt="Logo_Horus" roundedCircle />
             </NavLink>
               <NavLink className="nav-link" to={HOME} style={{color: "black"}}>
                 Home
@@ -79,8 +80,27 @@ function Navigationbar() {
           </Container>
         </Navbar>
       ))}
+      { !_token &&
+      <Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={LOGO_REACT.LogoReact}
+            alt="Logo_React"
+            style={{height:"400px"}}
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={LOGO_LARAVEL.LogoLaravel}
+            alt="Logo_Laravel"
+            style={{height:"400px"}}
+          />          
+        </Carousel.Item>
+      </Carousel> }
     </header>
   );
 }
 
-export default Navigationbar;
+export default Header;
