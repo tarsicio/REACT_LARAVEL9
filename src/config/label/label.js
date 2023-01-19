@@ -34,12 +34,14 @@ export const LABEL_YA_LOGIN   = 'Ya estas registrado ? haz login aquí...';
 export const BNT_LOGIN        = 'Login | Entrar';
 export const BNT_REGISTER     = 'Register | Registrar';
 export const BNT_RESET_PASS   = 'Recover Password | Recuperar Clave';
+export const BNT_CONFIRM      = 'Confirmar Registro';
 
 /**
  * Etiquetas de Mensajes MSG 
  */
 export const MSG_PASSWORD       = 'We \'ll never share your email and password with anyone else.';
 export const MSG_ERROR_FORM     = 'Error en los datos del formulario...';
+export const MSG_CODE_ERROR     = 'El código suministrado es invalido o el mismo ya venció';
 export const TERMS_NEED         = 'Debe aceptar los terminos';
 export const SET_PASSWORD       = 'Recuperar password aquí...';
 export const SEND_MAIL_RECOVERY = 'Hemos enviado su enlace de restablecimiento de contraseña por correo electrónico!';

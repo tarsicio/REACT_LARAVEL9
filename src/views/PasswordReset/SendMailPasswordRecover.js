@@ -87,8 +87,8 @@ function SendMailPasswordRecover(){
 	        console.log(datos);
 	        if(status === 200){	        	
 	        	setMailSend(true);
-	          	setEstado(false);
-	          	setIsLoading(false);	          	
+	          setEstado(false);
+	          setIsLoading(false);	          	
 	        }else{          
 	          setEstado(true);
 	          setIsLoading(false);	          
@@ -99,8 +99,8 @@ function SendMailPasswordRecover(){
 	          setServidorAPI(true);
 	        }else if(error.code === "ERR_BAD_REQUEST") {	        	
 	        	setMsgMailError(error.response.data.errors.email);
-	          	setEstado(true);
-	          	setMailError(true);	          	
+	          setEstado(true);
+	          setMailError(true);	          	
 	        }     
 	      }finally{
 	        setIsLoading(false);        

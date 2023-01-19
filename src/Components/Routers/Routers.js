@@ -14,6 +14,7 @@ import Login from '../../views/Login/Login';
 import SendMailPasswordRecover from '../../views/PasswordReset/SendMailPasswordRecover';
 import Logout from '../../views/Logout/Logout';
 import Register from '../../views/Register/Register';
+import ConfirmRegister from '../../views/Register/ConfirmRegister';
 import Home from '../../views/Home/Home';
 import Dashboard from '../../views/Dashboard/Dashboard';
 import NoFound404 from '../../views/Page/NoFound404';
@@ -24,7 +25,8 @@ import {
 	LOGOUT, 
 	REGISTER, 
 	DASHBOARD,
-	RECOVER_PASSWORD } from '../../config/rutas/rutas';
+	RECOVER_PASSWORD,
+	CONFIRM } from '../../config/rutas/rutas';
 import PrivateRouter from './PrivateRouter'
 import PublicRouter from './PublicRouter'
 import { UseData } from '../../store/UserLogin';
@@ -50,6 +52,11 @@ function Routers(){
 				<Route path={RECOVER_PASSWORD} element={
 					<PublicRouter token={_token}>
 						<SendMailPasswordRecover />
+					</PublicRouter>  
+				} />
+				<Route path={CONFIRM} element={
+					<PublicRouter token={_token}>
+						<ConfirmRegister />
 					</PublicRouter>  
 				} /> 				
 				<Route path={DASHBOARD} element={
