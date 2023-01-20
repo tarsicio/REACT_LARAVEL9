@@ -15,5 +15,5 @@ export const REGISTER         = '/register';
 export const CONFIRM          = '/register/confirm/:confirmation_code';
 export const DASHBOARD        = '/dashboard';
 export const REQUEST_PASSWORD = '/recovery/password';
-export const RESET_PASSWORD   = '/reset/password/:reset_password';
+export const RESET_PASSWORD   = '/password/reset/:reset_password';
 export const BIENVENIDO       = '/bienvenido';

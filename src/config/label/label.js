@@ -48,7 +48,7 @@ export const MSG_CODE_ERROR     = 'El código suministrado es invalido o el mism
 export const TERMS_NEED         = 'Debe aceptar los terminos';
 export const SET_PASSWORD       = 'Recuperar password aquí...';
 export const SEND_MAIL_RECOVERY = 'Hemos enviado su enlace de restablecimiento de contraseña por correo electrónico!';
-
+export const MSG_PASSWORD_OK    = 'Cambio de calve realizado con éxito...';
 /**
  * Etiquetas de Loanding 
  */

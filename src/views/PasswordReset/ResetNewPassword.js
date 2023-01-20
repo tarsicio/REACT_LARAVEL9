@@ -10,14 +10,13 @@
  * 
  */
 
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import axios from 'axios';
-import { URL_BASE, LOGIN } from '../../config/rutas/rutas';
+import { URL_BASE } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import Loading from '../../components/Loading/Loading';
 import { 
@@ -28,26 +27,38 @@ import {
   VALIDATE_WAIT,
   BNT_RESET_PASS,
   ERROR_PASSWORD,
-  ERROR_IGUALES } from '../../config/label/label';
+  ERROR_IGUALES,
+  LABEL_EMAIL,
+  MSG_PASSWORD_OK } from '../../config/label/label';
 
 function ResetNewPassword(){
 	
 	const location = useLocation();
 	const currentUrl = location.pathname;	
   const endpoint = URL_BASE + currentUrl;
+  console.log(endpoint);
   let valido = true;
 	//Cargando Loading
 	const [isLoading, setIsLoading] = useState (false);
-	//redireccionar la página
-	const navigate = useNavigate();
   const [servidorAPI, setServidorAPI] = useState(false);
+  const [email,setEmail] = useState('');
+  const [bloquearEmail,setBloquearEmail] = useState(false);
   const [password,setPassword] = useState('');
   const [password2,setPassword2] = useState('');
   const [vacio, setVacio] = useState(false);
   const [diferentes, setDiferentes] = useState(false);
-  const [estado,setEstado] = useState(false);
-	//Acceso al Context Global, para gusradar Los datos del Usuario y Token. 			
+  const [estado,setEstado] = useState(false);  
+  const [passwordOk,setPasswordOk] = useState(false);
 	
+  useEffect(() => {
+    setEmail('telecom.com.ve@gmail.com');
+    setBloquearEmail(true);    
+  },[])
+
+  const handleMailChange = (e) => {
+      setEmail(e.target.value);      
+  }
+
   const handlePasswordChange = (e) => {
       setPassword(e.target.value);      
       setEstado(false);
@@ -65,7 +76,8 @@ function ResetNewPassword(){
     }
 
 	const reset = async (e) => {
-		e.preventDefault();
+    setPasswordOk(false);
+		e.preventDefault();    
     if(password !== password2){
       setDiferentes(true);        
       valido = false;
@@ -75,18 +87,19 @@ function ResetNewPassword(){
       valido = false;
     }
     if(valido){
-      setIsLoading(true);
+      setIsLoading(true);      
   		try{
   			setIsLoading(true);			
   			setServidorAPI(false);
   			const datos = await axios.post(endpoint,{
+          email: email,
           password: password
         });
         const status = datos.status;
         console.log(datos);        
         if(status === 201){ 
-        	console.log(datos);      	
-          navigate(LOGIN);          
+          setIsLoading(false);
+          setPasswordOk(true);          
         }else{          
           setServidorAPI(true);
         }		  
@@ -97,6 +110,7 @@ function ResetNewPassword(){
           setIsLoading(false);
   	    }else if(error.code === "ERR_BAD_REQUEST") {
           setIsLoading(false);
+          setEstado(true);
         }else{
         	//NADA
         }
@@ -120,8 +134,25 @@ function ResetNewPassword(){
                 </div>                
                 <div>
                   { estado ? <div style={{color:"red", textAlign:"center"}}>{ERROR_DATOS}</div> : <div></div> }
-                  { servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div> }                  
+                  { servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div> }
+                  { passwordOk ? <div style={{color:"green", textAlign:"center"}}>{MSG_PASSWORD_OK}</div> : <div></div> }
                 </div>
+                <Form.Group className="mb-3" controlId="formBasicEmail">                
+                <FloatingLabel
+                  controlId="floatingemail"
+                  label={LABEL_EMAIL}
+                  className="mb-3"
+                >
+                <Form.Control 
+                  type="email" 
+                  name="email"
+                  value={email}
+                  onChange={ handleMailChange }                  
+                  placeholder="Enter Email" 
+                  disabled={bloquearEmail} 
+                  autoComplete="on"/>
+                  </FloatingLabel>              
+              </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">                
                 <FloatingLabel
                   controlId="floatingPassword"
