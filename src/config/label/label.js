@@ -17,12 +17,14 @@ export const ERROR_PASSWORD   = 'El campo Password es obligatorio';
 export const ERROR_DATOS      = 'ERROR EN LOS DATOS VERIFIQUE';
 export const ERROR_SERVER_API = 'Falló la Conexión al Servidor API, llame al Administrador del Sistema';
 export const ERROR_CONEXION   = 'Error de Conexión, llame a soporte';
+export const ERROR_IGUALES    = 'Los campos Password debe ser iguales';
 
 /**
  * Etiquetas de Label 
  */
 export const LABEL_EMAIL      = 'Email address';
 export const LABEL_PASSWORD   = 'Password';
+export const LABEL_PASSWORD2  = 'Repeat Password';
 export const LABEL_NAME       = 'Full Name';
 export const LABEL_USER_NAME  = 'User Name';
 export const LABEL_REGISTER   = 'Registrate aquí...';
@@ -41,6 +43,7 @@ export const BNT_CONFIRM      = 'Confirmar Registro';
  */
 export const MSG_PASSWORD       = 'We \'ll never share your email and password with anyone else.';
 export const MSG_ERROR_FORM     = 'Error en los datos del formulario...';
+export const MSG_BIENVENIDA     = 'Bienvenido al sistema HORUS | 2023, consulte su correo y confirme el registro'
 export const MSG_CODE_ERROR     = 'El código suministrado es invalido o el mismo ya venció';
 export const TERMS_NEED         = 'Debe aceptar los terminos';
 export const SET_PASSWORD       = 'Recuperar password aquí...';

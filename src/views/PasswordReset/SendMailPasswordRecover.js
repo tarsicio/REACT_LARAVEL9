@@ -11,7 +11,6 @@
  */
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
@@ -22,7 +21,6 @@ import {
   URL_BASE, 
   LOGIN,
   REGISTER,
-  HOME,
   RESET_PASSWORD } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import {
@@ -41,8 +39,8 @@ import {
 function SendMailPasswordRecover(){
 
 	let valido = true;
-  	const endpoint = URL_BASE + RESET_PASSWORD;
-  	// Validaciones form  
+  const endpoint = URL_BASE + RESET_PASSWORD;
+  // Validaciones form  
 	const [invalidMailInput,setInvalidMailInput] = useState(false);
 	const [mailSend, setMailSend] = useState(false);
 	const [mailError, setMailError] = useState(false);
@@ -53,8 +51,6 @@ function SendMailPasswordRecover(){
 	const [estado, setEstado] = useState(false);
 	//Cargando Loading
 	const [isLoading, setIsLoading] = useState (false);
-	//redireccionar la página
-	const navigate = useNavigate();
 	//Acceso al Context Global, para gusradar Los datos del Usuario y Token. 
 
 	const handleMailChange = (e) => {

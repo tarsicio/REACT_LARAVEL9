@@ -16,7 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Loading from '../../components/Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
-import { URL_BASE, REGISTER, HOME, LOGIN } from '../../config/rutas/rutas';
+import { URL_BASE, REGISTER, BIENVENIDO, LOGIN } from '../../config/rutas/rutas';
 import { Link } from 'react-router-dom';
 import {
   ERROR_NAME,
@@ -137,10 +137,10 @@ function Register(){
           password: password,
           terms: terms
         });
-        const code = datos.data.code;        
+        const code = datos.status;        
           if(code === 201){
             setIsLoading(false);
-            navigate(HOME);          
+            navigate(BIENVENIDO);          
           }else{ 
             console.log(datos)
           }

@@ -47,7 +47,7 @@ function ConfirmRegister(){
       if(status === 201){ 
       	console.log(datos);      	
         _token(datos.data.access_token);          
-        _user(datos.data.dato);                   
+        _user(datos.data.user);                   
          navigate(DASHBOARD);          
       }else{          
         setServidorAPI(true);

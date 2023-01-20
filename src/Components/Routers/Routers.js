@@ -12,8 +12,10 @@
 import React from 'react';
 import Login from '../../views/Login/Login';
 import SendMailPasswordRecover from '../../views/PasswordReset/SendMailPasswordRecover';
+import ResetNewPassword from '../../views/PasswordReset/ResetNewPassword';
 import Logout from '../../views/Logout/Logout';
 import Register from '../../views/Register/Register';
+import MsgRegistro from '../../views/Register/MsgRegistro';
 import ConfirmRegister from '../../views/Register/ConfirmRegister';
 import Home from '../../views/Home/Home';
 import Dashboard from '../../views/Dashboard/Dashboard';
@@ -25,8 +27,10 @@ import {
 	LOGOUT, 
 	REGISTER, 
 	DASHBOARD,
-	RECOVER_PASSWORD,
-	CONFIRM } from '../../config/rutas/rutas';
+	REQUEST_PASSWORD,
+	RESET_PASSWORD,
+	CONFIRM,
+	BIENVENIDO } from '../../config/rutas/rutas';
 import PrivateRouter from './PrivateRouter'
 import PublicRouter from './PublicRouter'
 import { UseData } from '../../store/UserLogin';
@@ -49,14 +53,24 @@ function Routers(){
 						<Register />
 					</PublicRouter>  
 				} />
-				<Route path={RECOVER_PASSWORD} element={
+				<Route path={REQUEST_PASSWORD} element={
 					<PublicRouter token={_token}>
 						<SendMailPasswordRecover />
+					</PublicRouter>  
+				} />
+				<Route path={RESET_PASSWORD} element={
+					<PublicRouter token={_token}>
+						<ResetNewPassword />
 					</PublicRouter>  
 				} />
 				<Route path={CONFIRM} element={
 					<PublicRouter token={_token}>
 						<ConfirmRegister />
+					</PublicRouter>  
+				} />
+				<Route path={BIENVENIDO} element={
+					<PublicRouter token={_token}>
+						<MsgRegistro />
 					</PublicRouter>  
 				} /> 				
 				<Route path={DASHBOARD} element={

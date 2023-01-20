@@ -27,7 +27,7 @@ import {
   LOGIN,
   REGISTER, 
   DASHBOARD,
-  RECOVER_PASSWORD } from '../../config/rutas/rutas';
+  REQUEST_PASSWORD } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import {
   ERROR_EMAIL,
@@ -182,7 +182,7 @@ function Login(){
                 {BNT_LOGIN}
               </Button>
               <p className="forgot-password text-right">
-                <Link className="nav-link" to={RECOVER_PASSWORD} style={{color: "blue"}}>
+                <Link className="nav-link" to={REQUEST_PASSWORD} style={{color: "blue"}}>
                   {SET_PASSWORD}
                 </Link>                 
               </p>
