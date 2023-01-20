@@ -79,17 +79,22 @@ function ResetNewPassword(){
   		try{
   			setIsLoading(true);			
   			setServidorAPI(false);
-  			const datos = await axios.post(endpoint);
-        const status = datos.status;        
+  			const datos = await axios.post(endpoint,{
+          password: password
+        });
+        const status = datos.status;
+        console.log(datos);        
         if(status === 201){ 
         	console.log(datos);      	
           navigate(LOGIN);          
         }else{          
           setServidorAPI(true);
         }		  
-  		}catch(error){			     
+  		}catch(error){
+        console.log(error);
   	    if(error.code === "ERR_NETWORK"){
   	      setServidorAPI(true);
+          setIsLoading(false);
   	    }else if(error.code === "ERR_BAD_REQUEST") {
           setIsLoading(false);
         }else{
