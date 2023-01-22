@@ -21,7 +21,7 @@ import {
   URL_BASE, 
   LOGIN,
   REGISTER,
-  RESET_PASSWORD } from '../../config/rutas/rutas';
+  SEND_MAIL	 } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import {
   ERROR_EMAIL,  
@@ -39,7 +39,7 @@ import {
 function SendMailPasswordRecover(){
 
 	let valido = true;
-  const endpoint = URL_BASE + RESET_PASSWORD;
+  const endpoint = URL_BASE + SEND_MAIL;  
   // Validaciones form  
 	const [invalidMailInput,setInvalidMailInput] = useState(false);
 	const [mailSend, setMailSend] = useState(false);
@@ -90,7 +90,8 @@ function SendMailPasswordRecover(){
 	          setIsLoading(false);	          
 	        }
 	      }catch(error){ 
-	      	console.log(error);       
+	      	console.log(error); 
+	      	console.log('TARSICIO');      
 	        if(error.code === "ERR_NETWORK"){
 	          setServidorAPI(true);
 	        }else if(error.code === "ERR_BAD_REQUEST") {	        	

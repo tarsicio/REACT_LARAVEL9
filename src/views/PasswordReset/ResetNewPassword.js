@@ -44,7 +44,7 @@ function ResetNewPassword(){
   const [email,setEmail] = useState('');
   const [bloquearEmail,setBloquearEmail] = useState(false);
   const [password,setPassword] = useState('');
-  const [password2,setPassword2] = useState('');
+  const [password_confirmation,setPassword_confirmation] = useState('');
   const [vacio, setVacio] = useState(false);
   const [diferentes, setDiferentes] = useState(false);
   const [estado,setEstado] = useState(false);  
@@ -68,7 +68,7 @@ function ResetNewPassword(){
     }
 
     const handlePassword2Change = (e) => {
-      setPassword2(e.target.value);      
+      setPassword_confirmation(e.target.value);      
       setEstado(false);
       setServidorAPI(false);
       setDiferentes(false);
@@ -78,11 +78,11 @@ function ResetNewPassword(){
 	const reset = async (e) => {
     setPasswordOk(false);
 		e.preventDefault();    
-    if(password !== password2){
+    if(password !== password_confirmation){
       setDiferentes(true);        
       valido = false;
     }
-    if(password === '' || password2 === ''){
+    if(password === '' || password_confirmation === ''){
       setVacio(true);
       valido = false;
     }
@@ -93,7 +93,8 @@ function ResetNewPassword(){
   			setServidorAPI(false);
   			const datos = await axios.post(endpoint,{
           email: email,
-          password: password
+          password: password,
+          password_confirmation: password_confirmation
         });
         const status = datos.status;
         console.log(datos);        
@@ -179,10 +180,10 @@ function ResetNewPassword(){
                 >
                 <Form.Control 
                   type="password" 
-                  name="password2"
-                  value={password2} 
+                  name="password_confirmation"
+                  value={password_confirmation} 
                   onChange={ handlePassword2Change }
-                  placeholder="Enter Password Again" 
+                  placeholder="Repeat Password Again" 
                   disabled={isLoading} 
                   autoComplete="on"/>
                   </FloatingLabel> 

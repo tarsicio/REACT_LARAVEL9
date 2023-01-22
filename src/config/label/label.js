@@ -24,7 +24,7 @@ export const ERROR_IGUALES    = 'Los campos Password debe ser iguales';
  */
 export const LABEL_EMAIL      = 'Email address';
 export const LABEL_PASSWORD   = 'Password';
-export const LABEL_PASSWORD2  = 'Repeat Password';
+export const LABEL_PASSWORD2  = 'Repeat Password Again';
 export const LABEL_NAME       = 'Full Name';
 export const LABEL_USER_NAME  = 'User Name';
 export const LABEL_REGISTER   = 'Registrate aquí...';
