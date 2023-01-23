@@ -17,4 +17,5 @@ export const DASHBOARD        = '/dashboard';
 export const REQUEST_PASSWORD = '/recovery/password';
 export const SEND_MAIL        = '/reset';
 export const RESET_PASSWORD   = '/password/reset/:reset_password';
+export const PASSWORD_RESET   = '/password/reset/';
 export const BIENVENIDO       = '/bienvenido';

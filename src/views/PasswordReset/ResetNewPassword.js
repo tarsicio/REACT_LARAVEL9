@@ -11,12 +11,12 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import axios from 'axios';
-import { URL_BASE, RESET_PASSWORD } from '../../config/rutas/rutas';
+import { URL_BASE, LOGIN, REGISTER, PASSWORD_RESET  } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import Loading from '../../components/Loading/Loading';
 import { 
@@ -28,12 +28,14 @@ import {
   BNT_RESET_PASS,
   ERROR_PASSWORD,
   ERROR_IGUALES,
+  LABEL_REGISTER,
   LABEL_EMAIL,
+  LABEL_YA_LOGIN,
   MSG_PASSWORD_OK } from '../../config/label/label';
 
 function ResetNewPassword(){
 	
-  const endpoint = URL_BASE + RESET_PASSWORD;  
+  const endpoint = URL_BASE + PASSWORD_RESET;  
   let valido = true;
 	//Cargando Loading
 	const [isLoading, setIsLoading] = useState (false);
@@ -49,17 +51,17 @@ function ResetNewPassword(){
   const [passwordOk,setPasswordOk] = useState(false);
 	
   useEffect(() => {    
-    const url = window.location.href;
-    const parts = url.split('/');    
-    const path = parts[5];    
-    const queryParams = path.split('?');    
-    const tokenReseat = queryParams[0];    
-    const mailUser = queryParams[1];    
-    const mail = mailUser.split('=')[1];    
-    const decodedEmail = decodeURIComponent(mail);    
-    setEmail(decodedEmail);
+    const url = window.location.href;// Toma la URL de la página WEB
+    const parts = url.split('/'); // La divide en 6 Partes    
+    const path = parts[5]; // La quinata Parte contiene el Token y el Email   
+    const queryParams = path.split('?'); //Vuelve a dividir en dos partes    
+    const tokenReseat = queryParams[0]; // La primera Parte extrae el Token   
+    const mailUser = queryParams[1]; 
+    const mail = mailUser.split('=')[1]; // La segunda parte extrae el Email       
+    const decodedEmail = decodeURIComponent(mail); //Formatea de nuevo el Mail    
+    setEmail(decodedEmail); //Asignamos el Mail al campo Input de Mail
     setBloquearEmail(true);
-    setToken(tokenReseat);    
+    setToken(tokenReseat); // Asignamos el Token a la Variable Token, para luego enviar a la API   
   },[])
 
   const handleMailChange = (e) => {
@@ -105,10 +107,13 @@ function ResetNewPassword(){
           token: token
         });
         const status = datos.status;
-        console.log(datos);        
-        if(status === 201){ 
+        if(status === 200){ 
           setIsLoading(false);
-          setPasswordOk(true);          
+          setPasswordOk(true);
+          setEmail('');
+          setPassword_confirmation('');
+          setPassword('');
+          setToken('');
         }else{          
           setServidorAPI(true);
         }		  
@@ -202,7 +207,17 @@ function ResetNewPassword(){
                 <Button variant="primary" type="submit" disabled={isLoading}>
                   {BNT_RESET_PASS}
                 </Button>
-              </div>              
+              </div>
+              <p className="forgot-password text-right">
+                <Link className="nav-link" to={LOGIN} style={{color: "blue"}}>
+                  {LABEL_YA_LOGIN}
+                </Link>                 
+              </p>
+              <p className="forgot-password text-right">
+                <Link className="nav-link" to={REGISTER} style={{color: "blue"}}>
+                  {LABEL_REGISTER}
+                </Link>                 
+              </p>              
             </Form>
           </div>
         </div>
