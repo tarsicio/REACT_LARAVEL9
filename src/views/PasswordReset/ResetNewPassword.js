@@ -16,7 +16,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import axios from 'axios';
-import { URL_BASE } from '../../config/rutas/rutas';
+import { URL_BASE, RESET_PASSWORD } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import Loading from '../../components/Loading/Loading';
 import { 
@@ -33,15 +33,13 @@ import {
 
 function ResetNewPassword(){
 	
-	const location = useLocation();
-	const currentUrl = location.pathname;	
-  const endpoint = URL_BASE + currentUrl;
-  console.log(endpoint);
+  const endpoint = URL_BASE + RESET_PASSWORD;  
   let valido = true;
 	//Cargando Loading
 	const [isLoading, setIsLoading] = useState (false);
   const [servidorAPI, setServidorAPI] = useState(false);
   const [email,setEmail] = useState('');
+  const [token,setToken] = useState('');
   const [bloquearEmail,setBloquearEmail] = useState(false);
   const [password,setPassword] = useState('');
   const [password_confirmation,setPassword_confirmation] = useState('');
@@ -50,9 +48,18 @@ function ResetNewPassword(){
   const [estado,setEstado] = useState(false);  
   const [passwordOk,setPasswordOk] = useState(false);
 	
-  useEffect(() => {
-    setEmail('telecom.com.ve@gmail.com');
-    setBloquearEmail(true);    
+  useEffect(() => {    
+    const url = window.location.href;
+    const parts = url.split('/');    
+    const path = parts[5];    
+    const queryParams = path.split('?');    
+    const tokenReseat = queryParams[0];    
+    const mailUser = queryParams[1];    
+    const mail = mailUser.split('=')[1];    
+    const decodedEmail = decodeURIComponent(mail);    
+    setEmail(decodedEmail);
+    setBloquearEmail(true);
+    setToken(tokenReseat);    
   },[])
 
   const handleMailChange = (e) => {
@@ -94,7 +101,8 @@ function ResetNewPassword(){
   			const datos = await axios.post(endpoint,{
           email: email,
           password: password,
-          password_confirmation: password_confirmation
+          password_confirmation: password_confirmation,
+          token: token
         });
         const status = datos.status;
         console.log(datos);        
