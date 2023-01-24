@@ -126,7 +126,8 @@ function ResetNewPassword(){
           setIsLoading(false);
           setEstado(true);
         }else{
-        	//NADA
+        	setServidorAPI(true);
+          setIsLoading(false);
         }
   	  }finally{
   	        setIsLoading(false);        
