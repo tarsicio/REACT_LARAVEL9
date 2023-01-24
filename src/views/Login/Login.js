@@ -154,7 +154,7 @@ function Login(){
                   </FloatingLabel>
                   {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_EMAIL}</Form.Label> : ''}
                 <Form.Text className="text-muted">
-                  {MSG_PASSWORD}
+                  <div>{MSG_PASSWORD}</div>
                 </Form.Text>
               </Form.Group>
 

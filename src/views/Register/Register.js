@@ -257,11 +257,12 @@ function Register(){
                   disabled={isLoading}
                   autoComplete="on" />
                   </FloatingLabel>
-                  <Form.Text className="text-muted">
-                    {MSG_PASSWORD}
-                  </Form.Text>
                   {invalidPasswordInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_PASSWORD}</Form.Label> : ''}
                   {passwordErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{passwordError}</Form.Label> : ''}
+
+                  <Form.Text className="text-muted">
+                    <div>{MSG_PASSWORD}</div>
+                  </Form.Text>                  
               </Form.Group>
               
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
