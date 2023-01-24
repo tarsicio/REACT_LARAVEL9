@@ -29,10 +29,10 @@ function Header() {
   return (
     <header>         
       {['xl'].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="mb-0" style={{padding:0}}>
+        <Navbar key={expand} bg="light" expand={expand} className="mb-0" style={{padding:"10px"}}>
           <Container fluid>
             <NavLink className="navbar-brand" to={HOME} style={{background: "white"}}>
-              <Image src={LOGO_HORUS.LogoHorus} style={{width: 30, height: 30}} alt="Logo_Horus" roundedCircle />
+              <Image src={LOGO_HORUS.LogoHorus} style={{width: 50, height: 50}} alt="Logo_Horus" roundedCircle />
             </NavLink>
               <NavLink className="nav-link" to={HOME} style={{color: "black"}}>
                 Home
