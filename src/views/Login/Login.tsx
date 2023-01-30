@@ -47,18 +47,18 @@ function Login(){
   const _token = UseData(state => state.setToken);
   const _user = UseData(state => state.setUser);
 
-  let valido = true;
-  const endpoint = URL_BASE + LOGIN;
+  let valido:boolean = true;
+  const endpoint:string = URL_BASE + LOGIN;
   // Validaciones form  
-  const [invalidMailInput,setInvalidMailInput] = useState(false);  
-  const [invalidPasswordInput,setInvalidPasswordInput] = useState(false);
+  const [invalidMailInput,setInvalidMailInput] = useState<boolean>(false);  
+  const [invalidPasswordInput,setInvalidPasswordInput] = useState<boolean>(false);
   //Campos del form
-  const [email, setEmail] = useState('');  
-  const [password, setPassword] = useState('');
-  const [estado, setEstado] = useState(false);
-  const [servidorAPI, setServidorAPI] = useState(false);
+  const [email, setEmail] = useState<string>('');  
+  const [password, setPassword] = useState<string>('');
+  const [estado, setEstado] = useState<boolean>(false);
+  const [servidorAPI, setServidorAPI] = useState<boolean>(false);
   //Cargando Loading
-  const [isLoading, setIsLoading] = useState (false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   //redireccionar la página
   const navigate = useNavigate();  
 
@@ -96,7 +96,7 @@ function Login(){
           email: email, 
           password: password
         });
-        const status = datos.status;        
+        const status:number = datos.status;        
         if(status === 201){           
           _token(datos.data.access_token);          
           _user(datos.data.user);          

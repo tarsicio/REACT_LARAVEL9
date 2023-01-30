@@ -9,12 +9,15 @@
 
 import React from 'react';
 import Reloj from '../../components/utils/reloj/Reloj';
-import { LOGO_WORKER } from '../../config/imgs/imgs';
+import { LOGO_WORKER, REACT_LOADING, LOGO_VITE } from '../../config/imgs/imgs';
 
 function Home(){	
 	return(
 		<section>			
-			<Reloj />						
+			<Reloj />
+			<div style={{textAlign:'center'}}>
+				<img src={REACT_LOADING.ReactLoading} alt="React" /> AND <img src={LOGO_VITE.LogoVite} alt="Vite" />
+			</div>						
 			<div className="container hero__main"> 				
 	            <div className="hero__textos">
 	                <h1 className="title">Prueba Nuestro</h1>
