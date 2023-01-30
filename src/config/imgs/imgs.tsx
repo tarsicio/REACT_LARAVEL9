@@ -15,7 +15,7 @@ import LogoVite from '../../assets/img/vite.svg';
 import LogoLaravel from '../../assets/img/laravel.jpeg';
 import LogoTarsicioRemote from '../../assets/img/tarsicio_remote.png';
 
-// URL STORAGE DEL API-REST DE LARAVEL 9, es donde sealmacenan las Imagenes de los USUARIOS
+// URL STORAGE DEL API-REST DE LARAVEL 9, es donde se almacenan los AVATAR de los USUARIOS
 export const URL_STORAGE          = "http://localhost:8000/storage/avatars/";
 
 // IMAGENES VARIAS DE LA APLICACIÓN

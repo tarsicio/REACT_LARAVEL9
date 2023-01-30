@@ -9,14 +9,22 @@
 
 import { useEffect, useRef } from "react";
 
-function Reloj() {
-  const h2Ref = useRef();
+function Reloj02() {  
+  const horario = () => {
+    const tiempo = new Date();
+    const hora = tiempo.getHours();
+    const minuto = tiempo.getMinutes();
+    const segundo = tiempo.getSeconds();
+    return `${hora}:${minuto}:${segundo}`;
+  };
+  const h1Ref = useRef();
+  <h2 ref={h1Ref}>{horario()}</h2>
   const fecha = () => {
     return Date();
   };
   useEffect(() => {
-    const cl = setInterval(() => {      
-      h2Ref.current.innerHTML = `${fecha()}`;
+    const cl = setInterval(() => {
+      h1Ref.current.innerHTML = `Time | Hora: ${horario()}`;      
     }, 1000);
     return () => clearInterval(cl);
   }, []);  
@@ -27,4 +35,4 @@ function Reloj() {
   );
 }
 
-export default Reloj;
+export default Reloj02;

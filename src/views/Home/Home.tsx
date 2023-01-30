@@ -16,7 +16,7 @@ function Home(){
 		<section>			
 			<Reloj />
 			<div style={{textAlign:'center'}}>
-				<img src={REACT_LOADING.ReactLoading} alt="React" /> AND <img src={LOGO_VITE.LogoVite} alt="Vite" />
+				 <img src={LOGO_VITE.LogoVite} alt="Vite" /> AND <img className="App-logo" style={{height:"40px", width:"40px"}} src={REACT_LOADING.ReactLoading} alt="React" />
 			</div>						
 			<div className="container hero__main"> 				
 	            <div className="hero__textos">
