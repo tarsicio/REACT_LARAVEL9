@@ -9,14 +9,17 @@
 
 import React from 'react';
 import Reloj from '../../components/utils/reloj/Reloj';
-import { LOGO_WORKER, REACT_LOADING, LOGO_VITE } from '../../config/imgs/imgs';
+import { LOGO_WORKER, REACT_LOADING, LOGO_VITE, LOGO_TS } from '../../config/imgs/imgs';
+import './style.css';
 
-function Home(){	
+function Home(){
 	return(
 		<section>			
 			<Reloj />
 			<div style={{textAlign:'center'}}>
-				 <img src={LOGO_VITE.LogoVite} alt="Vite" /> AND <img className="App-logo" style={{height:"40px", width:"40px"}} src={REACT_LOADING.ReactLoading} alt="React" />
+				 <img className="App-logo rotando" src={LOGO_VITE.LogoVite} alt="Vite" /> AND 
+				 <img className="App-logo rotando" src={REACT_LOADING.ReactLoading} alt="React" /> AND
+				 <img className="App-logo rotando" src={LOGO_TS.LogoTs} alt="React" /> 
 			</div>						
 			<div className="container hero__main"> 				
 	            <div className="hero__textos">
