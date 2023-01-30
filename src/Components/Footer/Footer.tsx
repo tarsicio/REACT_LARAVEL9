@@ -1,6 +1,16 @@
+/**
+ * @name HORUS | 2023
+ * @version 3.0.0 
+ * @function Main
+ * @author Tarsicio Carrizales <telecom.com.ve@gmail.com>
+ * @license MIT
+ * @copyright (c) 2023 Tarsicio Carrizales
+ */
+ 
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import './background.css'
+
 export default function Footer() {
   return (
     <MDBFooter bgColor='dark' className='text-center text-lg-start text-muted fondo'>

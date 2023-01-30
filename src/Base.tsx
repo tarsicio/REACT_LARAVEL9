@@ -14,13 +14,13 @@ import './App.css';
 import './components/Footer/style.css';
 import Routers from './components/Routers/Routers';
 
-function Main() {  
+function Base() {  
   return (
-    <>
+    <div>
       <Routers />
       <Footer /> 
-    </>
+    </div>
   ); 
 }
 
-export default Main;
+export default Base;

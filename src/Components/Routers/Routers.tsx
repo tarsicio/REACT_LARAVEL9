@@ -83,7 +83,9 @@ function Routers(){
 						<Logout />
 					</PrivateRouter>  
 				} />
-				<Route path="*" element={<NoFound404 msg="La URL Solicitada No Existe... "/>} />
+				<Route path="*" element={
+					<NoFound404 msg="La URL Solicitada No Existe... " />
+				} />
         	</Routes>	        
 	    </BrowserRouter>		
 	)

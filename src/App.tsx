@@ -7,11 +7,11 @@
  * @copyright (c) 2023 Tarsicio Carrizales
  */
 
-import Main from './Main';
+import Base from './Base';
 
 function App() {  
   return (
-    <Main />
+    <Base />
   ); 
 }
 
