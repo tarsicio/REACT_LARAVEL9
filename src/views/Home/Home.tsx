@@ -9,6 +9,7 @@
 
 import React from 'react';
 import Reloj from '../../components/utils/reloj/Reloj';
+import Image from "react-bootstrap/Image";
 import { LOGO_WORKER, REACT_LOADING, LOGO_VITE, LOGO_TS } from '../../config/imgs/imgs';
 import './style.css';
 
@@ -17,9 +18,9 @@ function Home(){
 		<section>			
 			<Reloj />
 			<div style={{textAlign:'center'}}>
-				 <img className="App-logo rotando" src={LOGO_VITE.LogoVite} alt="Vite" /> AND 
-				 <img className="App-logo rotando" src={REACT_LOADING.ReactLoading} alt="React" /> AND
-				 <img className="App-logo rotando" src={LOGO_TS.LogoTs} alt="React" /> 
+				 <Image className="rotando" src={LOGO_VITE.LogoVite} alt="Vite" /> AND 
+				 <Image className="App-logo rotando" src={REACT_LOADING.ReactLoading} alt="React" /> AND
+				 <Image className="rotando" src={LOGO_TS.LogoTs} alt="React" /> 
 			</div>						
 			<div className="container hero__main"> 				
 	            <div className="hero__textos">
@@ -30,7 +31,7 @@ function Home(){
 	                <p className="copy">Manejo de Usuarios(Autenticación por Token, <span className="copy__active">Sanctum</span>), 
 	                Roles, Permisos, Notificaciones, Módulos y mucho más. 100% Funcional.</p>
 	            </div>                            
-	            <img src={LOGO_WORKER.LogoWorker} alt="Logo_Worker" className="mockup" /> 
+	            <Image src={LOGO_WORKER.LogoWorker} alt="Logo_Worker" className="mockup" /> 
         	</div>	
 		</section>
 	)

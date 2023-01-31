@@ -173,7 +173,7 @@ function Register(){
 
     return (
       <section>
-        <div className="auth-wrapper" >
+        <div className="auth-wrapper" id="register">
           <div className="auth-inner">      
             <Form onSubmit={register} >
               <h3>Register</h3>
