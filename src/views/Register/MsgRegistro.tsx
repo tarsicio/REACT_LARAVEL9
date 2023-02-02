@@ -8,7 +8,7 @@
  * 
  */
 import { LOGO_HORUS } from '../../config/imgs/imgs';
-import { MSG_BIENVENIDA } from '../../config/label/label';
+import { MSG_BIENVENIDA } from '../../config/label/labelES';
 
 function MsgRegistro(){	
 	return(

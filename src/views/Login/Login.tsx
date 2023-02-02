@@ -41,9 +41,10 @@ import {
   VALIDATE_WAIT,
   LABEL_REGISTER,
   SET_PASSWORD
-} from '../../config/label/label';
+} from '../../config/label/labelES';
 
-function Login(){
+
+function Login(){  
   const _token = UseData(state => state.setToken);
   const _user = UseData(state => state.setUser);
 
@@ -61,7 +62,6 @@ function Login(){
   const [isLoading, setIsLoading] = useState<boolean>(false);
   //redireccionar la página
   const navigate = useNavigate();  
-
   const handleMailChange = (e) => {
     setEmail(e.target.value);
     setInvalidMailInput(false);

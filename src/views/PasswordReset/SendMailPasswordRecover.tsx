@@ -34,7 +34,7 @@ import {
   LABEL_YA_LOGIN,
   RETURN_PASSWORD,
   SEND_MAIL_RECOVERY
-} from '../../config/label/label';
+} from '../../config/label/labelES';
 
 function SendMailPasswordRecover(){
 

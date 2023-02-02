@@ -7,25 +7,43 @@
  * @copyright (c) 2023 Tarsicio Carrizales
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
-//import Collapse from 'react-bootstrap/Collapse';
+import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Image from "react-bootstrap/Image";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import '../Footer/style.css';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
-//import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/rutas/rutas';
 import { UseData } from '../../store/UserLogin';
 import Carrusel from './Carrusel';
-import '../Footer/background.css'
+import '../Footer/background.css';
+import Flag from "react-flags";
+import { 
+  LABEL_LOGIN,
+  LABEL_LOGOUT,
+  LABEL_HOME,
+  LABEL_REGISTER02,
+  LABEL_DASHBOARD
+} from '../../config/label/labelEs';
+import { useTranslation } from 'react-i18next';
 
 function Header() {
-  const _token = UseData(state => state._token);
-  //const [open, setOpen] = useState(false);
+  const  { t, i18n } = useTranslation();
+  const _token = UseData(state => state._token);  
+  const [language, setLanguage] = useState("en");
+
+  const changeLanguage = lng => {
+    i18n.changeLanguage(lng)
+    if (language === "en") {
+      setLanguage("es");
+    } else {
+      setLanguage("en");
+    }
+  };
 
   return (
     <header className="fondo">         
@@ -36,11 +54,11 @@ function Header() {
               <Image src={LOGO_HORUS.LogoHorus} style={{width: 50, height: 50}} alt="Logo_Horus" />
             </NavLink>
               <NavLink className="nav-link" to={HOME} style={{color: "white"}}>
-                Home
+                {t('app.home')}
               </NavLink>
               { _token &&
               <NavLink className="nav-link" to={DASHBOARD} style={{color: "white"}}>
-                Dashboard
+                {t('app.dashboard')}
               </NavLink>
             }
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -59,22 +77,33 @@ function Header() {
               <Offcanvas.Body style={{background: "white"}}>
                 
                 <Nav className="justify-content-end flex-grow-1 pe-3 fondo">
+                <div>
+                  <Button 
+                    className="fondo" 
+                    style={{color: "white", border:"black"}} 
+                    onClick={() => changeLanguage(language)}>
+                    {language === "en" ? "English" : "Spanish"}
+                    {language === "en" 
+                    ? <Flag name="US" basePath="./img/flags" format="png" pngSize={32} shiny={true} alt="USA Flag" /> 
+                    : <Flag name="VE" basePath="./img/flags" format="png" pngSize={32} shiny={true} alt="Venezuela Flag" /> }
+                  </Button>                  
+                </div>
                   { !_token && <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <NavLink className="nav-link" to={LOGIN} style={{color: "white"}}>
-                      Login
+                      {t('login.login')}
                     </NavLink>
                   </li>
                   <li className="nav-item">
                     <NavLink className="nav-link" to={REGISTER} style={{color: "white"}}>
-                      Register
+                      {t('register.user')}
                     </NavLink>
                   </li>
                 </ul> }
                 { _token && <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <NavLink className="nav-link" to={LOGOUT} style={{color: "white"}}>
-                      Logout
+                      {t('login.logout')}
                     </NavLink>
                   </li>
                 </ul> }  

@@ -34,7 +34,7 @@ import {
   TERMS_NEED,
   MSG_ERROR_FORM,
   LABEL_YA_LOGIN
-} from '../../config/label/label';
+} from '../../config/label/labelES';
 
 function Register(){
   const endpoint = URL_BASE + REGISTER;

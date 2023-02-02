@@ -10,7 +10,11 @@
 import React from 'react';
 import Reloj from '../../components/utils/reloj/Reloj';
 import Image from "react-bootstrap/Image";
-import { LOGO_WORKER, REACT_LOADING, LOGO_VITE, LOGO_TS } from '../../config/imgs/imgs';
+import { 
+	LOGO_WORKER, 
+	REACT_LOADING, 
+	LOGO_VITE, 
+	LOGO_TS } from '../../config/imgs/imgs';
 import './style.css';
 
 function Home(){

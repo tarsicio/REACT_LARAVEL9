@@ -21,7 +21,7 @@ import { UseData } from '../../store/UserLogin';
 import { LOGOUT, HOME, URL_BASE } from '../../config/rutas/rutas';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { ERROR_CONEXION, LOGOUT_WAIT, ERROR_SERVER_API } from '../../config/label/label';
+import { ERROR_CONEXION, LOGOUT_WAIT, ERROR_SERVER_API } from '../../config/label/labelES';
 import Loading from '../../components/Loading/Loading';
 
 function Logout(){

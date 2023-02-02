@@ -31,7 +31,7 @@ import {
   LABEL_REGISTER,
   LABEL_EMAIL,
   LABEL_YA_LOGIN,
-  MSG_PASSWORD_OK } from '../../config/label/label';
+  MSG_PASSWORD_OK } from '../../config/label/labelES';
 
 function ResetNewPassword(){
 	

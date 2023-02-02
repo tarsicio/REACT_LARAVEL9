@@ -19,7 +19,11 @@ import axios from 'axios';
 import { URL_BASE, DASHBOARD } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import Loading from '../../components/Loading/Loading';
-import { REGISTER_WAIT, MSG_CODE_ERROR, BNT_CONFIRM, ERROR_SERVER_API } from '../../config/label/label';
+import { 
+  REGISTER_WAIT, 
+  MSG_CODE_ERROR, 
+  BNT_CONFIRM, 
+  ERROR_SERVER_API } from '../../config/label/labelES';
 
 function ConfirmRegister(){
 	
