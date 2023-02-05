@@ -7,7 +7,7 @@
  * @copyright (c) 2023 Tarsicio Carrizales
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
@@ -49,6 +49,16 @@ function Header() {
       _lng('en');      
     }
   };
+
+  useEffect(() => {
+    if(Lng === 'en'){
+      i18n.changeLanguage('en');
+      setLanguage('en');
+    }else{
+      i18n.changeLanguage('es');
+      setLanguage('es');
+    }
+  }, []);
 
   return (
     <header className="fondo">         
