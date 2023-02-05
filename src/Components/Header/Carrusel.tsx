@@ -10,8 +10,10 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import { LOGO_REACT, LOGO_LARAVEL, LOGO_TARSICIO_REMOTE } from '../../config/imgs/imgs';
+import { useTranslation } from 'react-i18next';
 
 function Carrusel(){
+  const  { t, i18n } = useTranslation();
   return(
       <Carousel variant="dark">
         <Carousel.Item>
@@ -22,8 +24,8 @@ function Carrusel(){
             style={{height:"400px"}}
           />
           <Carousel.Caption>
-            <h3>Frontend React HORUS | 2023</h3>
-            <p>Conéctate a tu API-REST Laravel 9, tu mejor Opción.</p>
+            <h3>{t('carusel01.title')}</h3>
+            <p>{t('carusel01.msg')}</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -34,8 +36,8 @@ function Carrusel(){
             style={{height:"400px"}}
           />
           <Carousel.Caption>
-            <h3>Backend Laravel 9, HORUS | 2023</h3>
-            <p>Conéctate a tu API-REST Laravel 9, tu mejor Opción.</p>
+            <h3>{t('carusel02.title')}</h3>
+            <p>{t('carusel02.msg')}</p>            
           </Carousel.Caption>          
         </Carousel.Item>
         <Carousel.Item>
@@ -46,8 +48,8 @@ function Carrusel(){
             style={{height:"400px"}}
           />
           <Carousel.Caption>
-            <h3>Proyecto HORUS | 2023, Versión 3</h3>
-            <p>Te llevo a tú próximo nivel.</p>
+            <h3>{t('carusel03.title')}</h3>
+            <p>{t('carusel03.msg')}</p>            
           </Carousel.Caption>          
         </Carousel.Item>
       </Carousel>

@@ -34,14 +34,19 @@ import { useTranslation } from 'react-i18next';
 function Header() {
   const  { t, i18n } = useTranslation();
   const _token = UseData(state => state._token);  
-  const [language, setLanguage] = useState("en");
+  const _lng = UseData(state => state.setLng);
+  const Lng = UseData(state => state._lng);  
+  const [language, setLanguage] = useState(Lng);
 
-  const changeLanguage = lng => {
-    i18n.changeLanguage(lng)
+  const changeLanguage = lng => {        
     if (language === "en") {
-      setLanguage("es");
+      i18n.changeLanguage('es');
+      setLanguage('es');
+      _lng('es');      
     } else {
-      setLanguage("en");
+      i18n.changeLanguage('en');
+      setLanguage('en');
+      _lng('en');      
     }
   };
 

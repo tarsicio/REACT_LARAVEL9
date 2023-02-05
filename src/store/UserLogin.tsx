@@ -12,15 +12,18 @@ import { persist } from "zustand/middleware"
 
 
 let userData = (set) =>  ({
-    _token:     null,       
-    _user:      {},    
+    _token: null,       
+    _user: {},
+    _lng: 'es',
     setToken: (value) => set(state => ({ _token: value })),
     setUser: (value) => set(state => ({ _user: value })),
+    setLng: (value) => set(state => ({ _lng: value })),
     logoutUser: () =>{
         set(state =>({
             ...state,
-            _token:null,
-            _user:{}
+            _token: null,
+            _user: {},
+            _lng: 'es'
         }),true)
     },
 })

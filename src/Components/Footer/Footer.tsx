@@ -10,13 +10,15 @@
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import './background.css'
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const  { t, i18n } = useTranslation();
   return (
     <MDBFooter bgColor='dark' className='text-center text-lg-start text-muted fondo'>
       <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
         <div className='me-5 d-none d-lg-block text-white'>
-          <span>Conectate con HORUS | 2023:</span>
+          <span>{t('footer.title')}</span>
         </div>        
       </section>
 
@@ -26,15 +28,15 @@ export default function Footer() {
             <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4 text-white'>
                 <MDBIcon icon="gem" className="me-3" />
-                HORUS PROYECT | 2023
+                {t('footer.subtitulo')}
               </h6>
               <p className="text-white">
-                Proyecto de Front-End de sistema base para realizar cualquier aplicación
+                {t('footer.msg01')}
               </p>
             </MDBCol>
 
             <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4 text-white'>Productos</h6>
+              <h6 className='text-uppercase fw-bold mb-4 text-white'>{t('footer.productos')}</h6>
               <p className="text-white">
                 <a href='https://github.com/tarsicio/REACT_LARAVEL9/tree/master' 
                   className='text-reset' target="_blank" rel="noreferrer">
@@ -50,7 +52,7 @@ export default function Footer() {
             </MDBCol>
 
             <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4 text-white'>Acerca del Autor</h6>
+              <h6 className='text-uppercase fw-bold mb-4 text-white'>{t('footer.about')}</h6>
               <p className="text-white">
                 <a href='https://www.linkedin.com/in/tarsicioc/' 
                   className='text-reset' target="_blank" rel="noreferrer">
@@ -60,7 +62,7 @@ export default function Footer() {
             </MDBCol>
 
             <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4 text-white'>Contacto</h6>              
+              <h6 className='text-uppercase fw-bold mb-4 text-white'>{t('footer.contact')}</h6>
               <p className="text-white">
                 <MDBIcon icon="envelope" className="me-3" />                
                 <a className="text-white"  href='mailto:telecom.com.ve@gmail.com'>
