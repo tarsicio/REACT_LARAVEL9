@@ -18,25 +18,10 @@ import { useNavigate } from 'react-router-dom';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import { URL_BASE, REGISTER, BIENVENIDO, LOGIN } from '../../config/rutas/rutas';
 import { Link } from 'react-router-dom';
-import {
-  ERROR_NAME,
-  ERROR_USER_NAME,
-  ERROR_EMAIL,
-  ERROR_PASSWORD,
-  ERROR_SERVER_API,
-  LABEL_NAME,
-  LABEL_USER_NAME,
-  LABEL_EMAIL,
-  LABEL_PASSWORD,
-  BNT_REGISTER,
-  MSG_PASSWORD,
-  REGISTER_WAIT,
-  TERMS_NEED,
-  MSG_ERROR_FORM,
-  LABEL_YA_LOGIN
-} from '../../config/label/labelES';
+import { useTranslation } from 'react-i18next';
 
 function Register(){
+  const  { t, i18n } = useTranslation(); 
   const endpoint = URL_BASE + REGISTER;
   //redireccionar la página
   const navigate = useNavigate();
@@ -150,7 +135,7 @@ function Register(){
           }else if(error.code === "ERR_BAD_REQUEST") {
             setIsLoading(false);
             setErroresForm(true);
-            obj = error.response.data.dato;
+            obj = error.response.data.dato;            
             let keys = Object.keys(obj);            
             keys.forEach(function (key) {              
               if(key === 'name'){setNameError(obj[key][0]);setNameErrorActivo(true);}
@@ -176,19 +161,19 @@ function Register(){
         <div className="auth-wrapper" id="register">
           <div className="auth-inner">      
             <Form onSubmit={register} >
-              <h3>Register</h3>
+              <h3>{t('register.title')}</h3>
               <div style={{padding:"20px"}}>
-                {isLoading ? <Loading msg={REGISTER_WAIT} /> : <div></div>}
+                {isLoading ? <Loading msg={t('register.wait')} /> : <div></div>}
               </div>  
               <div style={{textAlign: "center"}}>
                 <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
               </div>
-              {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}
-              {erroresForm ? <div style={{color:"red", textAlign:"center"}}>{MSG_ERROR_FORM}</div> : <div></div>}              
+              {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}
+              {erroresForm ? <div style={{color:"red", textAlign:"center"}}>{t('register.error.form')}</div> : <div></div>}              
               <Form.Group className="mb-3" controlId="formBasicEmail">                
                 <FloatingLabel
                   controlId="floatingName"
-                  label={LABEL_NAME}
+                  label={t('register.full.name')}
                   className="mb-3"
                 >
                 <Form.Control 
@@ -196,18 +181,18 @@ function Register(){
                   name="name"
                   value={name} 
                   onChange={ handlNameChange }
-                  placeholder="Enter Full Name" 
+                  placeholder={t('register.full.name')}
                   disabled={isLoading} 
                   autoComplete="on"/>
                   </FloatingLabel>
-                  {invalidNameInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_NAME}</Form.Label> : ''}
+                  {invalidNameInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{t('register.error.fullname')}</Form.Label> : ''}
                   {nameErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{nameError}</Form.Label> : ''}
               </Form.Group>
               
               <Form.Group className="mb-3" controlId="formBasicEmail">                
                 <FloatingLabel
                   controlId="floatingUserName"
-                  label={LABEL_USER_NAME}
+                  label={t('register.user.name')}
                   className="mb-3"
                 >
                 <Form.Control 
@@ -215,18 +200,18 @@ function Register(){
                   name="username"
                   value={username} 
                   onChange={ handlUserNameChange }
-                  placeholder="Enter User Name" 
+                  placeholder={t('register.user.name')}
                   disabled={isLoading} 
                   autoComplete="on"/>
                   </FloatingLabel>
-                  {invalidUserNameInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_USER_NAME}</Form.Label> : ''}
+                  {invalidUserNameInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{t('register.error.username')}</Form.Label> : ''}
                   {userNameErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{userNameError}</Form.Label> : ''}
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicEmail">                
                 <FloatingLabel
                   controlId="floatingMail"
-                  label={LABEL_EMAIL}
+                  label={t('login.label.email')}
                   className="mb-3"
                 >
                 <Form.Control 
@@ -234,18 +219,18 @@ function Register(){
                   name="email"
                   value={email} 
                   onChange={ handlEmailChange }
-                  placeholder="Enter email" 
+                  placeholder={t('login.label.email')} 
                   disabled={isLoading} 
                   autoComplete="on"/>
                   </FloatingLabel>
-                  {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_EMAIL}</Form.Label> : ''}
+                  {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{t('login.error.email')}</Form.Label> : ''}
                   {emailErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{emailError}</Form.Label> : ''}
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">                
                 <FloatingLabel
                   controlId="floatingPassword"
-                  label={LABEL_PASSWORD}
+                  label={t('login.label.password')}
                   className="mb-3"
                 >
                 <Form.Control 
@@ -253,15 +238,15 @@ function Register(){
                   name="password" 
                   value={password} 
                   onChange={ handlPasswordChange }
-                  placeholder="Password"
+                  placeholder={t('login.label.password')}
                   disabled={isLoading}
                   autoComplete="on" />
                   </FloatingLabel>
-                  {invalidPasswordInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_PASSWORD}</Form.Label> : ''}
+                  {invalidPasswordInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{t('login.error.password')}</Form.Label> : ''}
                   {passwordErrorActivo ? <Form.Label style={{color:"red", fontSize: "small"}}>{passwordError}</Form.Label> : ''}
 
                   <Form.Text className="text-muted">
-                    <div>{MSG_PASSWORD}</div>
+                    <div>{t('login.msg.importan')}</div>
                   </Form.Text>                  
               </Form.Group>
               
@@ -269,21 +254,21 @@ function Register(){
                 <Form.Check 
                   type="checkbox" 
                   name="terms" 
-                  label="Acept Terms" 
+                  label={t('register.terminos')} 
                   disabled={isLoading}
                   autoComplete="on"
                   value={terms}
                   onChange={ handlCheckChange } />
-                  {invalidCheck ? <Form.Label style={{color:"red", fontSize: "small"}}>{TERMS_NEED}</Form.Label> : ''}            
+                  {invalidCheck ? <Form.Label style={{color:"red", fontSize: "small"}}>{t('register.error.terms')}</Form.Label> : ''}            
               </Form.Group>            
               <div className="d-grid">
                 <Button type="submit" className="btn btn-primary" disabled={isLoading} >
-                  {BNT_REGISTER}
+                  {t('register.button')} 
                 </Button>
               </div>
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={LOGIN} style={{color: "blue"}}>
-                  {LABEL_YA_LOGIN}
+                  {t('register.ready')} 
                 </Link>                 
               </p>
             </Form>

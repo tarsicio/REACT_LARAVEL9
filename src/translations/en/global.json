@@ -25,7 +25,7 @@
 	"footer.productos": "Products",
 	"footer.about": "About the author",
 	"footer.contact": "Contact",
-	"login.validate.wait": "Validate .... Please wait",
+	"login.validate.wait": "Validate .... Please Wait",
 	"error.datos": "ERROR IN THE DATA CHECK",
 	"error.server.api": "Connection to API Server failed, call System Administrator",
 	"login.title": "LOGIN",
@@ -37,5 +37,16 @@
 	"login.msg.recovery": "Recover password here",
 	"login.msg.register": "Sign up here",
 	"login.error.password": "The Password field is required",
-	"login.error.email": "The Email field is required "
+	"login.error.email": "The Email field is required ",
+	"register.full.name" : "Full Name",
+	"register.user.name": "User Name",
+	"register.title": "REGISTER",
+	"register.terminos": "Acept Terms",
+	"register.button": "Register",
+	"register.ready": "Are you already registered? login here...",
+	"register.error.fullname": "The Full Name field is required",
+	"register.error.username": "The User Name field is required",
+	"register.error.terms": "You must accept the terms",
+	"register.wait": "Register .... Please Wait",
+	"register.error.form": "Error in the form data..."
 }

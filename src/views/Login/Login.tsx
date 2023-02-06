@@ -166,9 +166,11 @@ function Login(){
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label={t('login.check.me')} />
               </Form.Group>
-              <Button variant="primary" type="submit" disabled={isLoading}>
-                {t('login.button')}
-              </Button>
+              <div className="d-grid">
+                <Button className="btn btn-primary" type="submit" disabled={isLoading}>
+                  {t('login.button')}
+                </Button>
+              </div>  
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={REQUEST_PASSWORD} style={{color: "blue"}}>
                   {t('login.msg.recovery')}
