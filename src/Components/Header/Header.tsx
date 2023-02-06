@@ -68,12 +68,12 @@ function Header() {
             <NavLink className="navbar-brand rounded-circle" to={HOME} style={{background: "white"}}>
               <Image src={LOGO_HORUS.LogoHorus} style={{width: 50, height: 50}} alt="Logo_Horus" />
             </NavLink>
-              <NavLink className="nav-link" to={HOME} style={{color: "white"}}>
-                {t('app.home')}
+              <NavLink className="nav-link" to={HOME} style={{color: "white", padding:"10px" }}>
+                {t('header.home')}
               </NavLink>
               { _token &&
-              <NavLink className="nav-link" to={DASHBOARD} style={{color: "white"}}>
-                {t('app.dashboard')}
+              <NavLink className="nav-link" to={DASHBOARD} style={{color: "white", padding:"10px"}}>
+                {t('header.dashboard')}
               </NavLink>
             }
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -97,7 +97,7 @@ function Header() {
                     className="fondo" 
                     style={{color: "white", border:"black"}} 
                     onClick={() => changeLanguage(language)}>
-                    {language === "en" ? "English" : "Spanish"}
+                    {language === "en" ? t('header.language') : t('header.language') }
                     {language === "en" 
                     ? <Flag name="US" basePath="./img/flags" format="png" pngSize={32} shiny={true} alt="USA Flag" /> 
                     : <Flag name="VE" basePath="./img/flags" format="png" pngSize={32} shiny={true} alt="Venezuela Flag" /> }
@@ -105,20 +105,20 @@ function Header() {
                 </div>
                   { !_token && <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <NavLink className="nav-link" to={LOGIN} style={{color: "white"}}>
-                      {t('login.login')}
+                    <NavLink className="nav-link" to={LOGIN} style={{color: "white", padding:"10px"}}>
+                      {t('header.login')}
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link" to={REGISTER} style={{color: "white"}}>
-                      {t('register.user')}
+                    <NavLink className="nav-link" to={REGISTER} style={{color: "white", padding:"10px"}}>
+                      {t('header.register')}
                     </NavLink>
                   </li>
                 </ul> }
                 { _token && <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <NavLink className="nav-link" to={LOGOUT} style={{color: "white"}}>
-                      {t('login.logout')}
+                    <NavLink className="nav-link" to={LOGOUT} style={{color: "white", padding:"10px"}}>
+                      {t('header.logout')}
                     </NavLink>
                   </li>
                 </ul> }  

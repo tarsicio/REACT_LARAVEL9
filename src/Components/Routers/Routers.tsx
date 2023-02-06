@@ -21,6 +21,7 @@ import Home from '../../views/Home/Home';
 import Dashboard from '../../views/Dashboard/Dashboard';
 import NoFound404 from '../../views/Page/NoFound404';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import LayoutMain from '../../layout/LayoutMain';
 import { 
 	HOME, 
 	LOGIN, 

@@ -29,22 +29,10 @@ import {
   DASHBOARD,
   REQUEST_PASSWORD } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
-import {
-  ERROR_EMAIL,
-  ERROR_PASSWORD,
-  ERROR_DATOS,
-  ERROR_SERVER_API,
-  LABEL_EMAIL,
-  LABEL_PASSWORD,
-  BNT_LOGIN,
-  MSG_PASSWORD,
-  VALIDATE_WAIT,
-  LABEL_REGISTER,
-  SET_PASSWORD
-} from '../../config/label/labelES';
+import { useTranslation } from 'react-i18next';
 
-
-function Login(){  
+function Login(){ 
+  const  { t, i18n } = useTranslation(); 
   const _token = UseData(state => state.setToken);
   const _user = UseData(state => state.setUser);
 
@@ -126,21 +114,21 @@ function Login(){
         <div className="auth-wrapper" id="login">
           <div className="auth-inner">      
             <Form onSubmit={login}>
-            <h3>Login</h3>
+            <h3>{t('login.title')}</h3>
               <div style={{padding:"20px"}}> 
-                  {isLoading ? <Loading msg={VALIDATE_WAIT} /> : <div></div>}
+                  {isLoading ? <Loading msg={t('login.validate.wait')} /> : <div></div>}
               </div>
                 <div style={{textAlign: "center"}}>
                   <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
                 </div>                
                 <div>
-                  {estado ? <div style={{color:"red", textAlign:"center"}}>{ERROR_DATOS}</div> : <div></div>}
-                  {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}              
+                  {estado ? <div style={{color:"red", textAlign:"center"}}>{t('error.datos')}</div> : <div></div>}
+                  {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}              
                 </div>            
               <Form.Group className="mb-3" controlId="formBasicEmail">                
                 <FloatingLabel
                   controlId="floatingMail"
-                  label={LABEL_EMAIL}
+                  label={t('login.label.email')}
                   className="mb-3"
                 >
                 <Form.Control 
@@ -148,20 +136,20 @@ function Login(){
                   name="email"
                   value={email} 
                   onChange={ handleMailChange }
-                  placeholder="Enter email" 
+                  placeholder={t('login.label.email')}
                   disabled={isLoading} 
                   autoComplete="on"/>
                   </FloatingLabel>
-                  {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_EMAIL}</Form.Label> : ''}
+                  {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{t('login.error.email')}</Form.Label> : ''}
                 <Form.Text className="text-muted">
-                  <div>{MSG_PASSWORD}</div>
+                  <div>{t('login.msg.importan')}</div>
                 </Form.Text>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">                
                 <FloatingLabel
                   controlId="floatingPassword"
-                  label={LABEL_PASSWORD}
+                  label={t('login.label.password')}
                   className="mb-3"
                 >
                 <Form.Control 
@@ -169,26 +157,26 @@ function Login(){
                   name="password" 
                   value={password} 
                   onChange={ handlePasswordChange }                
-                  placeholder="Password"
+                  placeholder={t('login.label.password')}
                   disabled={isLoading}
                   autoComplete="on" />
                   </FloatingLabel>
-                  {invalidPasswordInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_PASSWORD}</Form.Label> : ''}
+                  {invalidPasswordInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{t('login.error.password')}</Form.Label> : ''}
               </Form.Group>          
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
+                <Form.Check type="checkbox" label={t('login.check.me')} />
               </Form.Group>
               <Button variant="primary" type="submit" disabled={isLoading}>
-                {BNT_LOGIN}
+                {t('login.button')}
               </Button>
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={REQUEST_PASSWORD} style={{color: "blue"}}>
-                  {SET_PASSWORD}
+                  {t('login.msg.recovery')}
                 </Link>                 
               </p>
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={REGISTER} style={{color: "blue"}}>
-                  {LABEL_REGISTER}
+                  {t('login.msg.register')}
                 </Link>                 
               </p>
             </Form>
