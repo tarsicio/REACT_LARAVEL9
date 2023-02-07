@@ -48,5 +48,26 @@
 	"register.error.username": "The User Name field is required",
 	"register.error.terms": "You must accept the terms",
 	"register.wait": "Register .... Please Wait",
-	"register.error.form": "Error in the form data..."
+	"register.error.form": "Error in the form data...",
+	"send.email.title": "RECOVER PASSWORD",
+	"send.email.recovery": "We have sent your password reset link via email...!",
+	"send.button.recovery": "Recover password",
+	"page.404.title" : "PAGE NO FOUND 404",
+	"horus.title": "HORUS SYSTEM",
+	"horus.404.msg": "The Requested URL does not exist... ",
+	"reset.password.title": "NEW PASSWORD",
+	"reset.pasword.ok": "Your password has been successfully reset!",
+	"reset.password.again": "Repeat password again",
+	"reset.error.diferent": "The Password fields must be the same",
+	"welcome.title": "WELCOME",
+	"welcome.subtitle": "HORUS system | 2023",
+	"welcome.msg": "Welcome to the HORUS system | 2023, check your email and confirm the registration",
+	"confirm.title": "VERIFYING",
+	"confirm.button": "Confirm Registration",
+	"confirm.error.msg": "The supplied code is invalid or it has already expired",
+	"logout.title": "LOGOUT",
+	"logout.error.connection": "Connection error, call support",
+	"logout.button" : "Logout",
+	"logout.exit.wait": "Logout .... Please wait"
+	
 }

@@ -19,22 +19,11 @@ import axios from 'axios';
 import { URL_BASE, LOGIN, REGISTER, PASSWORD_RESET  } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import Loading from '../../components/Loading/Loading';
-import { 
-  ERROR_SERVER_API,
-  ERROR_DATOS,
-  LABEL_PASSWORD,
-  LABEL_PASSWORD2,
-  VALIDATE_WAIT,
-  BNT_RESET_PASS,
-  ERROR_PASSWORD,
-  ERROR_IGUALES,
-  LABEL_REGISTER,
-  LABEL_EMAIL,
-  LABEL_YA_LOGIN,
-  MSG_PASSWORD_OK } from '../../config/label/labelES';
+import { useTranslation } from 'react-i18next';
 
 function ResetNewPassword(){
-	
+
+  const  { t, i18n } = useTranslation();
   const endpoint = URL_BASE + PASSWORD_RESET;  
   let valido = true;
 	//Cargando Loading
@@ -140,22 +129,22 @@ function ResetNewPassword(){
         <div className="auth-wrapper">
           <div className="auth-inner">      
             <Form onSubmit={reset}>
-            <h3>NUEVA CLAVE</h3><div></div>
+            <h3>{t('reset.password.title')}</h3><div></div>
               <div style={{padding:"20px"}}> 
-                  {isLoading ? <Loading msg={VALIDATE_WAIT} /> : <div></div>}
+                  {isLoading ? <Loading msg={t('login.validate.wait')} /> : <div></div>}
                 </div>
                 <div style={{textAlign: "center"}}>
                   <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
                 </div>                
                 <div>
-                  { estado ? <div style={{color:"red", textAlign:"center"}}>{ERROR_DATOS}</div> : <div></div> }
-                  { servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div> }
-                  { passwordOk ? <div style={{color:"green", textAlign:"center"}}>{MSG_PASSWORD_OK}</div> : <div></div> }
+                  { estado ? <div style={{color:"red", textAlign:"center"}}>{t('error.datos')}</div> : <div></div> }
+                  { servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div> }
+                  { passwordOk ? <div style={{color:"green", textAlign:"center"}}>{t('reset.pasword.ok')}</div> : <div></div> }
                 </div>
                 <Form.Group className="mb-3" controlId="formBasicEmail">                
                 <FloatingLabel
                   controlId="floatingemail"
-                  label={LABEL_EMAIL}
+                  label={t('login.label.email')}
                   className="mb-3"
                 >
                 <Form.Control 
@@ -163,7 +152,7 @@ function ResetNewPassword(){
                   name="email"
                   value={email}
                   onChange={ handleMailChange }                  
-                  placeholder="Enter Email" 
+                  placeholder={t('login.label.email')}
                   disabled={bloquearEmail} 
                   autoComplete="on"/>
                   </FloatingLabel>              
@@ -171,7 +160,7 @@ function ResetNewPassword(){
                 <Form.Group className="mb-3" controlId="formBasicEmail">                
                 <FloatingLabel
                   controlId="floatingPassword"
-                  label={LABEL_PASSWORD}
+                  label={t('login.label.password')}
                   className="mb-3"
                 >
                 <Form.Control 
@@ -179,17 +168,17 @@ function ResetNewPassword(){
                   name="password"
                   value={password} 
                   onChange={ handlePasswordChange }
-                  placeholder="Enter Password" 
+                  placeholder={t('login.label.password')}
                   disabled={isLoading} 
-                  autoComplete="on"/>
+                  autoComplete="on"/>                  
                   </FloatingLabel>
-                  { vacio ? <div style={{color:"red", textAlign:"center"}}>{ERROR_PASSWORD}</div> : <div></div> }
-                  { diferentes ? <div style={{color:"red", textAlign:"center"}}>{ERROR_IGUALES}</div> : <div></div> }
+                  { vacio ? <Form.Label style={{color:"red", fontSize: "small", textAlign:"center"}}>{t('login.error.password')}</Form.Label> : <div></div> }
+                  { diferentes ? <Form.Label style={{color:"red", fontSize: "small", textAlign:"center"}}>{t('reset.error.diferent')}</Form.Label> : <div></div> }              
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">                
                 <FloatingLabel
                   controlId="floatingPassword2"
-                  label={LABEL_PASSWORD2}
+                  label={t('reset.password.again')}
                   className="mb-3"
                 >
                 <Form.Control 
@@ -197,26 +186,26 @@ function ResetNewPassword(){
                   name="password_confirmation"
                   value={password_confirmation} 
                   onChange={ handlePassword2Change }
-                  placeholder="Repeat Password Again" 
+                  placeholder={t('reset.password.again')}
                   disabled={isLoading} 
-                  autoComplete="on"/>
-                  </FloatingLabel> 
-                  { vacio ? <div style={{color:"red", textAlign:"center"}}>{ERROR_PASSWORD}</div> : <div></div> }
-                  { diferentes ? <div style={{color:"red", textAlign:"center"}}>{ERROR_IGUALES}</div> : <div></div> }                 
+                  autoComplete="on"/>                  
+                  </FloatingLabel>
+                  { vacio ? <Form.Label style={{color:"red", fontSize: "small", textAlign:"center"}}>{t('login.error.password')}</Form.Label> : <div></div> }
+                  { diferentes ? <Form.Label style={{color:"red", fontSize: "small", textAlign:"center"}}>{t('reset.error.diferent')}</Form.Label> : <div></div> }                   
               </Form.Group>
-              <div style={{textAlign:"center"}}>
-                <Button variant="primary" type="submit" disabled={isLoading}>
-                  {BNT_RESET_PASS}
+              <div className="d-grid" style={{textAlign:"center"}}>
+                <Button type="submit" disabled={isLoading}>
+                  {t('send.button.recovery')}
                 </Button>
               </div>
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={LOGIN} style={{color: "blue"}}>
-                  {LABEL_YA_LOGIN}
+                  {t('register.ready')}
                 </Link>                 
               </p>
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={REGISTER} style={{color: "blue"}}>
-                  {LABEL_REGISTER}
+                  {t('login.msg.register')}
                 </Link>                 
               </p>              
             </Form>

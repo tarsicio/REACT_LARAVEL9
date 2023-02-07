@@ -32,7 +32,7 @@ import { LOGO_HORUS } from '../../config/imgs/imgs';
 import { useTranslation } from 'react-i18next';
 
 function Login(){ 
-  const  { t, i18n } = useTranslation(); 
+  const  { t, i18n } = useTranslation();
   const _token = UseData(state => state.setToken);
   const _user = UseData(state => state.setUser);
 

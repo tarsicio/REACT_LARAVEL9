@@ -23,21 +23,11 @@ import {
   REGISTER,
   SEND_MAIL	 } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
-import {
-  ERROR_EMAIL,  
-  ERROR_DATOS,
-  ERROR_SERVER_API,
-  LABEL_EMAIL, 
-  BNT_RESET_PASS,
-  VALIDATE_WAIT,
-  LABEL_REGISTER,
-  LABEL_YA_LOGIN,
-  RETURN_PASSWORD,
-  SEND_MAIL_RECOVERY
-} from '../../config/label/labelES';
+import { useTranslation } from 'react-i18next';
 
 function SendMailPasswordRecover(){
 
+	const  { t, i18n } = useTranslation();
 	let valido = true;
   const endpoint = URL_BASE + SEND_MAIL;  
   // Validaciones form  
@@ -89,9 +79,7 @@ function SendMailPasswordRecover(){
 	          setEstado(true);
 	          setIsLoading(false);	          
 	        }
-	      }catch(error){ 
-	      	console.log(error); 
-	      	console.log('TARSICIO');      
+	      }catch(error){
 	        if(error.code === "ERR_NETWORK"){
 	          setServidorAPI(true);
 	        }else if(error.code === "ERR_BAD_REQUEST") {	        	
@@ -112,23 +100,23 @@ function SendMailPasswordRecover(){
         <div className="auth-wrapper">
           <div className="auth-inner">      
             <Form onSubmit={reset}>
-            <h3>{RETURN_PASSWORD}</h3><div></div>
+            <h3>{t('send.email.title')}</h3><div></div>
             	<div style={{padding:"20px"}}> 
-                  {isLoading ? <Loading msg={VALIDATE_WAIT} /> : <div></div>}
+                  {isLoading ? <Loading msg={t('login.validate.wait')} /> : <div></div>}
                 </div>
                 <div style={{textAlign: "center"}}>
                   <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
                 </div>                
                 <div>
-                  { estado ? <div style={{color:"red", textAlign:"center"}}>{ERROR_DATOS}</div> : <div></div> }
-                  { servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div> }
-                  { mailSend ? <div style={{color:"green", textAlign:"center"}}>{SEND_MAIL_RECOVERY}</div> : <div></div> }
+                  { estado ? <div style={{color:"red", textAlign:"center"}}>{t('error.datos')}</div> : <div></div> }
+                  { servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div> }
+                  { mailSend ? <div style={{color:"green", textAlign:"center"}}>{t('send.email.recovery')}</div> : <div></div> }
                   { mailError ? <div style={{color:"red", textAlign:"center"}}>{msgMailError}</div> : <div></div> }
                 </div>            
               <Form.Group className="mb-3" controlId="formBasicEmail">                
                 <FloatingLabel
                   controlId="floatingMail"
-                  label={LABEL_EMAIL}
+                  label={t('login.label.email')}
                   className="mb-3"
                 >
                 <Form.Control 
@@ -136,25 +124,25 @@ function SendMailPasswordRecover(){
                   name="email"
                   value={email} 
                   onChange={ handleMailChange }
-                  placeholder="Enter email" 
+                  placeholder={t('login.label.email')}
                   disabled={isLoading} 
-                  autoComplete="on"/>
+                  autoComplete="on"/>                  
                   </FloatingLabel>
-                  {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{ERROR_EMAIL}</Form.Label> : ''}                
+                  {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{t('login.error.email')}</Form.Label> : ''}               
               </Form.Group>
-              <div style={{textAlign:"center"}}>
+              <div className="d-grid" style={{textAlign:"center"}}>
 	              <Button variant="primary" type="submit" disabled={isLoading}>
-	                {BNT_RESET_PASS}
+	                {t('send.button.recovery')}
 	              </Button>
               </div>
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={LOGIN} style={{color: "blue"}}>
-                  {LABEL_YA_LOGIN}
+                  {t('register.ready')}
                 </Link>                 
               </p>
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={REGISTER} style={{color: "blue"}}>
-                  {LABEL_REGISTER}
+                  {t('login.msg.register')}
                 </Link>                 
               </p>
             </Form>

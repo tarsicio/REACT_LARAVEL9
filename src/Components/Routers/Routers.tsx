@@ -36,8 +36,10 @@ import PrivateRouter from './PrivateRouter'
 import PublicRouter from './PublicRouter'
 import { UseData } from '../../store/UserLogin';
 import Header from '../Header/Header';
+import { useTranslation } from 'react-i18next';
 
 function Routers(){
+	const  { t, i18n } = useTranslation();
 	const _token = UseData(state => state._token);
 	return(		
 		<BrowserRouter>
@@ -85,7 +87,7 @@ function Routers(){
 					</PrivateRouter>  
 				} />
 				<Route path="*" element={
-					<NoFound404 msg="La URL Solicitada No Existe... " />
+					<NoFound404 msg={t('horus.404.msg')} />
 				} />
         	</Routes>	        
 	    </BrowserRouter>		

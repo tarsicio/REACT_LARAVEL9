@@ -21,10 +21,11 @@ import { UseData } from '../../store/UserLogin';
 import { LOGOUT, HOME, URL_BASE } from '../../config/rutas/rutas';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { ERROR_CONEXION, LOGOUT_WAIT, ERROR_SERVER_API } from '../../config/label/labelES';
 import Loading from '../../components/Loading/Loading';
+import { useTranslation } from 'react-i18next';
 
 function Logout(){
+	const  { t, i18n } = useTranslation();
 	const userData = UseData(state => state._user);
 	const userLogout = UseData(state => state.logoutUser);	
 	const navigate = useNavigate();
@@ -68,22 +69,24 @@ function Logout(){
 			<div className="auth-wrapper container hero__main">
 				<div className="auth-inner">
 					<center>
-						<h1>LOGOUT</h1>
+						<h1>{t('logout.title')}</h1>
 						<div>
-							<h3>SISTEMA HORUS</h3>
+							<h3>{t('horus.title')}</h3>
 						</div>
 						<div style={{textAlign: "center"}}>
 		          			<img src={ LOGO_HORUS.LogoHorus } style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
 		        		</div>
 						<div>
-							{errorLogout ? <div style={{color:"red", textAlign:"center"}}>{ ERROR_CONEXION }.</div> : <div></div>}
-							{servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{ERROR_SERVER_API}</div> : <div></div>}
-						</div>		        				        			
-		        		<Button onClick={ handleLogout } variant="primary" type="submit" disabled={isLoading}>
-						    Logout
-						</Button>		        			
+							{errorLogout ? <div style={{color:"red", textAlign:"center"}}>{t('logout.error.connection')}</div> : <div></div>}
+							{servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}
+						</div>
+						<div className="d-grid">		        				        			
+			        		<Button onClick={ handleLogout } className="btn btn-primary" type="submit" disabled={isLoading}>
+							    {t('logout.button')}
+							</Button>
+						</div>			
 		        		<div>
-		        			{isLoading ? <Loading msg={LOGOUT_WAIT} /> : <div></div>}
+		        			{isLoading ? <Loading msg={t('logout.exit.wait')} /> : <div></div>}
 		        		</div>		        		
 					</center>	
 				</div>						
