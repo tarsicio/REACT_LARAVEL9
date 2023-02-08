@@ -69,5 +69,13 @@
 	"logout.error.connection": "Connection error, call support",
 	"logout.button" : "Logout",
 	"logout.exit.wait": "Logout .... Please wait",
-	"dashboard.title": "DASHBOARD"
+	"dashboard.title": "DASHBOARD",
+	"sidebar.dashboard": "Dashboard",
+	"sidebar.users": "Users",
+	"sidebar.notifications": "Notifications",
+	"sidebar.security": "Security",
+	"sidebar.rols": "Rols",
+	"sidebar.module": "Modules",
+	"sidebar.permission": "permissions",
+	"sidebar.color": "Change color"
 }

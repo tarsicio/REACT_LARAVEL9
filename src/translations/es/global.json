@@ -69,5 +69,13 @@
 	"logout.error.connection": "Error de Conexión, llame a soporte",
 	"logout.button" : "Salir",
 	"logout.exit.wait": "Saliendo .... Por favor espere...",
-	"dashboard.title": "PANEL PRINCIPAL"
+	"dashboard.title": "PANEL PRINCIPAL",
+	"sidebar.dashboard": "Panel Principal",
+	"sidebar.users": "Usuarios",
+	"sidebar.notifications": "Notificaciones",
+	"sidebar.security": "Seguridad",
+	"sidebar.rols": "Roles",
+	"sidebar.module": "Módulos",
+	"sidebar.permission": "Permisos",
+	"sidebar.color": "Cambiar Color"
 }

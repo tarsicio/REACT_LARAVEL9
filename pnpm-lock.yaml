@@ -31,6 +31,7 @@ specifiers:
   react-is: ^18.2.0
   react-router-dom: ^6.8.0
   react-scripts: ^5.0.1
+  react-sidebar: ^3.0.2
   reactstrap: ^9.1.5
   semantic-ui-react: ^2.1.4
   styled-components: ^5.3.6
@@ -62,6 +63,7 @@ dependencies:
   react-is: 18.2.0
   react-router-dom: 6.8.0_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_zcnljxs47s2353tvqwllmpdd74
+  react-sidebar: 3.0.2_biqbaboplfbrettd7655fr4n2y
   reactstrap: 9.1.5_biqbaboplfbrettd7655fr4n2y
   semantic-ui-react: 2.1.4_biqbaboplfbrettd7655fr4n2y
   styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
@@ -71,7 +73,7 @@ devDependencies:
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
   '@vitejs/plugin-react': 3.0.1_vite@4.0.4
-  esbuild-wasm: 0.17.5
+  esbuild-wasm: 0.17.6
   typescript: 4.9.4
   vite: 4.0.4
 
@@ -4947,8 +4949,8 @@ packages:
       is-symbol: 1.0.4
     dev: false
 
-  /esbuild-wasm/0.17.5:
-    resolution: {integrity: sha512-Sm34YFT8ENLbOLJeMWdbAwSXpMuYivp8KfJR/b+x74034XNkFAJPwgzUMVwu9wLzGd4APadwVUfXCLukmJwC9g==}
+  /esbuild-wasm/0.17.6:
+    resolution: {integrity: sha512-9Ldow2+kulEnGtOTbngHyiFIneIi+g7pJOz8cZQhW1KWKqsu9nCYDba2JlwsH/PJtAGNSTCrKBmaKYf8rJYvgQ==}
     engines: {node: '>=12'}
     hasBin: true
     dev: true
@@ -9162,6 +9164,18 @@ packages:
       - webpack-plugin-serve
     dev: false
 
+  /react-sidebar/3.0.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-LG/JO1cJvdRqSmUT+DOhJrml/b45/UqM9nm8emcgbJb5EKNegKCObZcrRqyzVix42VfFf0odytviAAFEYYTu1Q==}
+    peerDependencies:
+      react: '>=16.4.2'
+      react-dom: '>=16.4.2'
+    dependencies:
+      '@babel/runtime': 7.20.13
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /react-transition-group/4.4.5_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
     peerDependencies:
@@ -10501,7 +10515,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      esbuild: /esbuild-wasm/0.17.5
+      esbuild: /esbuild-wasm/0.17.6
       postcss: 8.4.21
       resolve: 1.22.1
       rollup: 3.12.0
