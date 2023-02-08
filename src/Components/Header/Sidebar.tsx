@@ -6,15 +6,11 @@ import { HOME, LOGIN } from '../../config/rutas/rutas';
 import { useTranslation } from 'react-i18next';
 import '../Footer/background.css';
 
-function SideBar(props) {
-  const  { t, i18n } = useTranslation();
-  const sidebarClass = props.isOpen ? "sidebar open" : "sidebar";
+function SideBar() {
+  const  { t, i18n } = useTranslation();  
 
   return (
-    <div className={sidebarClass} >
-      <button onClick={props.toggleSidebar} className="sidebar-toggle">
-        X
-      </button>
+    <div className="sidebar" >
       <ul style={{listStyleType: 'none'}}>
         <li>
           <NavLink className="nav-link" to={HOME} style={{color: "white", padding:"10px"}}>
