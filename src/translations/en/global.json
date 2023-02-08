@@ -68,6 +68,6 @@
 	"logout.title": "LOGOUT",
 	"logout.error.connection": "Connection error, call support",
 	"logout.button" : "Logout",
-	"logout.exit.wait": "Logout .... Please wait"
-	
+	"logout.exit.wait": "Logout .... Please wait",
+	"dashboard.title": "DASHBOARD"
 }

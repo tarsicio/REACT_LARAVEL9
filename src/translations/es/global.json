@@ -68,5 +68,6 @@
 	"logout.title": "SALIR",
 	"logout.error.connection": "Error de Conexión, llame a soporte",
 	"logout.button" : "Salir",
-	"logout.exit.wait": "Saliendo .... Por favor espere..."
+	"logout.exit.wait": "Saliendo .... Por favor espere...",
+	"dashboard.title": "PANEL PRINCIPAL"
 }
