@@ -18,7 +18,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { URL_BASE, DASHBOARD } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
-import Loading from '../../components/Loading/Loading';
+import ButtonLoading from '../../components/Loading/ButtonLoading';
 import { useTranslation } from 'react-i18next';
 
 function ConfirmRegister(){
@@ -71,20 +71,18 @@ function ConfirmRegister(){
 		<section>
         <div className="auth-wrapper">
           <div className="auth-inner">      
-            <h1 style={{textAlign: "center"}}>{t('confirm.title')}</h1>
-              <div style={{padding:"20px"}}>
-                {isLoading ? <Loading msg={t('register.wait')} /> : <div></div>}
-              </div>  
+            <h1 style={{textAlign: "center"}}>{t('confirm.title')}</h1>              
               <div style={{textAlign: "center"}}>
                 <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
               </div>
               {errorValidacion ? <div style={{color:"red", textAlign:"center"}}>{t('confirm.error.msg')}</div> : <div></div>}
-              {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}              
+              {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}
+              {isLoading ? <ButtonLoading msg={t('register.wait')} /> :
               <div className="d-grid">
                 <Button onClick={register} type="submit" className="btn btn-primary" disabled={isLoading} >
                   {t('confirm.button')}
                 </Button>
-              </div>  
+              </div>  }
           </div>
         </div>
       </section>

@@ -13,7 +13,7 @@ import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Loading from '../../components/Loading/Loading';
+import ButtonLoading from '../../components/Loading/ButtonLoading';
 import { useNavigate } from 'react-router-dom';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import { URL_BASE, REGISTER, BIENVENIDO, LOGIN } from '../../config/rutas/rutas';
@@ -161,10 +161,7 @@ function Register(){
         <div className="auth-wrapper" id="register">
           <div className="auth-inner">      
             <Form onSubmit={register} >
-              <h3>{t('register.title')}</h3>
-              <div style={{padding:"20px"}}>
-                {isLoading ? <Loading msg={t('register.wait')} /> : <div></div>}
-              </div>  
+              <h3>{t('register.title')}</h3>              
               <div style={{textAlign: "center"}}>
                 <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Post"  className="img-fluid" />
               </div>
@@ -260,12 +257,13 @@ function Register(){
                   value={terms}
                   onChange={ handlCheckChange } />
                   {invalidCheck ? <Form.Label style={{color:"red", fontSize: "small"}}>{t('register.error.terms')}</Form.Label> : ''}            
-              </Form.Group>            
+              </Form.Group> 
+              {isLoading ? <ButtonLoading msg={t('register.wait')} /> :           
               <div className="d-grid">
                 <Button type="submit" className="btn btn-primary" disabled={isLoading} >
                   {t('register.button')} 
                 </Button>
-              </div>
+              </div> }
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={LOGIN} style={{color: "blue"}}>
                   {t('register.ready')} 

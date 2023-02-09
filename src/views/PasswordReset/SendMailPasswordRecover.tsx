@@ -14,7 +14,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Loading from '../../components/Loading/Loading';
+import ButtonLoading from '../../components/Loading/ButtonLoading';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { 
@@ -100,10 +100,7 @@ function SendMailPasswordRecover(){
         <div className="auth-wrapper">
           <div className="auth-inner">      
             <Form onSubmit={reset}>
-            <h3>{t('send.email.title')}</h3><div></div>
-            	<div style={{padding:"20px"}}> 
-                  {isLoading ? <Loading msg={t('login.validate.wait')} /> : <div></div>}
-                </div>
+            <h3>{t('send.email.title')}</h3><div></div>            	
                 <div style={{textAlign: "center"}}>
                   <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
                 </div>                
@@ -130,11 +127,12 @@ function SendMailPasswordRecover(){
                   </FloatingLabel>
                   {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{t('login.error.email')}</Form.Label> : ''}               
               </Form.Group>
+              {isLoading ? <ButtonLoading msg={t('login.validate.wait')} /> :
               <div className="d-grid" style={{textAlign:"center"}}>
 	              <Button variant="primary" type="submit" disabled={isLoading}>
 	                {t('send.button.recovery')}
 	              </Button>
-              </div>
+              </div> }
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={LOGIN} style={{color: "blue"}}>
                   {t('register.ready')}

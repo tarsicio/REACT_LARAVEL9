@@ -18,8 +18,8 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import axios from 'axios';
 import { URL_BASE, LOGIN, REGISTER, PASSWORD_RESET  } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
-import Loading from '../../components/Loading/Loading';
 import { useTranslation } from 'react-i18next';
+import ButtonLoading from '../../components/Loading/ButtonLoading';
 
 function ResetNewPassword(){
 
@@ -129,10 +129,7 @@ function ResetNewPassword(){
         <div className="auth-wrapper">
           <div className="auth-inner">      
             <Form onSubmit={reset}>
-            <h3>{t('reset.password.title')}</h3><div></div>
-              <div style={{padding:"20px"}}> 
-                  {isLoading ? <Loading msg={t('login.validate.wait')} /> : <div></div>}
-                </div>
+            <h3>{t('reset.password.title')}</h3><div></div>              
                 <div style={{textAlign: "center"}}>
                   <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
                 </div>                
@@ -193,11 +190,12 @@ function ResetNewPassword(){
                   { vacio ? <Form.Label style={{color:"red", fontSize: "small", textAlign:"center"}}>{t('login.error.password')}</Form.Label> : <div></div> }
                   { diferentes ? <Form.Label style={{color:"red", fontSize: "small", textAlign:"center"}}>{t('reset.error.diferent')}</Form.Label> : <div></div> }                   
               </Form.Group>
+              {isLoading ? <ButtonLoading msg={t('login.validate.wait')} /> :
               <div className="d-grid" style={{textAlign:"center"}}>
                 <Button type="submit" disabled={isLoading}>
                   {t('send.button.recovery')}
                 </Button>
-              </div>
+              </div> }
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={LOGIN} style={{color: "blue"}}>
                   {t('register.ready')}

@@ -19,7 +19,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Loading from '../../components/Loading/Loading';
+import ButtonLoading from '../../components/Loading/ButtonLoading';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { 
@@ -114,10 +114,7 @@ function Login(){
         <div className="auth-wrapper" id="login">
           <div className="auth-inner">      
             <Form onSubmit={login}>
-            <h3>{t('login.title')}</h3>
-              <div style={{padding:"20px"}}> 
-                  {isLoading ? <Loading msg={t('login.validate.wait')} /> : <div></div>}
-              </div>
+            <h3>{t('login.title')}</h3>              
                 <div style={{textAlign: "center"}}>
                   <img src={LOGO_HORUS.LogoHorus} style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
                 </div>                
@@ -166,11 +163,12 @@ function Login(){
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label={t('login.check.me')} />
               </Form.Group>
+              {isLoading ? <ButtonLoading msg={t('login.validate.wait')} /> :
               <div className="d-grid">
                 <Button className="btn btn-primary" type="submit" disabled={isLoading}>
                   {t('login.button')}
-                </Button>
-              </div>  
+                </Button>              
+              </div>  }
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={REQUEST_PASSWORD} style={{color: "blue"}}>
                   {t('login.msg.recovery')}
