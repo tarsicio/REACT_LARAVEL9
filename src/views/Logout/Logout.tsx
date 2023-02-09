@@ -65,7 +65,7 @@ function Logout(){
 			}		
   	}
 	return(
-		<>		
+		<center>		
 			<div className="auth-wrapper container hero__main">
 				<div className="auth-inner">
 					<center>
@@ -89,7 +89,7 @@ function Logout(){
 					</center>	
 				</div>						
 			</div>			
-		</>
+		</center>
 	)
 }
 
