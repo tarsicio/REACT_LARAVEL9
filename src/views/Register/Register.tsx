@@ -14,6 +14,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonLoading from '../../components/Loading/ButtonLoading';
+import ButtonSave from '../../components/Loading/ButtonSave';
 import { useNavigate } from 'react-router-dom';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import { URL_BASE, REGISTER, BIENVENIDO, LOGIN } from '../../config/rutas/rutas';
@@ -258,12 +259,9 @@ function Register(){
                   onChange={ handlCheckChange } />
                   {invalidCheck ? <Form.Label style={{color:"red", fontSize: "small"}}>{t('register.error.terms')}</Form.Label> : ''}            
               </Form.Group> 
-              {isLoading ? <ButtonLoading msg={t('register.wait')} /> :           
-              <div className="d-grid">
-                <Button type="submit" className="btn btn-primary" disabled={isLoading} >
-                  {t('register.button')} 
-                </Button>
-              </div> }
+              {isLoading ? 
+                <ButtonLoading msg={t('register.wait')} /> :
+                <ButtonSave disable={isLoading} title={t('register.button')}/> }
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={LOGIN} style={{color: "blue"}}>
                   {t('register.ready')} 

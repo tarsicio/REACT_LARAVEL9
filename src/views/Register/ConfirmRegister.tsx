@@ -77,12 +77,13 @@ function ConfirmRegister(){
               </div>
               {errorValidacion ? <div style={{color:"red", textAlign:"center"}}>{t('confirm.error.msg')}</div> : <div></div>}
               {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}
-              {isLoading ? <ButtonLoading msg={t('register.wait')} /> :
-              <div className="d-grid">
-                <Button onClick={register} type="submit" className="btn btn-primary" disabled={isLoading} >
-                  {t('confirm.button')}
-                </Button>
-              </div>  }
+              {isLoading ? 
+                <ButtonLoading msg={t('register.wait')} /> :
+                <div className="d-grid">
+                  <Button onClick={register} type="submit" className="btn btn-primary" disabled={isLoading} >
+                    {t('confirm.button')}
+                  </Button> 
+                </div>}
           </div>
         </div>
       </section>

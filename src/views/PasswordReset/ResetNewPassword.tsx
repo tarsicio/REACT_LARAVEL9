@@ -20,6 +20,7 @@ import { URL_BASE, LOGIN, REGISTER, PASSWORD_RESET  } from '../../config/rutas/r
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import { useTranslation } from 'react-i18next';
 import ButtonLoading from '../../components/Loading/ButtonLoading';
+import ButtonSave from '../../components/Loading/ButtonSave';
 
 function ResetNewPassword(){
 
@@ -190,12 +191,9 @@ function ResetNewPassword(){
                   { vacio ? <Form.Label style={{color:"red", fontSize: "small", textAlign:"center"}}>{t('login.error.password')}</Form.Label> : <div></div> }
                   { diferentes ? <Form.Label style={{color:"red", fontSize: "small", textAlign:"center"}}>{t('reset.error.diferent')}</Form.Label> : <div></div> }                   
               </Form.Group>
-              {isLoading ? <ButtonLoading msg={t('login.validate.wait')} /> :
-              <div className="d-grid" style={{textAlign:"center"}}>
-                <Button type="submit" disabled={isLoading}>
-                  {t('send.button.recovery')}
-                </Button>
-              </div> }
+              {isLoading ? 
+                <ButtonLoading msg={t('login.validate.wait')} /> :
+                <ButtonSave disable={isLoading} title={t('send.button.recovery')}/> }
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={LOGIN} style={{color: "blue"}}>
                   {t('register.ready')}

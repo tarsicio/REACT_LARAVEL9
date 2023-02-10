@@ -20,6 +20,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import ButtonLoading from '../../components/Loading/ButtonLoading';
+import ButtonSave from '../../components/Loading/ButtonSave';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { 
@@ -163,12 +164,9 @@ function Login(){
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label={t('login.check.me')} />
               </Form.Group>
-              {isLoading ? <ButtonLoading msg={t('login.validate.wait')} /> :
-              <div className="d-grid">
-                <Button className="btn btn-primary" type="submit" disabled={isLoading}>
-                  {t('login.button')}
-                </Button>              
-              </div>  }
+              {isLoading ? 
+                <ButtonLoading msg={t('login.validate.wait')} /> : 
+                <ButtonSave disable={isLoading} title={t('login.button')}/> }
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={REQUEST_PASSWORD} style={{color: "blue"}}>
                   {t('login.msg.recovery')}

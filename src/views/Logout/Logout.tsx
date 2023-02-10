@@ -80,12 +80,13 @@ function Logout(){
 							{errorLogout ? <div style={{color:"red", textAlign:"center"}}>{t('logout.error.connection')}</div> : <div></div>}
 							{servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}
 						</div>
-						{isLoading ? <ButtonLoading msg={t('logout.exit.wait')} /> :
-						<div className="d-grid">		        				        			
-			        		<Button onClick={ handleLogout } className="btn btn-primary" type="submit" disabled={isLoading}>
+						{isLoading ? 
+							<ButtonLoading msg={t('logout.exit.wait')} /> :
+							<div className="d-grid">
+						      <Button onClick={ handleLogout } className="btn btn-primary" type="submit" disabled={isLoading}>
 							    {t('logout.button')}
 							</Button>
-						</div> }		        		
+						    </div> }							
 					</center>	
 				</div>						
 			</div>			

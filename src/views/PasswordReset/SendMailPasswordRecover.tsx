@@ -15,6 +15,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import ButtonLoading from '../../components/Loading/ButtonLoading';
+import ButtonSave from '../../components/Loading/ButtonSave';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { 
@@ -127,12 +128,9 @@ function SendMailPasswordRecover(){
                   </FloatingLabel>
                   {invalidMailInput ? <Form.Label style={{color:"red", fontSize: "small"}}>{t('login.error.email')}</Form.Label> : ''}               
               </Form.Group>
-              {isLoading ? <ButtonLoading msg={t('login.validate.wait')} /> :
-              <div className="d-grid" style={{textAlign:"center"}}>
-	              <Button variant="primary" type="submit" disabled={isLoading}>
-	                {t('send.button.recovery')}
-	              </Button>
-              </div> }
+              {isLoading ? 
+              	<ButtonLoading msg={t('login.validate.wait')} /> :
+              	<ButtonSave disable={isLoading} title={t('send.button.recovery')}/> }              
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={LOGIN} style={{color: "blue"}}>
                   {t('register.ready')}
