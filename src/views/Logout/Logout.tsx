@@ -83,9 +83,9 @@ function Logout(){
 						{isLoading ? 
 							<ButtonLoading msg={t('logout.exit.wait')} /> :
 							<div className="d-grid">
-						      <Button onClick={ handleLogout } className="btn btn-primary" type="submit" disabled={isLoading}>
-							    {t('logout.button')}
-							</Button>
+						      	<Button onClick={ handleLogout } className="btn btn-primary" type="submit" disabled={isLoading}>
+							    	{t('logout.button')}
+								</Button>
 						    </div> }							
 					</center>	
 				</div>						
