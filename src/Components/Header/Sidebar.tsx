@@ -2,21 +2,18 @@ import React, { useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import './sidebar.css';
 import { NavLink } from 'react-router-dom';
-import { HOME, LOGIN } from '../../config/rutas/rutas';
+import { HOME, LOGIN, DASHBOARD, LOGOUT } from '../../config/rutas/rutas';
 import { useTranslation } from 'react-i18next';
 import '../Footer/background.css';
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-
 
 function SideBar() {
   const  { t, i18n } = useTranslation();  
 
   return (
-    <div className="sidebar" >
+    <div className="sidebar fondo" >
       <ul style={{listStyleType: 'none'}}>
         <li>
-          <NavLink className="nav-link" to={HOME} style={{color: "white", padding:"10px"}}>
+          <NavLink className="nav-link" to={DASHBOARD} style={{color: "white", padding:"10px"}}>
             {t('sidebar.dashboard')}
           </NavLink>
         </li>
@@ -54,6 +51,11 @@ function SideBar() {
         <li>
           <NavLink className="nav-link" to={HOME} style={{color: "white", padding:"10px"}}>
             {t('sidebar.color')}
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="nav-link" to={LOGOUT} style={{color: "white", padding:"10px"}}>
+            {t('header.logout')}
           </NavLink>
         </li>
       </ul>
