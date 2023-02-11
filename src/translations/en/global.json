@@ -77,5 +77,10 @@
 	"sidebar.rols": "Rols",
 	"sidebar.module": "Modules",
 	"sidebar.permission": "permissions",
-	"sidebar.color": "Change color"
+	"sidebar.color": "Change color",
+	"users.title": "USERS",
+	"rols.title": "ROLS",
+	"permissions.title": "PERMISSIONS",
+	"notifications.title": "NOTIFICATIONS",
+	"module.title": "MODULES"
 }

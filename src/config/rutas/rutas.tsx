@@ -32,3 +32,9 @@ export const BIENVENIDO       = '/bienvenido';
 // URL DASHBOARD
 export const DASHBOARD        = '/dashboard';
 
+//URL USERS
+export const USERS            = '/users';
+export const MODULES          = '/modules';
+export const PERMISSIONS      = '/permissions';
+export const ROLS             = '/rols';
+export const NOTIFICATION     = '/notifications';

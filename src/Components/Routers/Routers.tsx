@@ -19,6 +19,11 @@ import MsgRegistro from '../../views/Register/MsgRegistro';
 import ConfirmRegister from '../../views/Register/ConfirmRegister';
 import Home from '../../views/Home/Home';
 import Dashboard from '../../views/Dashboard/Dashboard';
+import Users from '../../views/Users/Users';
+import Modules from '../../views/Modules/Modules';
+import Rols from '../../views/Rols/Rols';
+import Notifications from '../../views/Notifications/Notifications';
+import Permissions from '../../views/Permissions/Permissions';
 import NoFound404 from '../../views/Page/NoFound404';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import LayoutMain from '../../layout/LayoutMain';
@@ -31,7 +36,12 @@ import {
 	REQUEST_PASSWORD,
 	RESET_PASSWORD,
 	CONFIRM,
-	BIENVENIDO } from '../../config/rutas/rutas';
+	BIENVENIDO,
+	USERS,
+	MODULES,
+	PERMISSIONS,
+	ROLS,
+	NOTIFICATION } from '../../config/rutas/rutas';
 import PrivateRouter from './PrivateRouter'
 import PublicRouter from './PublicRouter'
 import { UseData } from '../../store/UserLogin';
@@ -84,6 +94,31 @@ function Routers(){
 				<Route path={LOGOUT} element={
 					<PrivateRouter token={_token}>
 						<Logout />
+					</PrivateRouter>  
+				} />
+				<Route path={USERS} element={
+					<PrivateRouter token={_token}>
+						<Users />
+					</PrivateRouter>  
+				} />
+				<Route path={MODULES} element={
+					<PrivateRouter token={_token}>
+						<Modules />
+					</PrivateRouter>  
+				} />
+				<Route path={ROLS} element={
+					<PrivateRouter token={_token}>
+						<Rols />
+					</PrivateRouter>  
+				} />
+				<Route path={PERMISSIONS} element={
+					<PrivateRouter token={_token}>
+						<Permissions />
+					</PrivateRouter>  
+				} />
+				<Route path={NOTIFICATION} element={
+					<PrivateRouter token={_token}>
+						<Notifications />
 					</PrivateRouter>  
 				} />
 				<Route path="*" element={

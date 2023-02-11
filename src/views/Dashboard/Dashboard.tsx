@@ -15,6 +15,8 @@ import { UseData } from '../../store/UserLogin';
 import SideBar from '../../components/Header/SideBar';
 import { useTranslation } from 'react-i18next';
 import Cards from '../../components/Card/Cards';
+import PieCharts from '../../components/charts/PieCharts';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function Dashboard(){	
 	const userData = UseData(state => state._user);
@@ -26,13 +28,13 @@ function Dashboard(){
 		        <Col md='2'>
 		            <SideBar />
 		        </Col>
-		        <Col md='10'>
-		            <section>			
-						<div>
-							<h1 style={{textAlign:"center"}}>{t('dashboard.title')}</h1>
-						</div>
-						<Cards />					   
-					</section>
+		        <Col md='10'>		            
+					<div>
+						<h1 style={{textAlign:"center"}}>{t('dashboard.title')}</h1>
+					</div>
+					<div className="flex-row" style={{textAlign:"center"}}>
+						<Cards color="Warning"/> <Cards color="Primary"/> <Cards color="Danger"/>
+					</div>					
 		        </Col>
 		    </Row>
 		</div>			

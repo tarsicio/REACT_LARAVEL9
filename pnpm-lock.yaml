@@ -17,6 +17,7 @@ specifiers:
   '@vitejs/plugin-react': ^3.0.0
   axios: ^1.2.6
   bootstrap: ^5.2.3
+  chart.js: ^4.2.1
   esbuild-wasm: latest
   i18next: ^22.4.9
   i18next-browser-languagedetector: ^7.0.1
@@ -24,6 +25,7 @@ specifiers:
   mdb-react-ui-kit: ^5.1.0
   react: ^18.2.0
   react-bootstrap: ^2.7.0
+  react-chartjs-2: ^5.2.0
   react-dom: ^18.2.0
   react-flags: ^0.1.18
   react-i18next: ^12.1.4
@@ -50,12 +52,14 @@ dependencies:
   '@popperjs/core': 2.11.6
   axios: 1.2.6
   bootstrap: 5.2.3_@popperjs+core@2.11.6
+  chart.js: 4.2.1
   i18next: 22.4.9
   i18next-browser-languagedetector: 7.0.1
   i18next-xhr-backend: 3.2.2
   mdb-react-ui-kit: 5.1.0_fxtgt6bjwd6p4cwoordejim2zi
   react: 18.2.0
   react-bootstrap: 2.7.0_5ndqzdd6t4rivxsukjv3i3ak2q
+  react-chartjs-2: 5.2.0_t5yjg6ab35jnsudnh2qdighszm
   react-dom: 18.2.0_react@18.2.0
   react-flags: 0.1.18_react@18.2.0
   react-i18next: 12.1.4_iakk3dtjhjpukdoa4oua5khgci
@@ -2119,6 +2123,10 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
 
+  /@kurkle/color/0.3.2:
+    resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==}
+    dev: false
+
   /@leichtgewicht/ip-codec/2.0.4:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
     dev: false
@@ -3979,6 +3987,13 @@ packages:
   /char-regex/2.0.1:
     resolution: {integrity: sha512-oSvEeo6ZUD7NepqAat3RqoucZ5SeqLJgOvVIwkafu6IP3V0pO38s/ypdVUmDDK6qIIHNlYHJAKX9E7R7HoKElw==}
     engines: {node: '>=12.20'}
+    dev: false
+
+  /chart.js/4.2.1:
+    resolution: {integrity: sha512-6YbpQ0nt3NovAgOzbkSSeeAQu/3za1319dPUQTXn9WcOpywM8rGKxJHrhS8V8xEkAlk8YhEfjbuAPfUyp6jIsw==}
+    engines: {pnpm: ^7.0.0}
+    dependencies:
+      '@kurkle/color': 0.3.2
     dev: false
 
   /check-types/11.2.2:
@@ -8892,6 +8907,16 @@ packages:
       react-transition-group: 4.4.5_biqbaboplfbrettd7655fr4n2y
       uncontrollable: 7.2.1_react@18.2.0
       warning: 4.0.3
+    dev: false
+
+  /react-chartjs-2/5.2.0_t5yjg6ab35jnsudnh2qdighszm:
+    resolution: {integrity: sha512-98iN5aguJyVSxp5U3CblRLH67J8gkfyGNbiK3c+l1QI/G4irHMPQw44aEPmjVag+YKTyQ260NcF82GTQ3bdscA==}
+    peerDependencies:
+      chart.js: ^4.1.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      chart.js: 4.2.1
+      react: 18.2.0
     dev: false
 
   /react-dev-utils/12.0.1_xcwpiakgmhkvdxiq4pn3mrixf4:

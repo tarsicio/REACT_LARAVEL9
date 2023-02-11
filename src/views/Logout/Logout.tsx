@@ -1,10 +1,4 @@
 /**
- * El presente componente permite cerrar el la sección del usuario
- * forma global con  la libreria Zustand, la cual
- * puede ser usada desde cualquier parte de la aplicación sin problema
- * también los datos se guardan en el LocalStorage, una vez haga Logout
- * se borran todos los datos globales y el LocalStorage, también cierra
- * el sección en la API de Laravel 9
  * @name HORUS | 2023
  * @version 3.0.0 
  * @function Logout
@@ -12,6 +6,12 @@
  * @license MIT
  * @copyright (c) 2023 Tarsicio Carrizales
  * 
+ * El presente componente permite cerrar el la sección del usuario
+ * forma global con  la libreria Zustand, la cual
+ * puede ser usada desde cualquier parte de la aplicación sin problema
+ * también los datos se guardan en el LocalStorage, una vez haga Logout
+ * se borran todos los datos globales y el LocalStorage, también cierra
+ * el sección en la API de Laravel 9
  */
 
 import React, { useState } from 'react';
@@ -23,6 +23,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import ButtonLoading from '../../components/Loading/ButtonLoading';
+import { Container, Row, Col } from 'react-bootstrap';
+import SideBar from '../../components/Header/SideBar';
 
 function Logout(){
 	const  { t, i18n } = useTranslation();
@@ -65,32 +67,41 @@ function Logout(){
 			}		
   	}
 	return(
-		<center>		
-			<div className="auth-wrapper container hero__main">
-				<div className="auth-inner">
-					<center>
-						<h1>{t('logout.title')}</h1>
-						<div>
-							<h3>{t('horus.title')}</h3>
-						</div>
-						<div style={{textAlign: "center"}}>
-		          			<img src={ LOGO_HORUS.LogoHorus } style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
-		        		</div>
-						<div>
-							{errorLogout ? <div style={{color:"red", textAlign:"center"}}>{t('logout.error.connection')}</div> : <div></div>}
-							{servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}
-						</div>
-						{isLoading ? 
-							<ButtonLoading msg={t('logout.exit.wait')} /> :
-							<div className="d-grid">
-						      	<Button onClick={ handleLogout } className="btn btn-primary" type="submit" disabled={isLoading}>
-							    	{t('logout.button')}
-								</Button>
-						    </div> }							
-					</center>	
-				</div>						
-			</div>			
-		</center>
+		<div style={{padding:"1px", backgroundColor:"white"}}>
+		    <Row>
+		        <Col md='2'>
+		            <SideBar />
+		        </Col>
+		        <Col md='10'>		            
+					<center>		
+						<div className="auth-wrapper container hero__main">
+							<div className="auth-inner">
+								<center>
+									<h1>{t('logout.title')}</h1>
+									<div>
+										<h3>{t('horus.title')}</h3>
+									</div>
+									<div style={{textAlign: "center"}}>
+					          			<img src={ LOGO_HORUS.LogoHorus } style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
+					        		</div>
+									<div>
+										{errorLogout ? <div style={{color:"red", textAlign:"center"}}>{t('logout.error.connection')}</div> : <div></div>}
+										{servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}
+									</div>
+									{isLoading ? 
+										<ButtonLoading msg={t('logout.exit.wait')} /> :
+										<div className="d-grid">
+									      	<Button onClick={ handleLogout } className="btn btn-primary" type="submit" disabled={isLoading}>
+										    	{t('logout.button')}
+											</Button>
+									    </div> }							
+								</center>	
+							</div>						
+						</div>			
+					</center>
+				</Col>
+		    </Row>
+		</div>
 	)
 }
 
