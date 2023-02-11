@@ -12,6 +12,7 @@ specifiers:
   '@material-ui/core': ^4.12.4
   '@mui/material': ^5.11.6
   '@popperjs/core': ^2.11.6
+  '@trendmicro/react-sidenav': ^0.5.0
   '@types/react': ^18.0.26
   '@types/react-dom': ^18.0.9
   '@vitejs/plugin-react': ^3.0.0
@@ -48,6 +49,7 @@ dependencies:
   '@material-ui/core': 4.12.4_5ndqzdd6t4rivxsukjv3i3ak2q
   '@mui/material': 5.11.6_rqh7qj4464ntrqrt6banhaqg4q
   '@popperjs/core': 2.11.6
+  '@trendmicro/react-sidenav': 0.5.0_react@18.2.0
   axios: 1.2.6
   bootstrap: 5.2.3_@popperjs+core@2.11.6
   i18next: 22.4.9
@@ -73,7 +75,7 @@ devDependencies:
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
   '@vitejs/plugin-react': 3.0.1_vite@4.0.4
-  esbuild-wasm: 0.17.6
+  esbuild-wasm: 0.17.7
   typescript: 4.9.4
   vite: 4.0.4
 
@@ -2720,6 +2722,19 @@ packages:
     engines: {node: '>= 6'}
     dev: false
 
+  /@trendmicro/react-sidenav/0.5.0_react@18.2.0:
+    resolution: {integrity: sha512-NBitXTtBda763gcU27hQu6zTnq4dq1ngoB3U1h8oK2WowdTl757mqMOnuDa1dU1dgND+YLY5Q96s5NoUOjfvqA==}
+    peerDependencies:
+      react: '>=15.0.0'
+    dependencies:
+      chained-function: 0.5.0
+      classnames: 2.3.2
+      prop-types: 15.8.1
+      react: 18.2.0
+      uncontrollable: 7.2.1_react@18.2.0
+      warning: 3.0.0
+    dev: false
+
   /@trysound/sax/0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
@@ -3955,6 +3970,10 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
+  /chained-function/0.5.0:
+    resolution: {integrity: sha512-Cq1nLFdK/dxHZNLjmA+LpH4ABI4knigZoCQEDzZt6AAG0GlylcRlTSu2qbwq3O5fJ8TosEJwB0YjtpHsb2FIGA==}
+    dev: false
+
   /chalk/2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
     engines: {node: '>=4'}
@@ -4949,8 +4968,8 @@ packages:
       is-symbol: 1.0.4
     dev: false
 
-  /esbuild-wasm/0.17.6:
-    resolution: {integrity: sha512-9Ldow2+kulEnGtOTbngHyiFIneIi+g7pJOz8cZQhW1KWKqsu9nCYDba2JlwsH/PJtAGNSTCrKBmaKYf8rJYvgQ==}
+  /esbuild-wasm/0.17.7:
+    resolution: {integrity: sha512-2po3VY6Gc3ZSQJH1BU4QWrPMwIuFsjycdi28i5+rQxJKWX0p1RRlHWP+hoYNHHhXKp3LkPNO+Vki3o859ika+g==}
     engines: {node: '>=12'}
     hasBin: true
     dev: true
@@ -10515,7 +10534,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      esbuild: /esbuild-wasm/0.17.6
+      esbuild: /esbuild-wasm/0.17.7
       postcss: 8.4.21
       resolve: 1.22.1
       rollup: 3.12.0
@@ -10546,6 +10565,12 @@ packages:
     resolution: {integrity: sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==}
     dependencies:
       makeerror: 1.0.12
+    dev: false
+
+  /warning/3.0.0:
+    resolution: {integrity: sha512-jMBt6pUrKn5I+OGgtQ4YZLdhIeJmObddh6CsibPxyQ5yPZm1XExSyzC1LCNX7BzhxWgiHmizBWJTHJIjMjTQYQ==}
+    dependencies:
+      loose-envify: 1.4.0
     dev: false
 
   /warning/4.0.3:

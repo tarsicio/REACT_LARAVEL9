@@ -10,8 +10,8 @@ function Cards() {
         <Card
           bg={variant.toLowerCase()}
           key={variant}
-          text={variant.toLowerCase() === 'light' ? 'Primary' : 'white'}
-          style={{ width: '18rem' }}
+          text={variant.toLowerCase() === "light" ? "Primary" : "white"}
+          style={{ width: "18rem", background: "#343a40" }}
           className="mb-2"
         >
           <Card.Header>Allow USER</Card.Header>

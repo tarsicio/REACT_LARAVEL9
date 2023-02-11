@@ -5,6 +5,9 @@ import { NavLink } from 'react-router-dom';
 import { HOME, LOGIN } from '../../config/rutas/rutas';
 import { useTranslation } from 'react-i18next';
 import '../Footer/background.css';
+import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+
 
 function SideBar() {
   const  { t, i18n } = useTranslation();  

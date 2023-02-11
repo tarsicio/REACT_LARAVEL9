@@ -22,13 +22,6 @@ import { UseData } from '../../store/UserLogin';
 import Carrusel from './Carrusel';
 import '../Footer/background.css';
 import Flag from "react-flags";
-import { 
-  LABEL_LOGIN,
-  LABEL_LOGOUT,
-  LABEL_HOME,
-  LABEL_REGISTER02,
-  LABEL_DASHBOARD
-} from '../../config/label/labelEs';
 import { useTranslation } from 'react-i18next';
 
 function Header() {
