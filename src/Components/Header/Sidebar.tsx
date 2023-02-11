@@ -10,7 +10,7 @@ import {
   USERS, 
   MODULES,
   ROLS,
-  NOTIFICATION,
+  NOTIFICATIONS,
   PERMISSIONS } from '../../config/rutas/rutas';
 import { useTranslation } from 'react-i18next';
 import '../Footer/background.css';
@@ -32,7 +32,7 @@ function SideBar() {
           </NavLink>
         </li>
         <li>
-          <NavLink className="nav-link" to={NOTIFICATION} style={{color: "white", padding:"10px"}}>
+          <NavLink className="nav-link" to={NOTIFICATIONS} style={{color: "white", padding:"10px"}}>
             {t('sidebar.notifications')}
           </NavLink>
         </li>

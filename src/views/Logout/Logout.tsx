@@ -82,7 +82,11 @@ function Logout(){
 										<h3>{t('horus.title')}</h3>
 									</div>
 									<div style={{textAlign: "center"}}>
-					          			<img src={ LOGO_HORUS.LogoHorus } style={{width: 100, height: 100,}} alt="Logo_Horus"  className="img-fluid" />
+					          			<img 
+					          			src={ LOGO_HORUS.LogoHorus } 
+					          			style={{width: 100, height: 100,}} 
+					          			alt="Logo_Horus"  
+					          			className="img-fluid" />
 					        		</div>
 									<div>
 										{errorLogout ? <div style={{color:"red", textAlign:"center"}}>{t('logout.error.connection')}</div> : <div></div>}

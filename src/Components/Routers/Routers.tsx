@@ -41,7 +41,7 @@ import {
 	MODULES,
 	PERMISSIONS,
 	ROLS,
-	NOTIFICATION } from '../../config/rutas/rutas';
+	NOTIFICATIONS } from '../../config/rutas/rutas';
 import PrivateRouter from './PrivateRouter'
 import PublicRouter from './PublicRouter'
 import { UseData } from '../../store/UserLogin';
@@ -116,7 +116,7 @@ function Routers(){
 						<Permissions />
 					</PrivateRouter>  
 				} />
-				<Route path={NOTIFICATION} element={
+				<Route path={NOTIFICATIONS} element={
 					<PrivateRouter token={_token}>
 						<Notifications />
 					</PrivateRouter>  

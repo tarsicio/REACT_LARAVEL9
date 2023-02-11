@@ -37,4 +37,4 @@ export const USERS            = '/users';
 export const MODULES          = '/modules';
 export const PERMISSIONS      = '/permissions';
 export const ROLS             = '/rols';
-export const NOTIFICATION     = '/notifications';
+export const NOTIFICATIONS    = '/notifications';

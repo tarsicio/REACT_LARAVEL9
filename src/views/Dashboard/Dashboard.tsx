@@ -8,7 +8,6 @@
  */
 
 import React, { useState } from 'react';
-import Image from 'react-bootstrap/Image';
 import { Container, Row, Col } from 'react-bootstrap';
 import { LOGO_HORUS, URL_STORAGE } from '../../config/imgs/imgs';
 import { UseData } from '../../store/UserLogin';
@@ -28,13 +27,9 @@ function Dashboard(){
 		        <Col md='2'>
 		            <SideBar />
 		        </Col>
-		        <Col md='10'>		            
-					<div>
-						<h1 style={{textAlign:"center"}}>{t('dashboard.title')}</h1>
-					</div>
-					<div className="flex-row" style={{textAlign:"center"}}>
-						<Cards color="Warning"/> <Cards color="Primary"/> <Cards color="Danger"/>
-					</div>					
+		        <Col md='10'>		        	
+					<h1 style={{textAlign:"center"}}>{t('dashboard.title')}</h1>
+		        	<Cards />
 		        </Col>
 		    </Row>
 		</div>			

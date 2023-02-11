@@ -26,7 +26,7 @@ function Notifications(){
 						<div className="auth-wrapper container hero__main">
 							<div className="auth-inner">
 								<center>
-									<h1>{t('notifications.title')}</h1>						
+									<h1>{t('notifications.title')}</h1>
 									<div style={{textAlign: "center"}}>
 					          			<img 
 					          			src={ LOGO_HORUS.LogoHorus } 
