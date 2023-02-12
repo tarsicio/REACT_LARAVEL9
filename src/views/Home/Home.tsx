@@ -23,12 +23,12 @@ function Home(){
 	return(
 		<section>			
 			<Reloj />
-			<div style={{textAlign:'center'}}>
+			<div style={{textAlign:"center"}}>
 				 <Image className="rotando" src={LOGO_VITE.LogoVite} alt="Vite" /> {t('home.and')} 
 				 <Image className="App-logo rotando" src={REACT_LOADING.ReactLoading} alt="React" /> {t('home.and')}
 				 <Image className="rotando" src={LOGO_TS.LogoTs} alt="React" /> 
-			</div>						
-			<div className="container hero__main"> 				
+			</div>			
+			<div className="container hero__main" > 				
 	            <div className="hero__textos">
 	                <h1 className="title">{t('home.title')}</h1>
 	                <h2><span className="title--active">{t('home.subtitle01')}</span></h2> 
