@@ -2,13 +2,13 @@
 
 									PROJECT IN DEVELOPMENT HORUS | 2023 
 
-<p>
-	Help me have a coffee, every bean counts
-</p>
+
+Help me have a coffee, every bean counts
+
 ![HORUS | 2023](https://github.com/tarsicio/REACT_LARAVEL9/blob/master/src/assets/img/usdt100.png)
-<p>
-	USDT Wallet : 0x2701ceabb6c061f937cd7107fb97ee18ce63c90d
-</p>
+
+USDT Wallet : 0x2701ceabb6c061f937cd7107fb97ee18ce63c90d
+
 
 Greetings to all,
 
