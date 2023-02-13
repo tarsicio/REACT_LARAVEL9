@@ -2,7 +2,7 @@
 
 									PROJECT IN DEVELOPMENT HORUS | 2023 
 
-https://raw.githubusercontent.com/tarsicio/REACT_LARAVEL9/blob/master/src/assets/img/horus.png
+![HORUS | 2023](https://github.com/tarsicio/REACT_LARAVEL9/blob/master/src/assets/img/usdt100.png)
 
 Greetings to all,
 
