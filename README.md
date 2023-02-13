@@ -2,9 +2,9 @@
 
 									PROJECT IN DEVELOPMENT HORUS | 2023 
 
-<p align="center">
+<div style="align-content: center;">
 ![HORUS | 2023](https://github.com/tarsicio/REACT_LARAVEL9/blob/master/src/assets/img/usdt100.png)
-</p>
+</div>
 Greetings to all,
 
 HORUS Project | 2023 Version 3 (PHP | LARAVEL | REACT-UI | SWAGGER | API-REST)
