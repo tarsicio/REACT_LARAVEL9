@@ -36,3 +36,19 @@
   width: 60px;
   z-index: 1;
 }
+
+@media screen and (max-width: 900px){
+  .ancho{
+    width: 52%;
+  }
+
+  @media screen and (max-width: 700px){
+  .ancho{
+    width: 100%;
+  }
+
+  @media screen and (max-width: 500px){
+  .ancho{
+    width: 100%;
+  }
+}

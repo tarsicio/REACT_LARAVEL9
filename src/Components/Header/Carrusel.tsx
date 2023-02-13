@@ -16,7 +16,7 @@ import { useTranslation } from 'react-i18next';
 function Carrusel(){
   const  { t, i18n } = useTranslation();
   return(
-      <Carousel variant="dark">
+      <Carousel className="ancho" variant="dark">
         <Carousel.Item style={{ textAlign:"center"}} >
           <Image 
             className="d-block w-100" 
