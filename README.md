@@ -46,6 +46,18 @@ December 26, 2022
 
 									PROYECTO EN DESARROLLO HORUS | 2023
 
+![HORUS | 2023](https://github.com/tarsicio/REACT_LARAVEL9/blob/master/src/assets/img/horus.png)
+
+
+![HORUS | 2023](https://github.com/tarsicio/REACT_LARAVEL9/blob/master/src/assets/img/react.jpeg)
+
+
+Ayudame a Tomarme un Café, Cada Grano Cuenta
+
+![HORUS | 2023](https://github.com/tarsicio/REACT_LARAVEL9/blob/master/src/assets/img/usdt100.png)
+
+Billetera USDT : 0x2701ceabb6c061f937cd7107fb97ee18ce63c90d
+
 Saludos a todos,
 
 Proyecto HORUS | 2023 Versión 3 (PHP | LARAVEL | REACT-UI | SWAGGER | API-REST)
