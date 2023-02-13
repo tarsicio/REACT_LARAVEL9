@@ -19,7 +19,7 @@ function SideBar() {
   const  { t, i18n } = useTranslation();  
 
   return (
-    <div className="sidebar fondo" >
+    <div className="sidebar" >
       <ul style={{listStyleType: 'none'}}>
         <li>
           <NavLink className="nav-link" to={DASHBOARD} style={{color: "white", padding:"10px"}}>
