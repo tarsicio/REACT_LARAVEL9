@@ -84,5 +84,6 @@
 	"rols.title": "ROLS",
 	"permissions.title": "PERMISSIONS",
 	"notifications.title": "NOTIFICATIONS",
-	"module.title": "MODULES"
+	"module.title": "MODULES",
+	"dashboard.text": "Place in this place the desired relevant statistic to be shown to system operators"
 }

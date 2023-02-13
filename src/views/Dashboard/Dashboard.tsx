@@ -22,7 +22,7 @@ function Dashboard(){
 	const  { t, i18n } = useTranslation();
   		
 	return(
-		<div style={{padding:"1px", backgroundColor:"white"}}>
+		<div style={{backgroundColor:"white"}}>
 		    <Row>
 		        <Col md='2'>
 		            <SideBar />

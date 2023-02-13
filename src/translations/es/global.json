@@ -84,5 +84,6 @@
 	"rols.title": "ROLES",
 	"permissions.title": "PERMISOS",
 	"notifications.title": "NOTIFICACIONES",
-	"module.title": "MÓDULOS"
+	"module.title": "MÓDULOS",
+	"dashboard.text": "Coloque en éste lugar la estadística relevate deseada a mostrar a los operadores del sistema"
 }

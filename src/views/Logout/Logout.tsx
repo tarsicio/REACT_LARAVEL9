@@ -67,7 +67,7 @@ function Logout(){
 			}		
   	}
 	return(
-		<div style={{padding:"1px", backgroundColor:"white"}}>
+		<div style={{backgroundColor:"white"}}>
 		    <Row>
 		        <Col md='2'>
 		            <SideBar />
