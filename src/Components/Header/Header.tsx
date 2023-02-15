@@ -23,6 +23,9 @@ import Carrusel from './Carrusel';
 import '../Footer/background.css';
 import Flag from "react-flags";
 import { useTranslation } from 'react-i18next';
+import { ImExit } from "react-icons/im";
+import { FaLockOpen } from "react-icons/fa";
+import { GiArchiveRegister } from "react-icons/gi";
 
 function Header() {
   const  { t, i18n } = useTranslation();
@@ -92,27 +95,27 @@ function Header() {
                     onClick={() => changeLanguage(language)}>
                     {language === "en" ? t('header.language') : t('header.language') }
                     {language === "en" 
-                    ? <Flag name="US" basePath="./img/flags" format="png" pngSize={32} shiny={true} alt="USA Flag" /> 
-                    : <Flag name="VE" basePath="./img/flags" format="png" pngSize={32} shiny={true} alt="Venezuela Flag" /> }
+                    ? <Flag name="US" basePath="./img/flags" format="png" pngSize={32} shiny={true} alt="English" /> 
+                    : <Flag name="VE" basePath="./img/flags" format="png" pngSize={32} shiny={true} alt="Spanish" /> }
                   </Button>                  
                 </div>
                   { !_token && <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <NavLink className="nav-link" to={LOGIN} style={{color: "white", padding:"10px"}}>
-                      {t('header.login')}
+                      {t('header.login')} <FaLockOpen />
                     </NavLink>
                   </li>
                   <li className="nav-item">
                     <NavLink className="nav-link" to={REGISTER} style={{color: "white", padding:"10px"}}>
-                      {t('header.register')}
+                      {t('header.register')} <GiArchiveRegister />
                     </NavLink>
                   </li>
                 </ul> }
                 { _token && <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <NavLink className="nav-link" to={LOGOUT} style={{color: "white", padding:"10px"}}>
-                      {t('header.logout')}
-                    </NavLink>
+                      {t('header.logout')} <ImExit />
+                    </NavLink>                                                              
                   </li>
                 </ul> }  
                 </Nav>

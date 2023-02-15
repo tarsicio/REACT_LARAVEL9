@@ -14,7 +14,6 @@ import { UseData } from '../../store/UserLogin';
 import SideBar from '../../components/Header/SideBar';
 import { useTranslation } from 'react-i18next';
 import Cards from '../../components/Card/Cards';
-import PieCharts from '../../components/charts/PieCharts';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function Dashboard(){	
@@ -30,6 +29,9 @@ function Dashboard(){
 		        <Col md='10'>		        	
 					<h1 style={{textAlign:"center"}}>{t('dashboard.title')}</h1>
 		        	<Cards />
+		        	<div>
+		        		
+		        	</div>
 		        </Col>
 		    </Row>
 		</div>			
