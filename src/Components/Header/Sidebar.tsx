@@ -2,6 +2,14 @@ import React, { useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import './sidebar.css';
 import { NavLink } from 'react-router-dom';
+import { AiFillDashboard } from "react-icons/ai";
+import { MdNotificationsActive } from "react-icons/md";
+import { GiPoliceOfficerHead } from "react-icons/gi";
+import { ImExit } from "react-icons/im";
+import { SiOpenaccess } from "react-icons/si";
+import { GoFileSubmodule } from "react-icons/go";
+import { IoIosColorPalette } from "react-icons/io";
+import { FaUserTie } from "react-icons/fa";
 import { 
   HOME, 
   LOGIN, 
@@ -20,54 +28,112 @@ function SideBar() {
 
   return (
     <div className="sidebar" >
-      <ul style={{listStyleType: 'none'}}>
-        <li>
-          <NavLink className="nav-link" to={DASHBOARD} style={{color: "white", padding:"10px"}}>
-            {t('sidebar.dashboard')}
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="nav-link" to={USERS} style={{color: "white", padding:"10px"}}>
-            {t('sidebar.users')}
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="nav-link" to={NOTIFICATIONS} style={{color: "white", padding:"10px"}}>
-            {t('sidebar.notifications')}
-          </NavLink>
-        </li>
-      </ul>
-      <div className="sidebar-dropdown">
-        <ul style={{listStyleType: 'none'}}>
-          <li>
-            <NavLink className="nav-link" to={ROLS} style={{color: "white", padding:"10px"}}>
-            {t('sidebar.rols')}
-          </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav-link" to={MODULES} style={{color: "white", padding:"10px"}}>
-            {t('sidebar.module')}
-          </NavLink>
-          </li>
-          <li>
-            <NavLink className="nav-link" to={PERMISSIONS} style={{color: "white", padding:"10px"}}>
-            {t('sidebar.permission')}
-          </NavLink>
-          </li>
-        </ul>
-      </div>
-      <ul style={{listStyleType: 'none'}}>
-        <li>
-          <NavLink className="nav-link" to="#" style={{color: "white", padding:"10px"}}>
-            {t('sidebar.color')}
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="nav-link" to={LOGOUT} style={{color: "white", padding:"10px"}}>
-            {t('header.logout')}
-          </NavLink>
-        </li>
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <NavLink className="nav-link" to={DASHBOARD} style={{color: "white", padding:"10px"}}>
+                  <AiFillDashboard />
+              </NavLink>              
+            </td>
+            <td>
+              <NavLink className="nav-link" to={DASHBOARD} style={{color: "white", padding:"10px"}}>
+                  {t('sidebar.dashboard')}
+              </NavLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <NavLink className="nav-link" to={USERS} style={{color: "white", padding:"10px"}}>
+                  <FaUserTie />
+              </NavLink>
+            </td>
+            <td>
+              <NavLink className="nav-link" to={USERS} style={{color: "white", padding:"10px"}}>
+                  {t('sidebar.users')}
+              </NavLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <NavLink className="nav-link" to={NOTIFICATIONS} style={{color: "white", padding:"10px"}}>
+                  <MdNotificationsActive />
+              </NavLink>
+            </td>
+            <td>
+              <NavLink className="nav-link" to={NOTIFICATIONS} style={{color: "white", padding:"10px"}}>
+                  {t('sidebar.notifications')}
+              </NavLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <NavLink className="nav-link" to={ROLS} style={{color: "white", padding:"10px"}}>
+                  <GiPoliceOfficerHead />
+              </NavLink>
+            </td>
+            <td>
+              <NavLink className="nav-link" to={ROLS} style={{color: "white", padding:"10px"}}>
+                  {t('sidebar.rols')}
+              </NavLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <NavLink className="nav-link" to={MODULES} style={{color: "white", padding:"10px"}}>
+                  <GoFileSubmodule />
+              </NavLink>
+            </td>
+            <td>
+              <NavLink className="nav-link" to={MODULES} style={{color: "white", padding:"10px"}}>
+                  {t('sidebar.module')}
+              </NavLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <NavLink className="nav-link" to={PERMISSIONS} style={{color: "white", padding:"10px"}}>
+                <SiOpenaccess />
+              </NavLink>
+            </td>
+            <td>
+              <NavLink className="nav-link" to={PERMISSIONS} style={{color: "white", padding:"10px"}}>
+                {t('sidebar.permission')}
+              </NavLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <NavLink className="nav-link" to="#" style={{color: "white", padding:"10px"}}>
+                <IoIosColorPalette />
+              </NavLink>              
+            </td>
+            <td>
+              <NavLink className="nav-link" to="#" style={{color: "white", padding:"10px"}}>
+                {t('sidebar.color')}
+              </NavLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <NavLink className="nav-link" to={LOGOUT} style={{color: "white", padding:"10px"}}>
+                <ImExit />
+              </NavLink>
+            </td>
+            <td>
+              <NavLink className="nav-link" to={LOGOUT} style={{color: "white", padding:"10px"}}>
+                {t('header.logout')}
+              </NavLink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
