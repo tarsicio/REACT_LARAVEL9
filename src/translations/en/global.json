@@ -72,6 +72,7 @@
 	"logout.button" : "Logout",
 	"logout.exit.wait": "Logout .... Please wait",
 	"dashboard.title": "DASHBOARD",
+	"sidebar.menu": "Menu",
 	"sidebar.dashboard": "Dashboard",
 	"sidebar.users": "Users",
 	"sidebar.notifications": "Notifications",

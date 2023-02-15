@@ -26,13 +26,13 @@ import '../Footer/background.css';
 function SideBar() {
   const  { t, i18n } = useTranslation();  
 
-  return (
-    <div className="sidebar" >
+  return (                              
+    <div className="sidebar">
       <table>
         <thead>
           <tr>
-            <th></th>
-            <th></th>
+            <th style={{padding:"15px"}}></th>
+            <th style={{padding:"15px"}}>{t('sidebar.menu')}</th>
           </tr>
         </thead>
         <tbody>
