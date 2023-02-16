@@ -15,15 +15,18 @@ let userData = (set) =>  ({
     _token: null,       
     _user: {},
     _lng: 'es',
+    _sidebar: true,
     setToken: (value) => set(state => ({ _token: value })),
     setUser: (value) => set(state => ({ _user: value })),
     setLng: (value) => set(state => ({ _lng: value })),
+    setSidebar: (value) => set(state => ({ _sidebar: value })),
     logoutUser: () =>{
         set(state =>({
             ...state,
             _token: null,
             _user: {},
-            _lng: 'es'
+            _lng: 'es',
+            _sidebar: true
         }),true)
     },
 })

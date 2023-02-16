@@ -10,7 +10,7 @@ import { SiOpenaccess } from "react-icons/si";
 import { GoFileSubmodule } from "react-icons/go";
 import { IoIosColorPalette } from "react-icons/io";
 import { FaUserTie } from "react-icons/fa";
-import { BsArrowLeftSquare } from "react-icons/bs";
+import { BsArrowRightSquare } from "react-icons/bs";
 import { 
   HOME, 
   LOGIN, 
@@ -25,27 +25,27 @@ import { useTranslation } from 'react-i18next';
 import '../Footer/background.css';
 import { UseData } from '../../store/UserLogin';
 
-function SideBar() {
+function SideBar02() {
   const  { t, i18n } = useTranslation();
-  const _sidebar = UseData(state => state.setSidebar);
-  let href = null;
+  const _sidebar = UseData(state => state.setSidebar);  
+  let href = null; 
   href = window.location.pathname;
 
   const changeSidebar = () =>{
-    _sidebar(false);    
+    _sidebar(true);    
   }
 
   return (    
-    <div className="sidebar">
+    <div className="sidebar02">
       <table>
         <thead>
           <tr>
             <th style={{padding:"15px"}}>
               <NavLink className="nav-link" onClick={()=> changeSidebar()} to={href}>
-                  <BsArrowLeftSquare />
+                  <BsArrowRightSquare />
               </NavLink>              
-            </th>
-            <th style={{padding:"15px"}}>{t('sidebar.menu')}</th>
+            </th>            
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -56,9 +56,7 @@ function SideBar() {
               </NavLink>              
             </td>
             <td>
-              <NavLink className="nav-link" to={DASHBOARD} style={{color: "white", padding:"10px"}}>
-                  {t('sidebar.dashboard')}
-              </NavLink>
+              
             </td>
           </tr>
           <tr>
@@ -68,9 +66,7 @@ function SideBar() {
               </NavLink>
             </td>
             <td>
-              <NavLink className="nav-link" to={USERS} style={{color: "white", padding:"10px"}}>
-                  {t('sidebar.users')}
-              </NavLink>
+              
             </td>
           </tr>
           <tr>
@@ -80,9 +76,7 @@ function SideBar() {
               </NavLink>
             </td>
             <td>
-              <NavLink className="nav-link" to={NOTIFICATIONS} style={{color: "white", padding:"10px"}}>
-                  {t('sidebar.notifications')}
-              </NavLink>
+              
             </td>
           </tr>
           <tr>
@@ -92,9 +86,7 @@ function SideBar() {
               </NavLink>
             </td>
             <td>
-              <NavLink className="nav-link" to={ROLS} style={{color: "white", padding:"10px"}}>
-                  {t('sidebar.rols')}
-              </NavLink>
+              
             </td>
           </tr>
           <tr>
@@ -104,9 +96,7 @@ function SideBar() {
               </NavLink>
             </td>
             <td>
-              <NavLink className="nav-link" to={MODULES} style={{color: "white", padding:"10px"}}>
-                  {t('sidebar.module')}
-              </NavLink>
+              
             </td>
           </tr>
           <tr>
@@ -116,9 +106,7 @@ function SideBar() {
               </NavLink>
             </td>
             <td>
-              <NavLink className="nav-link" to={PERMISSIONS} style={{color: "white", padding:"10px"}}>
-                {t('sidebar.permission')}
-              </NavLink>
+              
             </td>
           </tr>
           <tr>
@@ -128,9 +116,7 @@ function SideBar() {
               </NavLink>              
             </td>
             <td>
-              <NavLink className="nav-link" to="#" style={{color: "white", padding:"10px"}}>
-                {t('sidebar.color')}
-              </NavLink>
+              
             </td>
           </tr>
           <tr>
@@ -140,9 +126,7 @@ function SideBar() {
               </NavLink>
             </td>
             <td>
-              <NavLink className="nav-link" to={LOGOUT} style={{color: "white", padding:"10px"}}>
-                {t('header.logout')}
-              </NavLink>
+              
             </td>
           </tr>
         </tbody>
@@ -151,4 +135,4 @@ function SideBar() {
   );
 }
 
-export default SideBar;
+export default SideBar02;

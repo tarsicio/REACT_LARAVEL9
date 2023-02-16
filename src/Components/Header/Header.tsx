@@ -24,7 +24,7 @@ import '../Footer/background.css';
 import Flag from "react-flags";
 import { useTranslation } from 'react-i18next';
 import { ImExit } from "react-icons/im";
-import { FaLockOpen } from "react-icons/fa";
+import { BiDoorOpen } from "react-icons/bi";
 import { GiArchiveRegister } from "react-icons/gi";
 
 function Header() {
@@ -102,7 +102,7 @@ function Header() {
                   { !_token && <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <NavLink className="nav-link" to={LOGIN} style={{color: "white", padding:"10px"}}>
-                      {t('header.login')} <FaLockOpen />
+                      {t('header.login')} <BiDoorOpen />
                     </NavLink>
                   </li>
                   <li className="nav-item">
