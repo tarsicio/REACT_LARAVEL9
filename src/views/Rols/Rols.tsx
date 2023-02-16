@@ -7,39 +7,39 @@
  * @copyright (c) 2023 Tarsicio Carrizales
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import { useTranslation } from 'react-i18next';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import SideBar from '../../components/Header/SideBar';
+import SideBar02 from '../../components/Header/SideBar02';
+import Rol from './Rol';
+import { UseData } from '../../store/UserLogin';
 
 function Rols(){
 	const  { t, i18n } = useTranslation();
+	const _sidebar = UseData(state => state._sidebar);
+	const [barside,setBarside] = useState(_sidebar);
+
 	return(
 		<div style={{backgroundColor:"white"}}>
-		    <Row>
-		        <Col md='2'>
+			{barside ?
+			<Row>
+		        <Col md='2'>		        	
 		            <SideBar />
 		        </Col>
-		        <Col md='10'>		            
-					<center>		
-						<div className="auth-wrapper container hero__main">
-							<div className="auth-inner">
-								<center>
-									<h1>{t('rols.title')}</h1>						
-									<div style={{textAlign: "center"}}>
-					          			<img 
-					          			src={ LOGO_HORUS.LogoHorus } 
-					          			style={{width: 100, height: 100,}} 
-					          			alt="Logo_Horus"  
-					          			className="img-fluid" />
-					        		</div>				
-								</center>	
-							</div>						
-						</div>			
-					</center>					
+		        <Col md='10'>		        	
+		        	<Rol />
 		        </Col>
-		    </Row>
+		    </Row> :
+			<Row>
+		        <Col md='1'>		        	
+		            <SideBar02 />
+		        </Col>
+		        <Col md='11'>					
+		        	<Rol />
+		        </Col>
+		    </Row>}		    
 		</div>
 	)
 }

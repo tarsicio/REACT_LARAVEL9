@@ -64,36 +64,34 @@ function Exit(){
 			}		
   	}
 	return(				    
-		<center>		
-			<div className="auth-wrapper container hero__main">
-				<div className="auth-inner">
-					<center>
-						<h1>{t('logout.title')}</h1>
+		<div className="auth-wrapper container hero__main">
+			<div className="auth-inner">
+				<center>
+					<h1>{t('logout.title')}</h1>
+					<div>
+						<h3>{t('horus.title')}</h3>
+					</div>
+					<div style={{textAlign: "center"}}>
+					    <img 
+					        src={ LOGO_HORUS.LogoHorus } 
+					        style={{width: 100, height: 100,}} 
+					        alt="Logo_Horus"  
+					        className="img-fluid" />
+					</div>
 						<div>
-							<h3>{t('horus.title')}</h3>
+							{errorLogout ? <div style={{color:"red", textAlign:"center"}}>{t('logout.error.connection')}</div> : <div></div>}
+							{servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}
 						</div>
-						<div style={{textAlign: "center"}}>
-					        <img 
-					            src={ LOGO_HORUS.LogoHorus } 
-					          	style={{width: 100, height: 100,}} 
-					          	alt="Logo_Horus"  
-					          	className="img-fluid" />
-					    </div>
-							<div>
-								{errorLogout ? <div style={{color:"red", textAlign:"center"}}>{t('logout.error.connection')}</div> : <div></div>}
-								{servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}
-							</div>
-							{isLoading ? 
-								<ButtonLoading msg={t('logout.exit.wait')} /> :
-								<div className="d-grid">
-									<Button onClick={ handleLogout } className="btn btn-primary" type="submit" disabled={isLoading}>
-										{t('logout.button')}
-									</Button>
-								</div> }							
-					</center>	
-				</div>						
-			</div>			
-		</center>
+						{isLoading ? 
+							<ButtonLoading msg={t('logout.exit.wait')} /> :
+							<div className="d-grid">
+								<Button onClick={ handleLogout } className="btn btn-primary" type="submit" disabled={isLoading}>
+									{t('logout.button')}
+								</Button>
+							</div> }							
+				</center>	
+			</div>						
+		</div>			
 	)
 }
 
