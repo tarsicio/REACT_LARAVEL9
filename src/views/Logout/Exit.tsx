@@ -18,17 +18,16 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import { UseData } from '../../store/UserLogin';
-import { LOGOUT, HOME, URL_BASE } from '../../config/rutas/rutas';
-import { useNavigate } from 'react-router-dom';
+import { LOGOUT, HOME, URL_BASE } from '../../config/rutas/rutas';	
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import ButtonLoading from '../../components/Loading/ButtonLoading';
+import { Navigate } from 'react-router-dom';
 
 function Exit(){
 	const  { t, i18n } = useTranslation();
 	const userData = UseData(state => state._user);
 	const userLogout = UseData(state => state.logoutUser);	
-	const navigate = useNavigate();
 	const endpoint = URL_BASE + LOGOUT;
 	const [errorLogout, setErrorLogout] = useState(false);
 	const [isLoading, setIsLoading] = useState (false);
@@ -50,7 +49,7 @@ function Exit(){
 				//Borra el localStore del Navegador WEB
 				localStorage.removeItem('DatosHorusUsersToken2023');
 				setIsLoading(false);
-	        	navigate(HOME);
+				<Navigate to={HOME} />	        	
 			}else{
 				setIsLoading(false);
 				setErrorLogout(true);

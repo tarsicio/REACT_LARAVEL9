@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import './sidebar.css';
 import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { AiFillDashboard } from "react-icons/ai";
 import { MdNotificationsActive } from "react-icons/md";
 import { GiPoliceOfficerHead } from "react-icons/gi";
@@ -33,8 +34,8 @@ function SideBar02() {
 
   const changeSidebar = (e) =>{
     _sidebar(true);
-    e.preventDefault();
-    this.props.history.push(href);
+    e.preventDefault();    
+    history.push(href);
   }
 
   return (    
@@ -43,7 +44,7 @@ function SideBar02() {
         <thead>
           <tr>
             <th style={{padding:"15px"}}>
-              <NavLink className="nav-link" onClick={()=> changeSidebar()} to={href}>
+              <NavLink className="nav-link" to={href} replace onClick={()=> changeSidebar()}>
                   <BsArrowRightSquare />
               </NavLink>              
             </th>            
