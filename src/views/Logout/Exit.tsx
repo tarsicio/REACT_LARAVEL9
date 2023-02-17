@@ -39,7 +39,7 @@ function Exit(){
 		setServidorAPI(false);
 		setIsLoading(true);
 		//hacer logout en la API-REST de LARAVEL
-		try{
+		try{			
 			const logout = await axios.post(endpoint, {
 	         email: userData.email           
 		    });		    

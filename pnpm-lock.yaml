@@ -32,6 +32,7 @@ specifiers:
   react-icons: ^4.7.1
   react-is: ^18.2.0
   react-router-dom: ^6.8.0
+  react-sanctum: ^2.3.1
   react-scripts: ^5.0.1
   react-sidebar: ^3.0.2
   reactstrap: ^9.1.5
@@ -66,6 +67,7 @@ dependencies:
   react-icons: 4.7.1_react@18.2.0
   react-is: 18.2.0
   react-router-dom: 6.8.0_biqbaboplfbrettd7655fr4n2y
+  react-sanctum: 2.3.1_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_zcnljxs47s2353tvqwllmpdd74
   react-sidebar: 3.0.2_biqbaboplfbrettd7655fr4n2y
   reactstrap: 9.1.5_biqbaboplfbrettd7655fr4n2y
@@ -3575,6 +3577,15 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
+  /axios/0.27.2:
+    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
+    dependencies:
+      follow-redirects: 1.15.2
+      form-data: 4.0.0
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /axios/1.2.6:
     resolution: {integrity: sha512-rC/7F08XxZwjMV4iuWv+JpD3E0Ksqg9nac4IIg6RwNuF0JTeWoCo/mBNG54+tNhhI11G3/VDRbdDQTs9hGp4pQ==}
     dependencies:
@@ -4537,7 +4548,7 @@ packages:
       supports-color:
         optional: true
     dependencies:
-      ms: 2.1.2
+      ms: 2.1.3
     dev: false
 
   /debug/4.3.4:
@@ -9091,6 +9102,19 @@ packages:
     dependencies:
       '@remix-run/router': 1.3.1
       react: 18.2.0
+    dev: false
+
+  /react-sanctum/2.3.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-VfN0TtGG2cva5df71wW9qjnHJhxHK8AgtJErGv7tirnQ/mvJSMum7GNB7IyyBU4ayfXz1V4w7RQq0ATWwaON4g==}
+    peerDependencies:
+      react: ^16.13.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.13.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      axios: 0.27.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /react-scripts/5.0.1_zcnljxs47s2353tvqwllmpdd74:

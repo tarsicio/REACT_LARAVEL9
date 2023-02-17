@@ -13,7 +13,7 @@
  * se borran todos los datos globales y el LocalStorage
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { UseData } from '../../store/UserLogin';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
@@ -35,9 +35,9 @@ import { useTranslation } from 'react-i18next';
 function Login(){ 
   const  { t, i18n } = useTranslation();
   const _token = UseData(state => state.setToken);
-  const _user = UseData(state => state.setUser);
-
+  const _user = UseData(state => state.setUser);  
   let valido:boolean = true;
+  let decode = null;
   const endpoint:string = URL_BASE + LOGIN;
   // Validaciones form  
   const [invalidMailInput,setInvalidMailInput] = useState<boolean>(false);  
@@ -50,7 +50,32 @@ function Login(){
   //Cargando Loading
   const [isLoading, setIsLoading] = useState<boolean>(false);
   //redireccionar la página
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
+/*
+  const { validateAccessToken } = Sanctum();
+  const [accessToken, setAccessToken] = useState(null);
+
+  useEffect(() => {
+    validateAccessToken()
+      .then(token => setAccessToken(token))
+      .catch(err => console.log('Error validating access token:', err));
+  }, [validateAccessToken]);
+
+  const laravelToken = localStorage.getItem('laravel_token');
+
+  if (accessToken && laravelToken) {
+    return <h2>Access token is valid!</h2>;
+  }else{
+    return <h2>Access token is invalid!</h2>;
+  }
+*/
+
+  const http = axios.create({
+    baseURL: URL_BASE,
+    headers:{ 'X-Requested-With': 'XMLHttpRequest',},
+    WithCredentials: true,
+  });
+  
   const handleMailChange = (e) => {
     setEmail(e.target.value);
     setInvalidMailInput(false);
@@ -80,17 +105,28 @@ function Login(){
     }    
     if(valido){
       setIsLoading(true);
-      try{        
-        const datos = await axios.post(endpoint, {
+      try{
+        console.log('INICIANDO');
+        console.log(http);
+        /*console.log('INICIANDO CSRF');
+        const csrf = await http.get('sanctum/csrf-cookie');
+        console.log(csrf);
+        console.log('FINNNNNNNN CSRF');
+        console.log('INICIANDO USERRRRR');
+        const userrr = await http.get(URL_BASE+'/user');
+        console.log('EL USER ES ==> ', userrr);*/
+        const datos = await http.post(LOGIN, {
           email: email, 
           password: password
         });
-        const status:number = datos.status;        
+        console.log('PASOOOOOOO.....');
+        console.log(datos);
+        const status:number = datos.status;              
         if(status === 201){           
           _token(datos.data.access_token);          
           _user(datos.data.user);          
           setEstado(false);
-          setIsLoading(false);
+          setIsLoading(false);          
           navigate(DASHBOARD);          
         }else{          
           setEstado(true);
