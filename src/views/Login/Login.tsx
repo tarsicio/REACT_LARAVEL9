@@ -74,6 +74,7 @@ function Login(){
     baseURL: URL_BASE,
     headers:{ 'X-Requested-With': 'XMLHttpRequest',},
     WithCredentials: true,
+    Accept: 'application/json',
   });
   
   const handleMailChange = (e) => {
@@ -108,19 +109,16 @@ function Login(){
       try{
         console.log('INICIANDO');
         console.log(http);
-        /*console.log('INICIANDO CSRF');
-        const csrf = await http.get('sanctum/csrf-cookie');
+        console.log('INICIANDO CSRF');
+        const csrf = await http.get('/sanctum/csrf-cookie');
         console.log(csrf);
-        console.log('FINNNNNNNN CSRF');
-        console.log('INICIANDO USERRRRR');
-        const userrr = await http.get(URL_BASE+'/user');
-        console.log('EL USER ES ==> ', userrr);*/
+        console.log('FINNNNNNNN CSRF');        
         const datos = await http.post(LOGIN, {
           email: email, 
           password: password
-        });
-        console.log('PASOOOOOOO.....');
-        console.log(datos);
+        }); 
+        console.log('CULMINADO DATOS');
+        console.log(datos);       
         const status:number = datos.status;              
         if(status === 201){           
           _token(datos.data.access_token);          
