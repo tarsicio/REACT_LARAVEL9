@@ -51,47 +51,31 @@ function Login(){
   const [isLoading, setIsLoading] = useState<boolean>(false);
   //redireccionar la página
   const navigate = useNavigate();
-/*
-  const { validateAccessToken } = Sanctum();
-  const [accessToken, setAccessToken] = useState(null);
-
-  useEffect(() => {
-    validateAccessToken()
-      .then(token => setAccessToken(token))
-      .catch(err => console.log('Error validating access token:', err));
-  }, [validateAccessToken]);
-
-  const laravelToken = localStorage.getItem('laravel_token');
-
-  if (accessToken && laravelToken) {
-    return <h2>Access token is valid!</h2>;
-  }else{
-    return <h2>Access token is invalid!</h2>;
-  }
-*/
 
   const http = axios.create({
     baseURL: URL_BASE,
-    headers:{ 'X-Requested-With': 'XMLHttpRequest',},
-    WithCredentials: true,
-    Accept: 'application/json',
+    headers:{ 
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/json'
+    },
+    withCredentials: true
   });
   
-  const handleMailChange = (e) => {
+  const handleMailChange = (e:any) => {
     setEmail(e.target.value);
     setInvalidMailInput(false);
     setEstado(false);
     setServidorAPI(false);
   }
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = (e:any) => {
     setPassword(e.target.value);
     setInvalidPasswordInput(false);
     setEstado(false);
     setServidorAPI(false);
   }
 
-  const login = async (e) => {      
+  const login = async (e:any) => {      
     e.preventDefault(); 
     setEstado(false);
     setServidorAPI(false);      
@@ -131,7 +115,7 @@ function Login(){
           setIsLoading(false);
           navigate(LOGIN);
         }
-      }catch(error){        
+      }catch(error:any){        
         if(error.code === "ERR_NETWORK"){
           setServidorAPI(true);
         }else{
@@ -162,13 +146,12 @@ function Login(){
                   controlId="floatingMail"
                   label={t('login.label.email')}
                   className="mb-3"
-                >
+                >                  
                 <Form.Control 
                   type="email" 
                   name="email"
                   value={email} 
                   onChange={ handleMailChange }
-                  placeholder={t('login.label.email')}
                   disabled={isLoading} 
                   autoComplete="on"/>
                   </FloatingLabel>
@@ -188,8 +171,7 @@ function Login(){
                   type="password" 
                   name="password" 
                   value={password} 
-                  onChange={ handlePasswordChange }                
-                  placeholder={t('login.label.password')}
+                  onChange={ handlePasswordChange }
                   disabled={isLoading}
                   autoComplete="on" />
                   </FloatingLabel>
