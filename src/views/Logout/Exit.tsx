@@ -27,11 +27,25 @@ import { Navigate } from 'react-router-dom';
 function Exit(){
 	const  { t, i18n } = useTranslation();
 	const userData = UseData(state => state._user);
-	const userLogout = UseData(state => state.logoutUser);	
+	const userLogout = UseData(state => state.logoutUser);
+	const _token = UseData(state => state._token);
+	const _token_all = 'Bearer ' + _token;	
 	const endpoint = URL_BASE + LOGOUT;
 	const [errorLogout, setErrorLogout] = useState(false);
 	const [isLoading, setIsLoading] = useState (false);
-	const [servidorAPI, setServidorAPI] = useState(false);		
+	const [servidorAPI, setServidorAPI] = useState(false);
+
+	const http = axios.create({
+	    baseURL: URL_BASE,
+	    headers:{ 
+	    'Content-Type': 'application/json',
+	    'Accept': 'application/json',
+	    'Authorization': _token_all
+	    },
+	    withCredentials: true
+	  });
+	  console.log(_token);
+	  console.log(_token_all);				
 
 	const handleLogout = async (e) => {
 		e.preventDefault();
@@ -39,10 +53,10 @@ function Exit(){
 		setServidorAPI(false);
 		setIsLoading(true);
 		//hacer logout en la API-REST de LARAVEL
-		try{			
-			const logout = await axios.post(endpoint, {
-	         email: userData.email           
-		    });		    
+		try{	
+			console.log(_token);		
+			const logout = await http.post(LOGOUT);
+		    console.log(logout);		    
 	        if(logout.status === 201){
 	        	//Limpia el Estado Global de la aplicación para Token y Objeto Usuario
 				userLogout();

@@ -23,5 +23,16 @@ const ValidacionesError = (props) => {
   }
   return null;
 };
-export default ValidacionesError;              
-            
+export default ValidacionesError; 
+
+/*
+* @OA\Parameter(
+     *   name="Authorization",
+     *   in="header",
+     *   required=true,
+     *   description="Bearer token",
+     *   @OA\Schema(
+     *     type="string"
+     *   )
+     * )             
+            */

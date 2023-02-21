@@ -51,12 +51,12 @@ function Login(){
   const [isLoading, setIsLoading] = useState<boolean>(false);
   //redireccionar la página
   const navigate = useNavigate();
-
+  //'X-Requested-With': 'XMLHttpRequest'
   const http = axios.create({
     baseURL: URL_BASE,
     headers:{ 
-      'X-Requested-With': 'XMLHttpRequest',
-      'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
     },
     withCredentials: true
   });
@@ -90,18 +90,12 @@ function Login(){
     }    
     if(valido){
       setIsLoading(true);
-      try{
-        console.log('INICIANDO');
-        console.log(http);
-        console.log('INICIANDO CSRF');
-        const csrf = await http.get('/sanctum/csrf-cookie');
-        console.log(csrf);
-        console.log('FINNNNNNNN CSRF');        
+      try{        
+        //const csrf = await http.get('/sanctum/csrf-cookie',{})        
         const datos = await http.post(LOGIN, {
           email: email, 
           password: password
-        }); 
-        console.log('CULMINADO DATOS');
+        });         
         console.log(datos);       
         const status:number = datos.status;              
         if(status === 201){           
