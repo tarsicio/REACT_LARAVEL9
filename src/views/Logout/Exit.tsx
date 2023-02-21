@@ -29,7 +29,8 @@ function Exit(){
 	const userData = UseData(state => state._user);
 	const userLogout = UseData(state => state.logoutUser);
 	const _token = UseData(state => state._token);
-	const _token_all = 'Bearer ' + _token;	
+	const _tokenType = UseData(state => state._tokenType);
+	const _token_all = _tokenType + ' ' + _token;	
 	const endpoint = URL_BASE + LOGOUT;
 	const [errorLogout, setErrorLogout] = useState(false);
 	const [isLoading, setIsLoading] = useState (false);
@@ -43,9 +44,7 @@ function Exit(){
 	    'Authorization': _token_all
 	    },
 	    withCredentials: true
-	  });
-	  console.log(_token);
-	  console.log(_token_all);				
+	  });	  
 
 	const handleLogout = async (e) => {
 		e.preventDefault();
@@ -53,10 +52,8 @@ function Exit(){
 		setServidorAPI(false);
 		setIsLoading(true);
 		//hacer logout en la API-REST de LARAVEL
-		try{	
-			console.log(_token);		
+		try{
 			const logout = await http.post(LOGOUT);
-		    console.log(logout);		    
 	        if(logout.status === 201){
 	        	//Limpia el Estado Global de la aplicación para Token y Objeto Usuario
 				userLogout();

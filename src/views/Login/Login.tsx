@@ -35,6 +35,7 @@ import { useTranslation } from 'react-i18next';
 function Login(){ 
   const  { t, i18n } = useTranslation();
   const _token = UseData(state => state.setToken);
+  const _tokenType = UseData(state => state.setTokenType);
   const _user = UseData(state => state.setUser);  
   let valido:boolean = true;
   let decode = null;
@@ -60,6 +61,14 @@ function Login(){
     },
     withCredentials: true
   });
+
+  const cookies = axios.create({
+    baseURL: URL_BASE,
+    headers:{ 
+      'X-Requested-With':'XMLHttpRequest',
+    },
+    withCredentials: true
+  });
   
   const handleMailChange = (e:any) => {
     setEmail(e.target.value);
@@ -73,6 +82,15 @@ function Login(){
     setInvalidPasswordInput(false);
     setEstado(false);
     setServidorAPI(false);
+  }
+
+  useEffect(()=>{
+    getCookies();
+  },[])
+
+  async function getCookies(){    
+    const csrf = await cookies.get('/sanctum/csrf-cookie');
+    console.log(csrf);
   }
 
   const login = async (e:any) => {      
@@ -91,7 +109,6 @@ function Login(){
     if(valido){
       setIsLoading(true);
       try{        
-        //const csrf = await http.get('/sanctum/csrf-cookie',{})        
         const datos = await http.post(LOGIN, {
           email: email, 
           password: password
@@ -99,7 +116,8 @@ function Login(){
         console.log(datos);       
         const status:number = datos.status;              
         if(status === 201){           
-          _token(datos.data.access_token);          
+          _token(datos.data.access_token);
+          _tokenType(datos.data.token_type);
           _user(datos.data.user);          
           setEstado(false);
           setIsLoading(false);          
