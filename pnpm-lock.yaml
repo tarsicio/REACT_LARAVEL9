@@ -39,6 +39,7 @@ specifiers:
   semantic-ui-react: ^2.1.4
   styled-components: ^5.3.6
   typescript: ^4.9.3
+  universal-cookie: ^4.0.4
   vite: ^4.0.0
   zustand: ^4.3.2
 
@@ -73,13 +74,14 @@ dependencies:
   reactstrap: 9.1.5_biqbaboplfbrettd7655fr4n2y
   semantic-ui-react: 2.1.4_biqbaboplfbrettd7655fr4n2y
   styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
+  universal-cookie: 4.0.4
   zustand: 4.3.2_react@18.2.0
 
 devDependencies:
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
   '@vitejs/plugin-react': 3.0.1_vite@4.0.4
-  esbuild-wasm: 0.17.8
+  esbuild-wasm: 0.17.10
   typescript: 4.9.4
   vite: 4.0.4
 
@@ -2790,6 +2792,10 @@ packages:
       '@types/node': 18.11.18
     dev: false
 
+  /@types/cookie/0.3.3:
+    resolution: {integrity: sha512-LKVP3cgXBT9RYj+t+9FDKwS5tdI+rPBXaNSkma7hvqy35lc7mAokC2zsqWJH0LaqIt3B962nuYI77hsJoT1gow==}
+    dev: false
+
   /@types/eslint-scope/3.7.4:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
@@ -4202,6 +4208,11 @@ packages:
     resolution: {integrity: sha512-QADzlaHc8icV8I7vbaJXJwod9HWYp8uCqf1xa4OfNu1T7JVxQIrUgOWtHdNDtPiywmFbiS12VjotIXLrKM3orQ==}
     dev: false
 
+  /cookie/0.4.2:
+    resolution: {integrity: sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==}
+    engines: {node: '>= 0.6'}
+    dev: false
+
   /cookie/0.5.0:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
@@ -4975,8 +4986,8 @@ packages:
       is-symbol: 1.0.4
     dev: false
 
-  /esbuild-wasm/0.17.8:
-    resolution: {integrity: sha512-zCmpxv95E0FuCmvdw1K836UHnj4EdiQnFfjTby35y3LAjRPtXMj3sbHDRHjbD8Mqg5lTwq3knacr/1qIFU51CQ==}
+  /esbuild-wasm/0.17.10:
+    resolution: {integrity: sha512-iDPIYZXoY6RWXIt3BpnENIdgKvkfYv8YdvrdjK3n8c1reGq3d38h8ETWvrpy1+0r5gR74vEb73TMonh5FbVZxw==}
     engines: {node: '>=12'}
     hasBin: true
     dev: true
@@ -10443,6 +10454,13 @@ packages:
       crypto-random-string: 2.0.0
     dev: false
 
+  /universal-cookie/4.0.4:
+    resolution: {integrity: sha512-lbRVHoOMtItjWbM7TwDLdl8wug7izB0tq3/YVKhT/ahB4VDvWMyvnADfnJI8y6fSvsjh51Ix7lTGC6Tn4rMPhw==}
+    dependencies:
+      '@types/cookie': 0.3.3
+      cookie: 0.4.2
+    dev: false
+
   /universalify/0.2.0:
     resolution: {integrity: sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg==}
     engines: {node: '>= 4.0.0'}
@@ -10564,7 +10582,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      esbuild: /esbuild-wasm/0.17.8
+      esbuild: /esbuild-wasm/0.17.10
       postcss: 8.4.21
       resolve: 1.22.1
       rollup: 3.12.0

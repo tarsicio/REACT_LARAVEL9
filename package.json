@@ -39,6 +39,7 @@
     "reactstrap": "^9.1.5",
     "semantic-ui-react": "^2.1.4",
     "styled-components": "^5.3.6",
+    "universal-cookie": "^4.0.4",
     "zustand": "^4.3.2"
   },
   "devDependencies": {

@@ -7,9 +7,10 @@
  * @copyright (c) 2023 Tarsicio Carrizales
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Reloj from '../../components/utils/reloj/Reloj';
 import Image from "react-bootstrap/Image";
+import Cookies from 'universal-cookie';
 import { 
 	LOGO_WORKER, 
 	REACT_LOADING, 
@@ -17,9 +18,24 @@ import {
 	LOGO_TS } from '../../config/imgs/imgs';
 import './style.css';
 import { useTranslation } from 'react-i18next';
+import { UseData } from '../../store/UserLogin';
 
 function Home(){
 	const  { t, i18n } = useTranslation();
+	const _XSRFTOKEN = UseData(state => state.setXSRFTOKEN);
+	const cookies = new Cookies();
+
+	function getCookies(){
+		const xsrfToken = cookies.get('XSRF-TOKEN');
+		console.log('AQUI VOY');
+		console.log(xsrfToken);
+		_XSRFTOKEN(xsrfToken);
+	}
+
+	useEffect(()=>{
+		getCookies();
+	},[]);
+
 	return(
 		<section>			
 			<Reloj />

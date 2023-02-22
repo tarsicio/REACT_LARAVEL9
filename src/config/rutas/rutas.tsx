@@ -7,7 +7,7 @@
  * @copyright (c) 2023 Tarsicio Carrizales
  */
 // URL BASE ENDPOIND
-export const URL_BASE         = 'http://www.base-laravel.local:8000/api/v1';
+export const URL_BASE         = 'http://localhost:8000/api/v1';
 
 // URL RAIZ
 export const HOME             = '/';
