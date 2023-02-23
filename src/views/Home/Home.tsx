@@ -9,8 +9,7 @@
 
 import React, { useEffect } from 'react';
 import Reloj from '../../components/utils/reloj/Reloj';
-import Image from "react-bootstrap/Image";
-import Cookies from 'universal-cookie';
+import Image from 'react-bootstrap/Image';
 import { 
 	LOGO_WORKER, 
 	REACT_LOADING, 
@@ -18,27 +17,15 @@ import {
 	LOGO_TS } from '../../config/imgs/imgs';
 import './style.css';
 import { useTranslation } from 'react-i18next';
-import { UseData } from '../../store/UserLogin';
+import Cookies_all from '../../components/utils/cookies/Cookies_all';
 
 function Home(){
-	const  { t, i18n } = useTranslation();
-	const _XSRFTOKEN = UseData(state => state.setXSRFTOKEN);
-	const cookies = new Cookies();
-
-	function getCookies(){
-		const xsrfToken = cookies.get('XSRF-TOKEN');
-		console.log('AQUI VOY');
-		console.log(xsrfToken);
-		_XSRFTOKEN(xsrfToken);
-	}
-
-	useEffect(()=>{
-		getCookies();
-	},[]);
+	const  { t, i18n } = useTranslation();	
 
 	return(
 		<section>			
 			<Reloj />
+			<Cookies_all />
 			<div style={{textAlign:"center"}}>
 				 <Image className="rotando" src={LOGO_VITE.LogoVite} alt="Vite" /> {t('home.and')} 
 				 <Image className="App-logo rotando" src={REACT_LOADING.ReactLoading} alt="React" /> {t('home.and')}

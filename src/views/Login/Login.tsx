@@ -31,6 +31,7 @@ import {
   REQUEST_PASSWORD } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import { useTranslation } from 'react-i18next';
+import Cookies_all from '../../components/utils/cookies/Cookies_all';
 
 function Login(){ 
   const  { t, i18n } = useTranslation();
@@ -128,7 +129,8 @@ function Login(){
           setIsLoading(false);
           navigate(LOGIN);
         }
-      }catch(error:any){        
+      }catch(error:any){ 
+        console.log(error);       
         if(error.code === "ERR_NETWORK"){
           setServidorAPI(true);
         }else{
@@ -143,6 +145,7 @@ function Login(){
   }
     return (
       <section>
+      <Cookies_all />
         <div className="auth-wrapper" id="login">
           <div className="auth-inner">      
             <Form onSubmit={login}>

@@ -30,6 +30,7 @@ function Exit(){
 	const userLogout = UseData(state => state.logoutUser);
 	const _token = UseData(state => state._token);
 	const _tokenType = UseData(state => state._tokenType);
+	const _XSRFTOKEN = UseData(state => state._XSRFTOKEN);
 	const _token_all = _tokenType + ' ' + _token;	
 	const endpoint = URL_BASE + LOGOUT;
 	const [errorLogout, setErrorLogout] = useState(false);
@@ -66,6 +67,7 @@ function Exit(){
 				setErrorLogout(true);
 			}
 		}catch(error){
+			console.log(error);
 			if(error.code === "ERR_NETWORK"){
 				setServidorAPI(true);          
 			  }     
