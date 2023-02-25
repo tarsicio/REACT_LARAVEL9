@@ -21,6 +21,7 @@ import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import ButtonLoading from '../../components/Loading/ButtonLoading';
 import ButtonSave from '../../components/Loading/ButtonSave';
+import ButtonRed_Token from '../../components/Loading/ButtonRed_Token';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { 
@@ -50,6 +51,7 @@ function Login(){
   const [password, setPassword] = useState<string>('');
   const [estado, setEstado] = useState<boolean>(false);
   const [servidorAPI, setServidorAPI] = useState<boolean>(false);
+  const [token_API, setToken_API] = useState<boolean>(false);
   //Cargando Loading
   const [isLoading, setIsLoading] = useState<boolean>(false);
   //redireccionar la página
@@ -77,6 +79,7 @@ function Login(){
     setInvalidMailInput(false);
     setEstado(false);
     setServidorAPI(false);
+    setToken_API(false);
   }
 
   const handlePasswordChange = (e:any) => {
@@ -84,6 +87,7 @@ function Login(){
     setInvalidPasswordInput(false);
     setEstado(false);
     setServidorAPI(false);
+    setToken_API(false);
   }
 
   useEffect(()=>{
@@ -98,7 +102,8 @@ function Login(){
   const login = async (e:any) => {      
     e.preventDefault(); 
     setEstado(false);
-    setServidorAPI(false);      
+    setServidorAPI(false); 
+    setToken_API(false);     
     valido = true;
     if(email === ''){            
       setInvalidMailInput(true);
@@ -133,6 +138,8 @@ function Login(){
         console.log(error);       
         if(error.code === "ERR_NETWORK"){
           setServidorAPI(true);
+        }else if(error.code === "ERR_BAD_REQUEST"){
+          setToken_API(true);
         }else{
           setEstado(true);
         }     
@@ -155,7 +162,8 @@ function Login(){
                 </div>                
                 <div>
                   {estado ? <div style={{color:"red", textAlign:"center"}}>{t('error.datos')}</div> : <div></div>}
-                  {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}              
+                  {servidorAPI ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.api')}</div> : <div></div>}
+                  {token_API ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.toke_api')}</div> : <div></div>}
                 </div>
               <Form.Group className="mb-3" controlId="formBasicEmail">
               <input type="hidden" name="_token" id="csrf-token" value={ _XSRFTOKEN } />
@@ -197,9 +205,11 @@ function Login(){
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label={t('login.check.me')} />
               </Form.Group>
-              {isLoading ? 
+              {token_API ? <ButtonRed_Token disable="true" title={t('login.button_token_CSRF')} /> :
+                isLoading ? 
                 <ButtonLoading msg={t('login.validate.wait')} /> : 
-                <ButtonSave disable={isLoading} title={t('login.button')}/> }
+                <ButtonSave disable={isLoading} title={t('login.button')}/>
+              }              
               <p className="forgot-password text-right">
                 <Link className="nav-link" to={REQUEST_PASSWORD} style={{color: "blue"}}>
                   {t('login.msg.recovery')}
