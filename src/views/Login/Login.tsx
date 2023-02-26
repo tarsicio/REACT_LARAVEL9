@@ -32,7 +32,6 @@ import {
   REQUEST_PASSWORD } from '../../config/rutas/rutas';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import { useTranslation } from 'react-i18next';
-import Cookies_all from '../../components/utils/cookies/Cookies_all';
 
 function Login(){ 
   const  { t, i18n } = useTranslation();
@@ -65,14 +64,6 @@ function Login(){
     },
     withCredentials: true
   });
-
-  const cookies = axios.create({
-    baseURL: URL_BASE,
-    headers:{ 
-      'X-Requested-With':'XMLHttpRequest',
-    },
-    withCredentials: true
-  });
   
   const handleMailChange = (e:any) => {
     setEmail(e.target.value);
@@ -88,15 +79,6 @@ function Login(){
     setEstado(false);
     setServidorAPI(false);
     setToken_API(false);
-  }
-
-  useEffect(()=>{
-    getCookies();
-  },[])
-
-  async function getCookies(){    
-    const csrf = await cookies.get('/sanctum/csrf-cookie');
-    console.log(csrf);
   }
 
   const login = async (e:any) => {      
@@ -151,8 +133,7 @@ function Login(){
     }
   }
     return (
-      <section>
-      <Cookies_all />
+      <section>          
         <div className="auth-wrapper" id="login">
           <div className="auth-inner">      
             <Form onSubmit={login}>
