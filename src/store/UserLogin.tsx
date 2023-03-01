@@ -13,8 +13,8 @@ import { persist } from "zustand/middleware"
 
 let userData = (set) =>  ({
     _token: null,
-    _tokenType: '',
-    _XSRFTOKEN: '',
+    _tokenType: null,
+    _XSRFTOKEN: null,
     _user: {},
     _lng: 'es',
     _sidebar: true,
@@ -28,8 +28,8 @@ let userData = (set) =>  ({
         set(state =>({
             ...state,
             _token: null,
-            _tokenType: '',
-            _XSRFTOKEN: '',
+            _tokenType: null,
+            _XSRFTOKEN: null,
             _user: {},
             _lng: 'es',
             _sidebar: true

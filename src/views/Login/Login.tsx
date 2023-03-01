@@ -100,7 +100,8 @@ function Login(){
       try{        
         const datos = await http.post(LOGIN, {
           email: email, 
-          password: password
+          password: password,
+          _token_csrf: _XSRFTOKEN
         });         
         console.log(datos);       
         const status:number = datos.status;              
@@ -147,7 +148,7 @@ function Login(){
                   {token_API ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.toke_api')}</div> : <div></div>}
                 </div>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-              <input type="hidden" name="_token" id="csrf-token" value={ _XSRFTOKEN } />
+              <input type="hidden" name="_token_csrf" id="csrf-token" value={ _XSRFTOKEN } />
                 <FloatingLabel
                   controlId="floatingMail"
                   label={t('login.label.email')}

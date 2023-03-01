@@ -31,7 +31,12 @@ function Exit(){
 	const _token = UseData(state => state._token);
 	const _tokenType = UseData(state => state._tokenType);
 	const _XSRFTOKEN = UseData(state => state._XSRFTOKEN);
-	const _token_all = _tokenType + ' ' + _token;	
+	const _token_all = _tokenType + ' ' + _token;
+
+	const _tokenEmpty = UseData(state => state.setToken);
+	const _userEmpty = UseData(state => state.setUser);
+	const _tokenTypeEmpty = UseData(state => state.setTokenType);
+
 	const endpoint = URL_BASE + LOGOUT;
 	const [errorLogout, setErrorLogout] = useState(false);
 	const [isLoading, setIsLoading] = useState (false);
@@ -55,11 +60,15 @@ function Exit(){
 		//hacer logout en la API-REST de LARAVEL
 		try{
 			const logout = await http.post(LOGOUT);
+			console.log(logout);
 	        if(logout.status === 201){
 	        	//Limpia el Estado Global de la aplicación para Token y Objeto Usuario
-				userLogout();
+				//userLogout();
 				//Borra el localStore del Navegador WEB
-				localStorage.removeItem('DatosHorusUsersToken2023');
+				//localStorage.removeItem('DatosHorusUsersToken2023');
+				_tokenEmpty(null);
+				_userEmpty({});
+				_tokenTypeEmpty(null);
 				setIsLoading(false);
 				<Navigate to={HOME} />	        	
 			}else{
