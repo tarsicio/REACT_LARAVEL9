@@ -7,16 +7,21 @@
  * @copyright (c) 2023 Tarsicio Carrizales
  */
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Cookies from 'universal-cookie';
 import { UseData } from '../../../store/UserLogin';
 import { URL_BASE } from '../../../config/rutas/rutas';
 import axios from 'axios';
+import ButtonLoading from '../../Loading/ButtonLoading';
+import { useTranslation } from 'react-i18next';
 
 function Cookies_all() {
 
-  const _XSRFTOKEN = UseData(state => state.setXSRFTOKEN);
+  const _XSRFTOKEN = UseData(state => state.setXSRFTOKEN); 
   const cookies_all = new Cookies();
+  //Cargando Loading
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const  { t, i18n } = useTranslation();
 
   const cookies = axios.create({
     baseURL: URL_BASE,
@@ -27,20 +32,18 @@ function Cookies_all() {
   });
 
   async function getCookies_all(){    
-    const csrf = await cookies.get('/sanctum/csrf-cookie');
+    const csrf = await cookies.get('/sanctum/csrf-cookie');    
+    const xsrfToken = await cookies_all.get('XSRF-TOKEN');    
+    _XSRFTOKEN(xsrfToken);    
+    setIsLoading(false);    
   }  
 
-  function setToken(){
-    const xsrfToken = cookies_all.get('XSRF-TOKEN');    
-    _XSRFTOKEN(xsrfToken);
-  }
-
   useEffect(()=>{
+    setIsLoading(true);
     getCookies_all();
-    setToken();    
   },[]);
   return (
-    <></>
+    <div>{ isLoading ? <ButtonLoading msg={t('home.initializing.wait')} /> : ''} </div>
     );
 }
 

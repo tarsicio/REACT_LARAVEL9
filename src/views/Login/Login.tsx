@@ -37,7 +37,7 @@ function Login(){
   const  { t, i18n } = useTranslation();
   const _token = UseData(state => state.setToken);
   const _tokenType = UseData(state => state.setTokenType);
-  const _XSRFTOKEN = UseData(state => state._XSRFTOKEN);
+  const _XSRFTOKEN = UseData(state => state._XSRFTOKEN);  
   const _user = UseData(state => state.setUser);  
   let valido:boolean = true;
   let decode = null;

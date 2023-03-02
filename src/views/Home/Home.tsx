@@ -7,7 +7,7 @@
  * @copyright (c) 2023 Tarsicio Carrizales
  */
 
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Reloj from '../../components/utils/reloj/Reloj';
 import Image from 'react-bootstrap/Image';
 import { 
@@ -20,12 +20,17 @@ import { useTranslation } from 'react-i18next';
 import Cookies_all from '../../components/utils/cookies/Cookies_all';
 
 function Home(){
-	const  { t, i18n } = useTranslation();	
+	const [ejecutarCookie,setEjecutarCookie] = useState(false);
+	const  { t, i18n } = useTranslation();
+
+	useEffect(()=>{
+		setEjecutarCookie(true);
+	},[])
 
 	return(
 		<section>			
 			<Reloj />
-			<Cookies_all />
+			{ejecutarCookie ? <Cookies_all /> : ''}
 			<div style={{textAlign:"center"}}>
 				 <Image className="rotando" src={LOGO_VITE.LogoVite} alt="Vite" /> {t('home.and')} 
 				 <Image className="App-logo rotando" src={REACT_LOADING.ReactLoading} alt="React" /> {t('home.and')}
