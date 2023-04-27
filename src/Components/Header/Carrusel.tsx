@@ -26,6 +26,7 @@ function Carrusel(){
           <Carousel.Caption>
             <h3>{t('carusel04.title')}</h3>
             <p>{t('carusel04.msg')}</p>
+            <p>telecom.com.ve@gmail.com <span style={{ color:"yellow" }}><b>BINANCE</b></span></p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>

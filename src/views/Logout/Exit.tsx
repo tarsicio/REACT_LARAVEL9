@@ -58,14 +58,9 @@ function Exit(){
 		setServidorAPI(false);
 		setIsLoading(true);
 		//hacer logout en la API-REST de LARAVEL
-		try{
-			const logout = await http.post(LOGOUT);
-			console.log(logout);
-	        if(logout.status === 201){
-	        	//Limpia el Estado Global de la aplicación para Token y Objeto Usuario
-				//userLogout();
-				//Borra el localStore del Navegador WEB
-				//localStorage.removeItem('DatosHorusUsersToken2023');
+		try{			
+			const logout = await http.post(LOGOUT);			
+	        if(logout.status === 201){	        	
 				_tokenEmpty(null);
 				_userEmpty({});
 				_tokenTypeEmpty(null);
@@ -75,8 +70,7 @@ function Exit(){
 				setIsLoading(false);
 				setErrorLogout(true);
 			}
-		}catch(error){
-			console.log(error);
+		}catch(error){					
 			if(error.code === "ERR_NETWORK"){
 				setServidorAPI(true);          
 			  }     

@@ -23,8 +23,8 @@ function Home(){
 	const [ejecutarCookie,setEjecutarCookie] = useState(false);
 	const  { t, i18n } = useTranslation();
 
-	useEffect(()=>{
-		setEjecutarCookie(true);
+	useEffect(()=>{		
+		setEjecutarCookie(true);		
 	},[])
 
 	return(

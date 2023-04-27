@@ -35,7 +35,7 @@ import { useTranslation } from 'react-i18next';
 
 function Login(){ 
   const  { t, i18n } = useTranslation();
-  const _token = UseData(state => state.setToken);
+  const __token = UseData(state => state.setToken);
   const _tokenType = UseData(state => state.setTokenType);
   const _XSRFTOKEN = UseData(state => state._XSRFTOKEN);  
   const _user = UseData(state => state.setUser);  
@@ -55,7 +55,7 @@ function Login(){
   const [isLoading, setIsLoading] = useState<boolean>(false);
   //redireccionar la página
   const navigate = useNavigate();
-  //'X-Requested-With': 'XMLHttpRequest'
+  
   const http = axios.create({
     baseURL: URL_BASE,
     headers:{ 
@@ -106,7 +106,7 @@ function Login(){
         console.log(datos);       
         const status:number = datos.status;              
         if(status === 201){           
-          _token(datos.data.access_token);
+          __token(datos.data.access_token);
           _tokenType(datos.data.token_type);
           _user(datos.data.user);          
           setEstado(false);
@@ -148,7 +148,7 @@ function Login(){
                   {token_API ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.toke_api')}</div> : <div></div>}
                 </div>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-              <input type="hidden" name="_token_csrf" id="csrf-token" value={ _XSRFTOKEN } />
+              <input type="hidden" name="_token" id="csrf-token" value={ _XSRFTOKEN } />
                 <FloatingLabel
                   controlId="floatingMail"
                   label={t('login.label.email')}

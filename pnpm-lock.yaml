@@ -32,6 +32,7 @@ specifiers:
   react-i18next: ^12.1.4
   react-icons: ^4.7.1
   react-is: ^18.2.0
+  react-modal: ^3.16.1
   react-router-dom: ^6.8.0
   react-sanctum: ^2.3.1
   react-scripts: ^5.0.1
@@ -69,6 +70,7 @@ dependencies:
   react-i18next: 12.1.4_iakk3dtjhjpukdoa4oua5khgci
   react-icons: 4.7.1_react@18.2.0
   react-is: 18.2.0
+  react-modal: 3.16.1_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.8.0_biqbaboplfbrettd7655fr4n2y
   react-sanctum: 2.3.1_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_zcnljxs47s2353tvqwllmpdd74
@@ -9065,6 +9067,21 @@ packages:
 
   /react-lifecycles-compat/3.0.4:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
+    dev: false
+
+  /react-modal/3.16.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-VStHgI3BVcGo7OXczvnJN7yT2TWHJPDXZWyI/a0ssFNhGZWsPmB8cF0z33ewDXq4VfYMO1vXgiv/g8Nj9NDyWg==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
+      react-dom: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
+    dependencies:
+      exenv: 1.2.2
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-lifecycles-compat: 3.0.4
+      warning: 4.0.3
     dev: false
 
   /react-popper/2.3.0_ili5ylfne7i3hkfpsanzgkfu6m:
