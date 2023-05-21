@@ -18,12 +18,12 @@ import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import SideBar from '../../components/Header/SideBar';
 import SideBar02 from '../../components/Header/SideBar02';
-import { UseData } from '../../store/UserLogin';
+import { userData } from '../../store/StoreDataUser';
 import Exit from './Exit';
 
 function Logout(){
 	
-	const _sidebar = UseData(state => state._sidebar);
+	const _sidebar = userData(state => state._sidebar);
 	const [barside,setBarside] = useState(_sidebar);  
 
 	return(

@@ -14,11 +14,11 @@ import { Row, Col } from 'react-bootstrap';
 import SideBar from '../../components/Header/SideBar';
 import SideBar02 from '../../components/Header/SideBar02';
 import Rol from './Rol';
-import { UseData } from '../../store/UserLogin';
+import { userData } from '../../store/StoreDataUser';
 
 function Rols(){
 	const  { t, i18n } = useTranslation();
-	const _sidebar = UseData(state => state._sidebar);
+	const _sidebar = userData(state => state._sidebar);
 	const [barside,setBarside] = useState(_sidebar);
 
 	return(

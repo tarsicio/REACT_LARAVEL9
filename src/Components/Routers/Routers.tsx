@@ -44,13 +44,13 @@ import {
 	NOTIFICATIONS } from '../../config/rutas/rutas';
 import PrivateRouter from './PrivateRouter'
 import PublicRouter from './PublicRouter'
-import { UseData } from '../../store/UserLogin';
+import { userData } from '../../store/StoreDataUser';
 import Header from '../Header/Header';
 import { useTranslation } from 'react-i18next';
 
 function Routers(){
 	const  { t, i18n } = useTranslation();
-	const _token = UseData(state => state._token);
+	const _token = userData(state => state._token);
 	return(		
 		<BrowserRouter>
 			<Header />			

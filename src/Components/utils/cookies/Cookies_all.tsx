@@ -9,7 +9,7 @@
 
 import { useState, useEffect } from "react";
 import Cookies from 'universal-cookie';
-import { UseData } from '../../../store/UserLogin';
+import { userData } from '../../../store/StoreDataUser';
 import { URL_BASE } from '../../../config/rutas/rutas';
 import axios from 'axios';
 import ButtonLoading from '../../Loading/ButtonLoading';
@@ -17,7 +17,7 @@ import { useTranslation } from 'react-i18next';
 
 function Cookies_all() {
 
-  const _XSRFTOKEN = UseData(state => state.setXSRFTOKEN); 
+  const _XSRFTOKEN = userData(state => state.setXSRFTOKEN); 
   const cookies_all = new Cookies();
   //Cargando Loading
   const [isLoading, setIsLoading] = useState<boolean>(false);

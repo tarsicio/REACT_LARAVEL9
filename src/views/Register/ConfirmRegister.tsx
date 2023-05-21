@@ -11,7 +11,7 @@
  */
 
 import React, { useState } from 'react';
-import { UseData } from '../../store/UserLogin';
+import { userData } from '../../store/StoreDataUser';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
@@ -31,8 +31,8 @@ function ConfirmRegister(){
 	const [isLoading, setIsLoading] = useState (false);
 	//redireccionar la página
 	const navigate = useNavigate();
-	const _token = UseData(state => state.setToken);
-  const _user = UseData(state => state.setUser);
+	const _token = userData(state => state.setToken);
+  const _user = userData(state => state.setUser);
   const [servidorAPI, setServidorAPI] = useState(false);
   const [errorValidacion,setErrorValidacion] =useState(false);		
 	//Acceso al Context Global, para gusradar Los datos del Usuario y Token. 			

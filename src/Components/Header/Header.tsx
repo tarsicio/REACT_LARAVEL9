@@ -18,7 +18,7 @@ import '../Footer/style.css';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
 import { NavLink } from 'react-router-dom';
 import { HOME, LOGIN, LOGOUT, REGISTER, DASHBOARD } from '../../config/rutas/rutas';
-import { UseData } from '../../store/UserLogin';
+import { userData } from '../../store/StoreDataUser';
 import Carrusel from './Carrusel';
 import '../Footer/background.css';
 import Flag from "react-flags";
@@ -29,9 +29,9 @@ import { GiArchiveRegister } from "react-icons/gi";
 
 function Header() {
   const  { t, i18n } = useTranslation();
-  const _token = UseData(state => state._token);  
-  const _lng = UseData(state => state.setLng);
-  const Lng = UseData(state => state._lng);  
+  const _token = userData(state => state._token);  
+  const _lng = userData(state => state.setLng);
+  const Lng = userData(state => state._lng);  
   const [language, setLanguage] = useState(Lng);
 
   const changeLanguage = lng => {        

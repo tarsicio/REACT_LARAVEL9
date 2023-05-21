@@ -13,12 +13,12 @@ import { useTranslation } from 'react-i18next';
 import { Row, Col } from 'react-bootstrap';
 import SideBar from '../../components/Header/SideBar';
 import SideBar02 from '../../components/Header/SideBar02';
-import { UseData } from '../../store/UserLogin';
+import { userData } from '../../store/StoreDataUser';
 import Notification from './Notification';
 
 function Notifications(){
 	const  { t, i18n } = useTranslation();
-	const _sidebar = UseData(state => state._sidebar);
+	const _sidebar = userData(state => state._sidebar);
 	const [barside,setBarside] = useState(_sidebar);
 
 	return(

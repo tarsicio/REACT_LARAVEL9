@@ -24,11 +24,11 @@ import {
   PERMISSIONS } from '../../config/rutas/rutas';
 import { useTranslation } from 'react-i18next';
 import '../Footer/background.css';
-import { UseData } from '../../store/UserLogin';
+import { userData } from '../../store/StoreDataUser';
 
 function SideBar02() {
   const  { t, i18n } = useTranslation();
-  const _sidebar = UseData(state => state.setSidebar);  
+  const _sidebar = userData(state => state.setSidebar);  
   let href = null; 
   href = window.location.pathname;
 

@@ -17,7 +17,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { LOGO_HORUS } from '../../config/imgs/imgs';
-import { UseData } from '../../store/UserLogin';
+import { userData } from '../../store/StoreDataUser';
 import { LOGOUT, HOME, URL_BASE } from '../../config/rutas/rutas';	
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
@@ -26,16 +26,16 @@ import { Navigate } from 'react-router-dom';
 
 function Exit(){
 	const  { t, i18n } = useTranslation();
-	const userData = UseData(state => state._user);
-	const userLogout = UseData(state => state.logoutUser);
-	const _token = UseData(state => state._token);
-	const _tokenType = UseData(state => state._tokenType);
-	const _XSRFTOKEN = UseData(state => state._XSRFTOKEN);
+	const _userData = userData(state => state._user);
+	const userLogout = userData(state => state.logoutUser);
+	const _token = userData(state => state._token);
+	const _tokenType = userData(state => state._tokenType);
+	const _XSRFTOKEN = userData(state => state._XSRFTOKEN);
 	const _token_all = _tokenType + ' ' + _token;
 
-	const _tokenEmpty = UseData(state => state.setToken);
-	const _userEmpty = UseData(state => state.setUser);
-	const _tokenTypeEmpty = UseData(state => state.setTokenType);
+	const _tokenEmpty = userData(state => state.setToken);
+	const _userEmpty = userData(state => state.setUser);
+	const _tokenTypeEmpty = userData(state => state.setTokenType);
 
 	const endpoint = URL_BASE + LOGOUT;
 	const [errorLogout, setErrorLogout] = useState(false);

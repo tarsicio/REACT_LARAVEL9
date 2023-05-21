@@ -14,7 +14,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { UseData } from '../../store/UserLogin';
+import { userData } from '../../store/StoreDataUser';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -35,10 +35,10 @@ import { useTranslation } from 'react-i18next';
 
 function Login(){ 
   const  { t, i18n } = useTranslation();
-  const __token = UseData(state => state.setToken);
-  const _tokenType = UseData(state => state.setTokenType);
-  const _XSRFTOKEN = UseData(state => state._XSRFTOKEN);  
-  const _user = UseData(state => state.setUser);  
+  const __token = userData(state => state.setToken);
+  const _tokenType = userData(state => state.setTokenType);    
+  const _user = userData(state => state.setUser);        
+  const _XSRFTOKEN = userData(state => state._XSRFTOKEN);
   let valido:boolean = true;
   let decode = null;
   const endpoint:string = URL_BASE + LOGIN;
@@ -46,7 +46,9 @@ function Login(){
   const [invalidMailInput,setInvalidMailInput] = useState<boolean>(false);  
   const [invalidPasswordInput,setInvalidPasswordInput] = useState<boolean>(false);
   //Campos del form
-  const [email, setEmail] = useState<string>('');  
+  const [email, setEmail] = useState<string>(''); 
+  const [count, setCount] = useState<any>(0);  
+  const [count1, setCount1] = useState<any>(0);  
   const [password, setPassword] = useState<string>('');
   const [estado, setEstado] = useState<boolean>(false);
   const [servidorAPI, setServidorAPI] = useState<boolean>(false);
@@ -148,7 +150,7 @@ function Login(){
                   {token_API ? <div style={{color:"red", textAlign:"center"}}>{t('error.server.toke_api')}</div> : <div></div>}
                 </div>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-              <input type="hidden" name="_token" id="csrf-token" value={ _XSRFTOKEN } />
+              <input type="hidden" name="_token" id="csrf-token" value={_XSRFTOKEN} />
                 <FloatingLabel
                   controlId="floatingMail"
                   label={t('login.label.email')}
