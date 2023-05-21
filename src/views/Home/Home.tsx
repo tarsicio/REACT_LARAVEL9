@@ -18,13 +18,15 @@ import {
 import './style.css';
 import { useTranslation } from 'react-i18next';
 import Cookies_all from '../../components/utils/cookies/Cookies_all';
+import { userData } from '../../store/StoreDataUser';
 
 function Home(){
 	const [ejecutarCookie,setEjecutarCookie] = useState(false);
 	const  { t, i18n } = useTranslation();
+	const _XSRFTOKEN = userData(state => state._XSRFTOKEN);
 
-	useEffect(()=>{		
-		setEjecutarCookie(true);		
+	useEffect(()=>{
+		if(_XSRFTOKEN === null){setEjecutarCookie(true);}		
 	},[])
 
 	return(

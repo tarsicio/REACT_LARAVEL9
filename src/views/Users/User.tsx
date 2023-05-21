@@ -55,6 +55,30 @@ function User(){
 	        year: '2018',
 	        country: 'Germany',
 	    },
+	    {
+	        id: 5,
+	        title: 'Tarsicio',
+	        year: '1963',
+	        country: 'Venezuela',
+	    },
+	    {
+	        id: 6,
+	        title: 'Ghostbusters',
+	        year: '1984',
+	        country: 'USA',
+	    },
+	    {
+	        id: 7,
+	        title: 'Elena',
+	        year: '1972',
+	        country: 'Venezuela',
+	    },
+	    {
+	        id: 8,
+	        title: 'Gael',
+	        year: '2018',
+	        country: 'Germany',
+	    },
 	]
 	return(		
 		<div className="auth-wrapper container hero__main">
