@@ -11,4 +11,5 @@ import { Navigate } from 'react-router-dom';
 import { DASHBOARD } from '../../config/rutas/rutas';
 
 export default function PublicRouter({ token,children }){
-return token !== null ? <Navigate to={DASHBOARD} /> : children; }
+    return token !== null ? <Navigate to={DASHBOARD} /> : children; 
+}

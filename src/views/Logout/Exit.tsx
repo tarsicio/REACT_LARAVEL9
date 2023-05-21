@@ -22,7 +22,7 @@ import { LOGOUT, HOME, URL_BASE } from '../../config/rutas/rutas';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import ButtonLoading from '../../components/Loading/ButtonLoading';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Exit(){
 	const  { t, i18n } = useTranslation();
@@ -41,6 +41,8 @@ function Exit(){
 	const [errorLogout, setErrorLogout] = useState(false);
 	const [isLoading, setIsLoading] = useState (false);
 	const [servidorAPI, setServidorAPI] = useState(false);
+	//redireccionar la página
+  	const navigate = useNavigate();
 
 	const http = axios.create({
 	    baseURL: URL_BASE,
@@ -60,12 +62,12 @@ function Exit(){
 		//hacer logout en la API-REST de LARAVEL
 		try{			
 			const logout = await http.post(LOGOUT);			
-	        if(logout.status === 201){	        	
+	        if(logout.status === 201){	        								
 				_tokenEmpty(null);
 				_userEmpty({});
 				_tokenTypeEmpty(null);
-				setIsLoading(false);
-				<Navigate to={HOME} />	        	
+				setIsLoading(false);				
+				navigate(HOME);				                  	
 			}else{
 				setIsLoading(false);
 				setErrorLogout(true);

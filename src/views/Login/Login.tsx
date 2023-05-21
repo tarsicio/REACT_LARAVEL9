@@ -104,8 +104,7 @@ function Login(){
           email: email, 
           password: password,
           _token_csrf: _XSRFTOKEN
-        });         
-        console.log(datos);       
+        });
         const status:number = datos.status;              
         if(status === 201){           
           __token(datos.data.access_token);
